@@ -1,0 +1,151 @@
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
+export type Lang = "uz" | "ru" | "en";
+
+const dict = {
+  en: {
+    nav_work: "Work",
+    nav_about: "About",
+    nav_contact: "Contact",
+    hero_greeting: "Crafting intuitive digital experiences.",
+    hero_subtitle: "UI/UX Designer based in Tashkent — building considered interfaces for fintech, mobile and SaaS.",
+    hero_cta: "See selected work",
+    hero_secondary: "Get in touch",
+    hero_available: "Available for select projects · 2026",
+    work_title: "Selected Work",
+    work_subtitle: "A curated set of case studies across mobile, fintech and product redesigns.",
+    back_to_work: "Back to work",
+    overview: "Overview",
+    role: "Role",
+    year: "Year",
+    platform: "Platform",
+    process: "Process",
+    process_title: "Process & AI Transparency",
+    process_body: "Initial visual concepts and wireframes generated via AI. UI/UX logic, user flows, and final interface strictly redesigned and optimized for human accessibility and business requirements.",
+    before_after: "Before & After",
+    before: "Before",
+    after: "After",
+    like: "Like",
+    leave_feedback: "Leave Feedback",
+    feedback_title: "Leave feedback",
+    feedback_desc: "Thoughts, critique, or an opportunity — it all lands directly in my inbox.",
+    feedback_placeholder: "Write something thoughtful…",
+    submit: "Send feedback",
+    sending: "Sending…",
+    sent: "Sent — thank you.",
+    error: "Something went wrong. Try again.",
+    footer_rights: "All rights reserved.",
+    footer_built: "Designed & built in Tashkent.",
+    cat_mobile: "Mobile App",
+    cat_fintech: "Fintech",
+    cat_redesign: "Redesign",
+    cat_saas: "SaaS",
+    cat_web: "Web Platform",
+    cat_branding: "Product Design",
+  },
+  ru: {
+    nav_work: "Работы",
+    nav_about: "Обо мне",
+    nav_contact: "Контакты",
+    hero_greeting: "Создаю интуитивные цифровые продукты.",
+    hero_subtitle: "UI/UX дизайнер из Ташкента — продуманные интерфейсы для финтеха, мобильных приложений и SaaS.",
+    hero_cta: "Смотреть работы",
+    hero_secondary: "Связаться",
+    hero_available: "Открыт к избранным проектам · 2026",
+    work_title: "Избранные работы",
+    work_subtitle: "Подборка кейсов: мобильные, финтех и редизайн продуктов.",
+    back_to_work: "К работам",
+    overview: "Обзор",
+    role: "Роль",
+    year: "Год",
+    platform: "Платформа",
+    process: "Процесс",
+    process_title: "Процесс и прозрачность AI",
+    process_body: "Первичные визуальные концепты и вайрфреймы сгенерированы с помощью AI. UI/UX логика, пользовательские сценарии и финальный интерфейс полностью переработаны и оптимизированы под доступность и бизнес-требования.",
+    before_after: "До и После",
+    before: "До",
+    after: "После",
+    like: "Нравится",
+    leave_feedback: "Оставить отзыв",
+    feedback_title: "Оставить отзыв",
+    feedback_desc: "Мысли, критика или предложение — всё придёт прямо мне.",
+    feedback_placeholder: "Напишите пару строк…",
+    submit: "Отправить",
+    sending: "Отправка…",
+    sent: "Отправлено — спасибо.",
+    error: "Что-то пошло не так. Попробуйте ещё раз.",
+    footer_rights: "Все права защищены.",
+    footer_built: "Создано в Ташкенте.",
+    cat_mobile: "Мобильное приложение",
+    cat_fintech: "Финтех",
+    cat_redesign: "Редизайн",
+    cat_saas: "SaaS",
+    cat_web: "Веб платформа",
+    cat_branding: "Продуктовый дизайн",
+  },
+  uz: {
+    nav_work: "Ishlar",
+    nav_about: "Men haqimda",
+    nav_contact: "Aloqa",
+    hero_greeting: "Intuitiv raqamli tajribalar yarataman.",
+    hero_subtitle: "Toshkentlik UI/UX dizayner — fintech, mobil va SaaS uchun puxta interfeyslar.",
+    hero_cta: "Ishlarni ko‘rish",
+    hero_secondary: "Bog‘lanish",
+    hero_available: "Tanlangan loyihalar uchun ochiq · 2026",
+    work_title: "Tanlangan ishlar",
+    work_subtitle: "Mobil, fintech va mahsulot redizaynidagi keyslar to‘plami.",
+    back_to_work: "Ishlarga qaytish",
+    overview: "Umumiy",
+    role: "Rol",
+    year: "Yil",
+    platform: "Platforma",
+    process: "Jarayon",
+    process_title: "Jarayon va AI shaffofligi",
+    process_body: "Dastlabki vizual konsept va wireframe’lar AI yordamida yaratilgan. UI/UX mantiq, foydalanuvchi oqimi va yakuniy interfeys to‘liq qayta ishlangan va biznes talablariga moslangan.",
+    before_after: "Oldin va Keyin",
+    before: "Oldin",
+    after: "Keyin",
+    like: "Yoqdi",
+    leave_feedback: "Fikr qoldirish",
+    feedback_title: "Fikr qoldiring",
+    feedback_desc: "Fikr, tanqid yoki taklif — to‘g‘ridan-to‘g‘ri menga keladi.",
+    feedback_placeholder: "Bir necha so‘z yozing…",
+    submit: "Yuborish",
+    sending: "Yuborilmoqda…",
+    sent: "Yuborildi — rahmat.",
+    error: "Xatolik yuz berdi. Qayta urinib ko‘ring.",
+    footer_rights: "Barcha huquqlar himoyalangan.",
+    footer_built: "Toshkentda yaratilgan.",
+    cat_mobile: "Mobil ilova",
+    cat_fintech: "Fintech",
+    cat_redesign: "Redizayn",
+    cat_saas: "SaaS",
+    cat_web: "Veb platforma",
+    cat_branding: "Mahsulot dizayni",
+  },
+} as const;
+
+export type DictKey = keyof typeof dict["en"];
+
+type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (k: DictKey) => string };
+const I18nCtx = createContext<Ctx | null>(null);
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>("en");
+  useEffect(() => {
+    const stored = (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || null;
+    if (stored && ["uz", "ru", "en"].includes(stored)) setLangState(stored);
+  }, []);
+  const setLang = (l: Lang) => {
+    setLangState(l);
+    if (typeof window !== "undefined") localStorage.setItem("lang", l);
+  };
+  const t = (k: DictKey) => dict[lang][k] ?? dict.en[k];
+  return <I18nCtx.Provider value={{ lang, setLang, t }}>{children}</I18nCtx.Provider>;
+}
+
+export function useI18n() {
+  const ctx = useContext(I18nCtx);
+  if (!ctx) throw new Error("useI18n must be inside I18nProvider");
+  return ctx;
+}
