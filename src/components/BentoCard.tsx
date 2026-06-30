@@ -6,11 +6,11 @@ import { ProjectMockup } from "./ProjectMockup";
 import type { Project } from "@/lib/projects";
 
 const spanClasses: Record<Project["span"], string> = {
-  lg: "md:col-span-7 md:row-span-2",
-  md: "md:col-span-5",
-  sm: "md:col-span-4",
-  wide: "md:col-span-12",
-  tall: "md:col-span-4 md:row-span-2",
+  lg: "sm:col-span-2 lg:col-span-7 lg:row-span-2",
+  md: "sm:col-span-1 lg:col-span-5",
+  sm: "sm:col-span-1 lg:col-span-4",
+  wide: "sm:col-span-2 lg:col-span-12",
+  tall: "sm:col-span-1 lg:col-span-4 lg:row-span-2",
 };
 
 const variantFor = (s: Project["span"]) =>
