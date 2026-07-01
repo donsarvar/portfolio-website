@@ -4,8 +4,8 @@ import { Linkedin, Send } from "lucide-react";
 export function Footer() {
   const { t } = useI18n();
   return (
-    <footer className="mt-32 px-4 sm:px-6 lg:px-8 pb-6">
-      <div className="mx-auto max-w-7xl glass rounded-3xl px-6 sm:px-8 py-6 shadow-card">
+    <footer className="mt-32 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-6">
+      <div className="glass rounded-3xl px-6 sm:px-8 py-6 shadow-card">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 sm:flex sm:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
