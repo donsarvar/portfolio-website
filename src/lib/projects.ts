@@ -4,7 +4,7 @@ export type Project = {
   slug: string;
   title: string;
   categoryKey: DictKey;
-  span: "lg" | "md" | "sm" | "wide" | "tall" | "xl";
+  span: "lg" | "md" | "sm" | "wide" | "tall" | "xl" | "half";
   accent: string; // gradient
   year: string;
   role: string;
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     slug: "atlas-saas",
     title: "Atlas — Analytics Suite",
     categoryKey: "cat_saas",
-    span: "sm",
+    span: "md",
     accent: "linear-gradient(135deg,#10B981 0%,#0EA5E9 100%)",
     year: "2024",
     role: "Senior UX",
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     slug: "north-fitness",
     title: "North — Training App",
     categoryKey: "cat_mobile",
-    span: "sm",
+    span: "half",
     accent: "linear-gradient(135deg,#F59E0B 0%,#EF4444 100%)",
     year: "2025",
     role: "Product Designer",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     slug: "verse-cms",
     title: "Verse — Editorial CMS",
     categoryKey: "cat_web",
-    span: "sm",
+    span: "half",
     accent: "linear-gradient(135deg,#A855F7 0%,#6366F1 100%)",
     year: "2024",
     role: "UX Lead",

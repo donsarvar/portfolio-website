@@ -9,13 +9,14 @@ const spanClasses: Record<Project["span"], string> = {
   lg: "sm:col-span-2 lg:col-span-7 lg:row-span-2",
   md: "sm:col-span-1 lg:col-span-5",
   sm: "sm:col-span-1 lg:col-span-4",
+  half: "sm:col-span-1 lg:col-span-6",
   xl: "sm:col-span-1 lg:col-span-8",
   wide: "sm:col-span-2 lg:col-span-12",
   tall: "sm:col-span-1 lg:col-span-4 lg:row-span-2",
 };
 
 const variantFor = (s: Project["span"]) =>
-  s === "lg" ? "phone" : (s === "wide" || s === "xl") ? "wide" : s === "md" ? "dashboard" : "card";
+  s === "lg" ? "phone" : (s === "wide" || s === "xl") ? "wide" : (s === "md" || s === "half") ? "dashboard" : "card";
 
 export function BentoCard({ project, index }: { project: Project; index: number }) {
   const { t } = useI18n();
