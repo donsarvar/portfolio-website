@@ -63,7 +63,7 @@ function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative aspect-square w-full sm:w-[280px] rounded-3xl overflow-hidden hairline shadow-card group bg-surface"
+            className="relative aspect-square w-full sm:w-[280px] max-h-[260px] sm:max-h-none mx-auto sm:mx-0 rounded-3xl overflow-hidden hairline shadow-card group bg-surface"
           >
             {/* Background gradient for placeholder */}
             <div className="absolute inset-0 bg-gradient-to-br from-surface to-surface-2" />
@@ -110,7 +110,7 @@ function About() {
           </div>
         </section>
 
-        <div className="mt-24 grid lg:grid-cols-[1fr_300px] gap-x-12 lg:gap-x-16 gap-y-20 items-stretch">
+        <div className="mt-16 grid lg:grid-cols-[1fr_300px] gap-x-12 lg:gap-x-16 gap-y-12 lg:items-stretch">
           {/* EXPERIENCE */}
           <section className="lg:order-1">
             <div className="flex items-center gap-2 mb-8">
@@ -163,7 +163,7 @@ function About() {
           </section>
 
           {/* EDUCATION */}
-          <section className="lg:order-3 flex flex-col h-full">
+          <section className="lg:order-3 lg:flex lg:flex-col lg:h-full">
             <div className="flex items-center gap-2 mb-8">
               <GraduationCap className="h-5 w-5 text-primary" />
               <h2 className="text-lg font-semibold tracking-tight">{t("about_education")}</h2>
@@ -181,9 +181,9 @@ function About() {
           </section>
 
           {/* CONNECT */}
-          <section className="lg:order-4 flex flex-col h-full">
+          <section className="lg:order-4 lg:flex lg:flex-col lg:h-full">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6">{t("about_connect")}</h2>
-            <div className="space-y-3 flex-1 flex flex-col justify-between">
+            <div className="space-y-3">
               <a href="https://instagram.com/sarvarsalimovv" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-full bg-pink-500/10 text-pink-500 grid place-items-center">
