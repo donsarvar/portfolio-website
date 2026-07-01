@@ -9,7 +9,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "@/lib/theme";
 import { I18nProvider } from "@/lib/i18n";
 
@@ -36,7 +35,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -71,8 +69,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@sarvarbeksalimov" },
       { name: "twitter:title", content: "Salimov Sarvarbek — UI/UX Designer" },
       { name: "twitter:description", content: "Selected work by Sarvarbek Salimov, a UI/UX designer based in Tashkent crafting intuitive digital experiences for fintech, mobile and SaaS." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ca2afdd2-f5ae-4324-8271-734cf1da32c3/id-preview-51e96dcd--6325eb23-f1bd-43b9-b2ee-4609f4178696.lovable.app-1782840504779.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ca2afdd2-f5ae-4324-8271-734cf1da32c3/id-preview-51e96dcd--6325eb23-f1bd-43b9-b2ee-4609f4178696.lovable.app-1782840504779.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
