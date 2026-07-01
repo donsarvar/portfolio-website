@@ -31,6 +31,12 @@ function About() {
       period: t("about_period_intern"),
       desc: t("about_desc_intern"),
     },
+    {
+      company: "Realsoft",
+      role: t("about_role_realsoft"),
+      period: t("about_period_realsoft"),
+      desc: t("about_desc_realsoft"),
+    },
   ];
 
   const education = {

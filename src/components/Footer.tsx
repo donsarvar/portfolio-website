@@ -12,7 +12,6 @@ export function Footer() {
               <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-foreground text-background text-[11px] font-bold">SS</span>
               <span className="truncate text-sm font-semibold">sarvarbeksalimov</span>
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">{t("footer_built")}</p>
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="LinkedIn">
