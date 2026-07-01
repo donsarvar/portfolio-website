@@ -27,10 +27,20 @@ export function Header() {
 
           <div className="flex items-center gap-4 sm:gap-6">
             <nav className="hidden sm:flex items-center gap-6">
-              <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                to="/"
+                activeProps={{ className: "text-foreground font-semibold" }}
+                inactiveProps={{ className: "text-muted-foreground" }}
+                className="text-sm font-medium hover:text-foreground transition-colors"
+              >
                 {t("nav_work")}
               </Link>
-              <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                to="/about"
+                activeProps={{ className: "text-foreground font-semibold" }}
+                inactiveProps={{ className: "text-muted-foreground" }}
+                className="text-sm font-medium hover:text-foreground transition-colors"
+              >
                 {t("nav_about")}
               </Link>
             </nav>
