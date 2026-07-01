@@ -184,7 +184,7 @@ function About() {
           <section className="lg:order-4 flex flex-col h-full">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-6">{t("about_connect")}</h2>
             <div className="space-y-3 flex-1 flex flex-col justify-between">
-              <a href="https://instagram.com/sarvarbeksalimov" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
+              <a href="https://instagram.com/sarvarsalimovv" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-full bg-pink-500/10 text-pink-500 grid place-items-center">
                     <Instagram className="h-4 w-4" />
@@ -194,7 +194,7 @@ function About() {
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
               </a>
               
-              <a href="https://t.me/sarvarbeksalimov" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
+              <a href="https://t.me/sarvarsalimovv" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-full bg-blue-500/10 text-blue-500 grid place-items-center">
                     <Send className="h-4 w-4" />
@@ -204,7 +204,7 @@ function About() {
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
               </a>
 
-              <a href="https://linkedin.com/in/sarvarbeksalimov" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
+              <a href="https://www.linkedin.com/in/sarvarbek-salimov-87a78b317/" target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl bg-surface hairline p-4 hover:bg-surface-2 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-full bg-indigo-500/10 text-indigo-500 grid place-items-center">
                     <Linkedin className="h-4 w-4" />

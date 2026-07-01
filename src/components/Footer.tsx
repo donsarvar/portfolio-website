@@ -14,13 +14,13 @@ export function Footer() {
             </div>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/sarvarbek-salimov-87a78b317/" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="LinkedIn">
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="https://behance.net" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="Behance">
-              <span className="text-[11px] font-black">Bē</span>
+            <a href="https://instagram.com/sarvarsalimovv" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="Instagram">
+              <span className="text-[11px] font-black">IG</span>
             </a>
-            <a href="https://t.me/sarvarbeksalimov" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="Telegram">
+            <a href="https://t.me/sarvarsalimovv" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="Telegram">
               <Send className="h-4 w-4" />
             </a>
           </div>
