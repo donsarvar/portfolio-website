@@ -21,29 +21,29 @@ function About() {
   const experiences = [
     {
       company: "Uzinfocom",
-      role: "UI/UX Designer",
-      period: "2025 " + t("about_present"),
-      desc: "Designing user interfaces and experiences for national digital government services.",
+      role: t("about_role_designer"),
+      period: "2025 — " + t("about_present"),
+      desc: t("about_desc_designer"),
     },
     {
       company: "Uzinfocom",
-      role: "UI/UX Design Intern",
-      period: "2025 (Jan — Aug)",
-      desc: "Completed an intensive internship program, contributing to real-world digital product design.",
+      role: t("about_role_intern"),
+      period: t("about_period_intern"),
+      desc: t("about_desc_intern"),
     },
   ];
 
   const education = {
-    school: "UTAS (Toshkent Amaliy Fanlar Universiteti)",
-    degree: "Bakalavr",
+    school: t("about_edu_school"),
+    degree: t("about_edu_degree"),
     period: "2022 — 2026",
   };
 
   const interests = [
-    { name: "Kurash", icon: Swords, color: "text-red-500", bg: "bg-red-500/10" },
-    { name: "Running", icon: Footprints, color: "text-blue-500", bg: "bg-blue-500/10" },
-    { name: "Books", icon: BookOpen, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-    { name: "Hiking", icon: Mountain, color: "text-amber-500", bg: "bg-amber-500/10" },
+    { name: t("interest_kurash"), icon: Swords, color: "text-red-500", bg: "bg-red-500/10" },
+    { name: t("interest_running"), icon: Footprints, color: "text-blue-500", bg: "bg-blue-500/10" },
+    { name: t("interest_books"), icon: BookOpen, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+    { name: t("interest_hiking"), icon: Mountain, color: "text-amber-500", bg: "bg-amber-500/10" },
   ];
 
   return (
@@ -80,7 +80,7 @@ function About() {
               <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">Sarvarbek Salimov</h1>
               <div className="mt-3 flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm font-medium">Tashkent, Uzbekistan</span>
+                <span className="text-sm font-medium">{t("about_location")}</span>
               </div>
             </motion.div>
 
