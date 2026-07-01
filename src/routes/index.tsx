@@ -11,9 +11,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Sarvarbek Salimov — UI/UX Designer in Tashkent" },
-      { name: "description", content: "Selected case studies in fintech, mobile and SaaS — by Sarvarbek Salimov." },
+      { name: "description", content: "Selected work by Sarvarbek Salimov — UI/UX Designer based in Tashkent." },
       { property: "og:title", content: "Sarvarbek Salimov — UI/UX Designer" },
-      { property: "og:description", content: "Selected case studies in fintech, mobile and SaaS." },
+      { property: "og:description", content: "Selected work by Sarvarbek Salimov — UI/UX Designer based in Tashkent." },
     ],
   }),
   component: Home,
@@ -86,7 +86,7 @@ function Home() {
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 sm:flex sm:justify-between">
           <div className="min-w-0">
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              <Sparkles className="h-3 w-3" /> 2022 — 2026
+              <Sparkles className="h-3 w-3" /> 2025 — 2026
             </span>
             <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">{t("work_title")}</h2>
           </div>
