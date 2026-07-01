@@ -24,7 +24,7 @@ export function Header() {
             <span className="grid h-7 w-7 place-items-center rounded-full bg-foreground text-background text-[11px] font-bold">
               SS
             </span>
-            <span className="text-sm font-semibold tracking-tight">sarvarbeksalimov</span>
+            <span className="hidden sm:inline text-sm font-semibold tracking-tight">sarvarbeksalimov</span>
           </Link>
 
           <div className="flex items-center gap-2 sm:gap-4">
@@ -73,7 +73,7 @@ export function Header() {
               <button
                 onClick={toggle}
                 aria-label="Toggle theme"
-                className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
+                className="hidden sm:grid hairline h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
               >
                 {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </button>
@@ -118,6 +118,16 @@ export function Header() {
               >
                 {t("nav_about")}
               </Link>
+              <div className="pt-2 border-t border-hairline flex items-center justify-between">
+                <span className="text-sm text-muted-foreground">{theme === "dark" ? "Qorong'i rejim" : "Yorug' rejim"}</span>
+                <button
+                  onClick={toggle}
+                  aria-label="Toggle theme"
+                  className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
+                >
+                  {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                </button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
