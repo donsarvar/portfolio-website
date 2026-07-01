@@ -27,7 +27,7 @@ function PhoneMock() {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="w-[180px] sm:w-[200px] rounded-[28px] bg-white/95 p-3 shadow-2xl ring-1 ring-black/10"
+      className="w-full max-w-[200px] rounded-[28px] bg-white/95 p-3 shadow-2xl ring-1 ring-black/10"
     >
       <div className="rounded-[20px] bg-slate-50 p-3">
         <div className="flex items-center justify-between text-[8px] text-slate-500 font-semibold">
@@ -129,7 +129,7 @@ function WideMock() {
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="flex gap-3"
+      className="flex gap-3 max-w-full overflow-hidden px-4"
     >
       {[0, 1, 2].map((i) => (
         <div key={i} className="w-32 rounded-xl bg-white/95 p-2.5 shadow-2xl ring-1 ring-black/10">

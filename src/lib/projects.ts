@@ -4,7 +4,7 @@ export type Project = {
   slug: string;
   title: string;
   categoryKey: DictKey;
-  span: "lg" | "md" | "sm" | "wide" | "tall";
+  span: "lg" | "md" | "sm" | "wide" | "tall" | "xl";
   accent: string; // gradient
   year: string;
   role: string;
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     slug: "atlas-saas",
     title: "Atlas — Analytics Suite",
     categoryKey: "cat_saas",
-    span: "md",
+    span: "sm",
     accent: "linear-gradient(135deg,#10B981 0%,#0EA5E9 100%)",
     year: "2024",
     role: "Senior UX",
@@ -122,6 +122,24 @@ export const projects: Project[] = [
       { label: "Success rate", value: "+45%" },
       { label: "Completion time", value: "−80%" },
       { label: "Accessibility", value: "WCAG AA" },
+    ],
+  },
+  {
+    slug: "edoc-system",
+    title: "e-Hujjat — Document Flow",
+    categoryKey: "cat_web",
+    span: "xl",
+    accent: "linear-gradient(135deg,#0369A1 0%,#1D4ED8 100%)",
+    year: "2025",
+    role: "UI/UX Designer",
+    platform: "Web App",
+    summary: "An electronic document management system tailored for governmental bodies, prioritizing speed and security.",
+    challenge: "Complex bureaucratic workflows were hard to digitize. We designed a flexible node-based routing UI.",
+    outcome: "Reduced document processing time by 60% and eliminated paper usage across 4 major departments.",
+    metrics: [
+      { label: "Processing time", value: "−60%" },
+      { label: "Paper usage", value: "−100%" },
+      { label: "Onboarding", value: "2 days" },
     ],
   },
   {

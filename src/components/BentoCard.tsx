@@ -9,12 +9,13 @@ const spanClasses: Record<Project["span"], string> = {
   lg: "sm:col-span-2 lg:col-span-7 lg:row-span-2",
   md: "sm:col-span-1 lg:col-span-5",
   sm: "sm:col-span-1 lg:col-span-4",
+  xl: "sm:col-span-1 lg:col-span-8",
   wide: "sm:col-span-2 lg:col-span-12",
   tall: "sm:col-span-1 lg:col-span-4 lg:row-span-2",
 };
 
 const variantFor = (s: Project["span"]) =>
-  s === "lg" ? "phone" : s === "wide" ? "wide" : s === "md" ? "dashboard" : "card";
+  s === "lg" ? "phone" : (s === "wide" || s === "xl") ? "wide" : s === "md" ? "dashboard" : "card";
 
 export function BentoCard({ project, index }: { project: Project; index: number }) {
   const { t } = useI18n();
@@ -34,9 +35,9 @@ export function BentoCard({ project, index }: { project: Project; index: number 
         <motion.article
           whileHover={{ y: -4 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex h-full min-h-[320px] flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
+          className="relative flex h-[360px] sm:h-full sm:min-h-[320px] flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
         >
-          <div className="relative h-[68%] min-h-[200px] flex-1">
+          <div className="relative h-[65%] sm:h-[68%] min-h-[180px] sm:min-h-[200px] flex-1">
             <ProjectMockup
               accent={project.accent}
               variant={variantFor(project.span) as never}
