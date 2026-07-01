@@ -25,9 +25,18 @@ export function Header() {
             <span className="text-sm font-semibold tracking-tight">sarvarbeksalimov</span>
           </Link>
 
-          <div className="flex items-center gap-2">
-            <div className="hairline flex rounded-full p-0.5 bg-surface-2/60">
-              {langs.map((l) => (
+          <div className="flex items-center gap-4 sm:gap-6">
+            <nav className="hidden sm:flex items-center gap-6">
+              <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                {t("nav_work")}
+              </Link>
+              <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                {t("nav_about")}
+              </Link>
+            </nav>
+            <div className="flex items-center gap-2">
+              <div className="hairline flex rounded-full p-0.5 bg-surface-2/60">
+                {langs.map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
