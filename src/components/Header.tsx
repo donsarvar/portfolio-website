@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export function Header() {
   const { theme, toggle } = useTheme();
-  const { lang, setLang } = useI18n();
+  const { lang, setLang, t } = useI18n();
   const langs: Lang[] = ["uz", "ru", "en"];
 
   return (
@@ -37,32 +37,33 @@ export function Header() {
             <div className="flex items-center gap-2">
               <div className="hairline flex rounded-full p-0.5 bg-surface-2/60">
                 {langs.map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={`relative px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider rounded-full transition-colors ${
-                    lang === l ? "text-background" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {lang === l && (
-                    <motion.span
-                      layoutId="lang-pill"
-                      className="absolute inset-0 rounded-full bg-foreground"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                  <span className="relative">{l}</span>
-                </button>
-              ))}
-            </div>
+                  <button
+                    key={l}
+                    onClick={() => setLang(l)}
+                    className={`relative px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider rounded-full transition-colors ${
+                      lang === l ? "text-background" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {lang === l && (
+                      <motion.span
+                        layoutId="lang-pill"
+                        className="absolute inset-0 rounded-full bg-foreground"
+                        transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                      />
+                    )}
+                    <span className="relative">{l}</span>
+                  </button>
+                ))}
+              </div>
 
-            <button
-              onClick={toggle}
-              aria-label="Toggle theme"
-              className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
-            >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+              <button
+                onClick={toggle}
+                aria-label="Toggle theme"
+                className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
+              >
+                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>

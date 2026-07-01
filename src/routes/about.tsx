@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Briefcase, GraduationCap, MapPin, Camera, BookOpen, Coffee, Send, Instagram, Linkedin } from "lucide-react";
+import { ArrowUpRight, Briefcase, GraduationCap, MapPin, Swords, Footprints, BookOpen, Mountain, Send, Instagram, Linkedin } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useI18n } from "@/lib/i18n";
@@ -21,28 +21,29 @@ function About() {
   const experiences = [
     {
       company: "Uzinfocom",
-      role: "Lead UI/UX Designer",
-      period: "2023 — " + t("about_present"),
-      desc: "Leading design initiatives for national digital services. Optimizing user flows and ensuring accessibility standards.",
+      role: "UI/UX Designer",
+      period: "2025 " + t("about_present"),
+      desc: "Designing user interfaces and experiences for national digital government services.",
     },
     {
-      company: "Freelance",
-      role: "Product Designer",
-      period: "2021 — 2023",
-      desc: "Worked with various international clients on SaaS, mobile apps, and fintech products.",
+      company: "Uzinfocom",
+      role: "UI/UX Design Intern",
+      period: "2025 (Jan — Aug)",
+      desc: "Completed an intensive internship program, contributing to real-world digital product design.",
     },
   ];
 
   const education = {
-    school: "Tashkent University of Information Technologies",
-    degree: "Bachelor's in Software Engineering",
-    period: "2018 — 2022",
+    school: "UTAS (Toshkent Amaliy Fanlar Universiteti)",
+    degree: "Bakalavr",
+    period: "2022 — 2026",
   };
 
   const interests = [
-    { name: "Photography", icon: Camera, color: "text-blue-500", bg: "bg-blue-500/10" },
-    { name: "Reading", icon: BookOpen, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-    { name: "Coffee", icon: Coffee, color: "text-amber-500", bg: "bg-amber-500/10" },
+    { name: "Kurash", icon: Swords, color: "text-red-500", bg: "bg-red-500/10" },
+    { name: "Running", icon: Footprints, color: "text-blue-500", bg: "bg-blue-500/10" },
+    { name: "Books", icon: BookOpen, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+    { name: "Hiking", icon: Mountain, color: "text-amber-500", bg: "bg-amber-500/10" },
   ];
 
   return (
@@ -66,7 +67,7 @@ function About() {
             {/* <img src="/avatar.jpg" alt={t("about_photo_alt")} className="absolute inset-0 h-full w-full object-cover" /> */}
             
             <div className="absolute inset-0 grid place-items-center opacity-30 group-hover:opacity-100 transition-opacity">
-              <Camera className="h-8 w-8 text-muted-foreground" />
+              <span className="text-3xl font-bold text-muted-foreground">SS</span>
             </div>
           </motion.div>
 
