@@ -155,7 +155,7 @@ const dict = {
     platform: "Platforma",
     process: "Jarayon",
     process_title: "Loyihalash jarayoni",
-    process_body: "Dastlabki simli karkaslar (wireframes) va vizual oqimlar sinovdan o'tkazildi. UI/UX mantiq, foydalanuvchi yo'llari va yakuniy interfeys inson omili hamda biznes talablariga mos ravishda to'liq ishlab chiqildi.",
+    process_body: "Dastlabki wireframe'lar va vizual oqimlar (user flows) sinovdan o'tkazildi. UI/UX mantiq, foydalanuvchi yo'llari va yakuniy interfeys inson omili hamda biznes talablariga mos ravishda to'liq ishlab chiqildi.",
     before_after: "Oldin va Keyin",
     before: "Oldin",
     after: "Keyin",
