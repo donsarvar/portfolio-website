@@ -173,7 +173,7 @@ function CaseStudy() {
             
             <div className="grid grid-cols-2 gap-6 sm:gap-12 max-w-2xl mx-auto w-full">
               {/* Phone 1: Catalog */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#b35c24] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#8a4314] flex flex-col transition-all duration-300">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#1c1c1e] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.8)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#101011] flex flex-col transition-all duration-300">
                 {/* Status Bar Container */}
                 <div className="h-9 bg-zinc-100 dark:bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-zinc-800 dark:text-white text-[9px] font-semibold tracking-tight select-none transition-all duration-300">
                   <span>9:41</span>
@@ -217,7 +217,7 @@ function CaseStudy() {
               </div>
 
               {/* Phone 2: Main VR */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#b35c24] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#8a4314] flex flex-col transition-all duration-300">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#1c1c1e] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.8)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#101011] flex flex-col transition-all duration-300">
                 {/* Status Bar Container */}
                 <div className="h-9 bg-zinc-100 dark:bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-zinc-800 dark:text-white text-[9px] font-semibold tracking-tight select-none transition-all duration-300">
                   <span>9:41</span>
