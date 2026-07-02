@@ -46,7 +46,7 @@ export function FeedbackModal({ open, onClose, projectSlug }: { open: boolean; o
     }
   };
 
-  const isFormValid = name.trim() && value.trim();
+  const isFormValid = name.trim() && telegram.trim() && value.trim();
 
   return (
     <AnimatePresence>
@@ -96,7 +96,7 @@ export function FeedbackModal({ open, onClose, projectSlug }: { open: boolean; o
 
               {/* Telegram Username Input */}
               <div className="flex flex-col gap-1">
-                <label className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{t("feedback_tg")}</label>
+                <label className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{t("feedback_tg")} *</label>
                 <input
                   type="text"
                   value={telegram}
