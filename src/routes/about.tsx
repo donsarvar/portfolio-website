@@ -110,7 +110,7 @@ function About() {
           </div>
         </section>
 
-        <div className="mt-16 grid lg:grid-cols-[1fr_300px] gap-x-12 lg:gap-x-16 gap-y-12 lg:items-stretch">
+        <div className="mt-16 px-4 sm:px-6 lg:px-0 grid lg:grid-cols-[1fr_300px] gap-x-12 lg:gap-x-16 gap-y-12 lg:items-stretch">
           {/* EXPERIENCE */}
           <section className="lg:order-1">
             <div className="flex items-center gap-2 mb-8">
