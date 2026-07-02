@@ -150,6 +150,49 @@ function CaseStudy() {
           </div>
         </section>
 
+        {/* Mobile Showcase */}
+        {project.slug === "tashkent-parks" && (
+          <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("mobile_interface")}</h2>
+            
+            <div className="grid grid-cols-2 gap-6 sm:gap-12 max-w-2xl mx-auto w-full">
+              {/* Phone 1: Catalog */}
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-8 sm:ring-[12px] ring-black/90 shadow-2xl overflow-hidden bg-zinc-900 border-2 sm:border-4 border-zinc-800">
+                {/* Dynamic Island */}
+                <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-16 sm:w-24 h-4 sm:h-6 bg-black rounded-full z-20 flex items-center justify-between px-2">
+                  <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-800" />
+                  <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-blue-900/40" />
+                </div>
+                {/* Screen Image */}
+                <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
+                  <img
+                    src="/tashkentparks_inner.jpg"
+                    alt="Parks list catalog view"
+                    className="w-full object-cover object-top"
+                  />
+                </div>
+              </div>
+
+              {/* Phone 2: Main VR */}
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-8 sm:ring-[12px] ring-black/90 shadow-2xl overflow-hidden bg-zinc-900 border-2 sm:border-4 border-zinc-800">
+                {/* Dynamic Island */}
+                <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-16 sm:w-24 h-4 sm:h-6 bg-black rounded-full z-20 flex items-center justify-between px-2">
+                  <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-800" />
+                  <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-blue-900/40" />
+                </div>
+                {/* Screen Image */}
+                <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
+                  <img
+                    src="/tashkentparks.jpg"
+                    alt="Main virtual walkthrough view"
+                    className="w-full object-cover object-top"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Interactive */}
         <section className="mt-24 flex flex-col items-center gap-4">
           <LikeButton slug={project.slug} />
