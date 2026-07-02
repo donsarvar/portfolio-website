@@ -56,7 +56,7 @@ function About() {
     <div className="min-h-screen bg-background w-full overflow-x-hidden relative">
       <Header />
 
-      <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-24">
+      <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-12">
         {/* HERO SECTION */}
         <section className="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16 items-start">
           <motion.div
