@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Briefcase, GraduationCap, MapPin, Palette, Sparkles, Layers, Activity, Send, Instagram, Linkedin } from "lucide-react";
+import { ArrowUpRight, Briefcase, GraduationCap, MapPin, Palette, Sparkles, Layers, Brain, Send, Instagram, Linkedin } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useI18n } from "@/lib/i18n";
@@ -49,7 +49,7 @@ function About() {
     { name: t("interest_kurash"), icon: Palette, color: "text-amber-500", bg: "bg-amber-500/10" },
     { name: t("interest_running"), icon: Sparkles, color: "text-indigo-500", bg: "bg-indigo-500/10" },
     { name: t("interest_books"), icon: Layers, color: "text-emerald-500", bg: "bg-emerald-500/10" },
-    { name: t("interest_hiking"), icon: Activity, color: "text-rose-500", bg: "bg-rose-500/10" },
+    { name: t("interest_hiking"), icon: Brain, color: "text-rose-500", bg: "bg-rose-500/10" },
   ];
 
   return (
