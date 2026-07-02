@@ -141,58 +141,6 @@ function CaseStudy() {
           </div>
         </section>
 
-        {/* Process & AI */}
-        <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("process")}</h2>
-          <div className="rounded-3xl bg-gradient-to-br from-surface to-surface-2 hairline p-7 shadow-card">
-            <div className="flex items-center gap-2 text-primary">
-              <Bot className="h-4 w-4" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em]">AI Transparency</span>
-            </div>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight">{t("process_title")}</h3>
-            <p className="mt-3 text-base leading-relaxed text-muted-foreground">{t("process_body")}</p>
-          </div>
-        </section>
-
-        {/* Before & After */}
-        <section className="mt-20">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("before_after")}</h2>
-          </div>
-          <div className="mt-6 grid md:grid-cols-2 gap-4">
-            <div className="overflow-hidden rounded-3xl hairline bg-surface shadow-card">
-              <div className="aspect-[4/3] bg-[repeating-linear-gradient(45deg,var(--surface-2)_0px,var(--surface-2)_10px,var(--surface)_10px,var(--surface)_20px)] grid place-items-center">
-                <div className="w-3/4 rounded-xl bg-surface hairline p-4 opacity-70">
-                  <div className="h-2 w-12 rounded bg-muted-foreground/40" />
-                  <div className="mt-3 space-y-1.5">
-                    <div className="h-1.5 w-full rounded bg-muted-foreground/20" />
-                    <div className="h-1.5 w-5/6 rounded bg-muted-foreground/20" />
-                    <div className="h-1.5 w-4/6 rounded bg-muted-foreground/20" />
-                  </div>
-                  <div className="mt-4 grid grid-cols-3 gap-1.5">
-                    <div className="h-8 rounded bg-muted-foreground/20" />
-                    <div className="h-8 rounded bg-muted-foreground/20" />
-                    <div className="h-8 rounded bg-muted-foreground/20" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center justify-between p-5">
-                <span className="text-sm font-semibold">{t("before")}</span>
-                <span className="text-xs text-muted-foreground">Legacy — masked</span>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-3xl hairline shadow-card">
-              <div className="aspect-[4/3]">
-                <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
-              </div>
-              <div className="flex items-center justify-between p-5 bg-surface">
-                <span className="text-sm font-semibold">{t("after")}</span>
-                <span className="text-xs text-primary font-semibold">Redesigned</span>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Interactive */}
         <section className="mt-24 flex flex-col items-center gap-4">
