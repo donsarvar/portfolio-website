@@ -5,6 +5,8 @@ import { useI18n } from "@/lib/i18n";
 import { ProjectMockup } from "./ProjectMockup";
 import type { Project } from "@/lib/projects";
 
+import tashkentparksImg from "../routes/tashkentparks.png";
+
 const spanClasses: Record<Project["span"], string> = {
   lg: "sm:col-span-2 lg:col-span-7 lg:row-span-2",
   md: "sm:col-span-1 lg:col-span-5",
@@ -38,12 +40,20 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex h-auto sm:h-full min-h-[300px] sm:min-h-[320px] flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
         >
-          <div className="relative aspect-[4/3] sm:aspect-auto sm:h-[68%] min-h-[180px] sm:min-h-[200px] flex-1">
-            <ProjectMockup
-              accent={project.accent}
-              variant={variantFor(project.span) as never}
-              className="h-full w-full"
-            />
+          <div className="relative aspect-[4/3] sm:aspect-auto sm:h-[68%] min-h-[180px] sm:min-h-[200px] flex-1 overflow-hidden">
+            {project.slug === "tashkent-parks" ? (
+              <img
+                src={tashkentparksImg}
+                alt={project.title}
+                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            ) : (
+              <ProjectMockup
+                accent={project.accent}
+                variant={variantFor(project.span) as never}
+                className="h-full w-full"
+              />
+            )}
           </div>
           <div className="flex items-end justify-between gap-4 p-5 sm:p-6">
             <div className="min-w-0">

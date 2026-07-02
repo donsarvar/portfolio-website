@@ -9,6 +9,7 @@ import { LikeButton } from "@/components/LikeButton";
 import { FeedbackModal } from "@/components/FeedbackModal";
 import { findProject, projects } from "@/lib/projects";
 import { useI18n } from "@/lib/i18n";
+import tashkentparksImg from "./tashkentparks.png";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -95,10 +96,18 @@ function CaseStudy() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card"
+          className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card bg-surface"
           style={{ aspectRatio: "16/9" }}
         >
-          <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
+          {project.slug === "tashkent-parks" ? (
+            <img
+              src={tashkentparksImg}
+              alt={project.title}
+              className="h-full w-full object-cover object-top"
+            />
+          ) : (
+            <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
+          )}
         </motion.div>
 
         {/* Metrics */}
