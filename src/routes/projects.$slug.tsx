@@ -166,8 +166,8 @@ function CaseStudy() {
                 {/* Screen Image */}
                 <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
                   <img
-                    src="/tashkentparks_inner.jpg"
-                    alt="Parks list catalog view"
+                    src="/tashkentparks_vr_mobile1.png"
+                    alt="VR mobile view close"
                     className="w-full object-cover object-top"
                   />
                 </div>
@@ -183,8 +183,8 @@ function CaseStudy() {
                 {/* Screen Image */}
                 <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
                   <img
-                    src="/tashkentparks_vr_mobile.jpg"
-                    alt="VR mobile view"
+                    src="/tashkentparks_vr_mobile2.png"
+                    alt="VR mobile view distance"
                     className="w-full object-cover object-top"
                   />
                 </div>
