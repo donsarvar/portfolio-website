@@ -75,7 +75,7 @@ function Home() {
             {t("hero_cta")}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
-          <a href="mailto:hello@sarvarbeksalimov.com" className="inline-flex items-center gap-2 rounded-full hairline bg-surface px-6 py-3 text-sm font-semibold text-foreground hover:bg-surface-2">
+          <a href="https://t.me/sarvarsalimovv" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full hairline bg-surface px-6 py-3 text-sm font-semibold text-foreground hover:bg-surface-2">
             {t("hero_secondary")}
           </a>
         </motion.div>
