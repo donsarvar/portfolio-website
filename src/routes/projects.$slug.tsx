@@ -59,17 +59,33 @@ function CaseStudy() {
         </Link>
 
         <header className="mt-10">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface hairline px-3 py-1 text-[11px] font-semibold text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            {t(project.categoryKey)}
-          </span>
           <motion.h1
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 text-balance text-4xl sm:text-6xl font-semibold tracking-[-0.03em] leading-[1.05]"
+            className="text-balance text-4xl sm:text-6xl font-semibold tracking-[-0.03em] leading-[1.05]"
           >
-            {project.title}
+            {project.slug === "tashkent-parks" ? (
+              <a 
+                href="https://tashkentparks.uz" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 hover:text-primary transition-colors duration-300"
+              >
+                {project.title}
+                <svg 
+                  className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            ) : (
+              project.title
+            )}
           </motion.h1>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground leading-relaxed">{t(project.summaryKey)}</p>
         </header>
@@ -157,7 +173,7 @@ function CaseStudy() {
             
             <div className="grid grid-cols-2 gap-6 sm:gap-12 max-w-2xl mx-auto w-full">
               {/* Phone 1: Catalog */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-8 sm:ring-[12px] ring-black/90 shadow-2xl overflow-hidden bg-zinc-950 border-2 sm:border-4 border-zinc-800 flex flex-col">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[14px] ring-zinc-950 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.24)] overflow-hidden bg-zinc-950 border-[3px] border-zinc-800/80 flex flex-col">
                 {/* Status Bar Container */}
                 <div className="h-9 bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
                   <span>9:41</span>
@@ -190,18 +206,18 @@ function CaseStudy() {
                   <img
                     src="/tashkentparks_vr_mobile1.png"
                     alt="VR mobile view close"
-                    className="h-full w-full object-cover object-top"
+                    className="h-full w-full object-cover object-top animate-fade-in"
                   />
                 </div>
 
                 {/* Home Indicator */}
                 <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
-                  <div className="w-28 h-1 bg-white/90 rounded-full" />
+                  <div className="w-28 h-1 bg-white/95 rounded-full" />
                 </div>
               </div>
 
               {/* Phone 2: Main VR */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-8 sm:ring-[12px] ring-black/90 shadow-2xl overflow-hidden bg-zinc-950 border-2 sm:border-4 border-zinc-800 flex flex-col">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[14px] ring-zinc-950 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.24)] overflow-hidden bg-zinc-950 border-[3px] border-zinc-800/80 flex flex-col">
                 {/* Status Bar Container */}
                 <div className="h-9 bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
                   <span>9:41</span>
@@ -234,13 +250,13 @@ function CaseStudy() {
                   <img
                     src="/tashkentparks_vr_mobile2.png"
                     alt="VR mobile view distance"
-                    className="h-full w-full object-cover object-top"
+                    className="h-full w-full object-cover object-top animate-fade-in"
                   />
                 </div>
 
                 {/* Home Indicator */}
                 <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
-                  <div className="w-28 h-1 bg-white/90 rounded-full" />
+                  <div className="w-28 h-1 bg-white/95 rounded-full" />
                 </div>
               </div>
             </div>
