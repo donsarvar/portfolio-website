@@ -20,9 +20,9 @@ export const Route = createFileRoute("/projects/$slug")({
     meta: loaderData
       ? [
           { title: `${loaderData.project.title} — Case Study` },
-          { name: "description", content: loaderData.project.summary },
+          { name: "description", content: "Case study" },
           { property: "og:title", content: `${loaderData.project.title} — Case Study` },
-          { property: "og:description", content: loaderData.project.summary },
+          { property: "og:description", content: "Case study" },
         ]
       : [],
   }),
@@ -71,7 +71,7 @@ function CaseStudy() {
           >
             {project.title}
           </motion.h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted-foreground leading-relaxed">{project.summary}</p>
+          <p className="mt-5 max-w-2xl text-lg text-muted-foreground leading-relaxed">{t(project.summaryKey)}</p>
         </header>
 
         {/* Meta */}
@@ -80,7 +80,7 @@ function CaseStudy() {
             [t("role"), project.role],
             [t("year"), project.year],
             [t("platform"), project.platform],
-            ["NDA", "Data masked"],
+            ["Type", "Concept / University"],
           ].map(([k, v]) => (
             <div key={k} className="bg-surface p-5">
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{k}</div>
@@ -98,7 +98,7 @@ function CaseStudy() {
           className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card"
           style={{ aspectRatio: "16/9" }}
         >
-          <ProjectMockup accent={project.accent} variant="phone" className="h-full w-full" />
+          <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
         </motion.div>
 
         {/* Metrics */}
@@ -115,8 +115,8 @@ function CaseStudy() {
         <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
           <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("overview")}</h2>
           <div className="space-y-6 text-lg leading-relaxed text-foreground/90">
-            <p>{project.challenge}</p>
-            <p className="text-muted-foreground">{project.outcome}</p>
+            <p>{t(project.challengeKey)}</p>
+            <p className="text-muted-foreground">{t(project.outcomeKey)}</p>
           </div>
         </section>
 
