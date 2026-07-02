@@ -69,12 +69,12 @@ function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-surface to-surface-2" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,color-mix(in_oklab,var(--primary)_20%,transparent),transparent_60%)]" />
             
-            {/* Real photo can go here */}
-            {/* <img src="/avatar.jpg" alt={t("about_photo_alt")} className="absolute inset-0 h-full w-full object-cover" /> */}
-            
-            <div className="absolute inset-0 grid place-items-center opacity-30 group-hover:opacity-100 transition-opacity">
-              <span className="text-3xl font-bold text-muted-foreground">SS</span>
-            </div>
+            {/* Real photo */}
+            <img 
+              src="/profile_photo.jpg" 
+              alt="Sarvarbek Salimov profile" 
+              className="absolute inset-0 h-full w-full object-cover select-none transition-transform duration-500 group-hover:scale-105" 
+            />
           </motion.div>
 
           <div className="pt-2">
