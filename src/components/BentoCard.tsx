@@ -39,20 +39,32 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex h-auto flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
         >
-          <div className="relative aspect-video flex-1 overflow-hidden bg-black/5">
-            {project.slug === "tashkent-parks" ? (
-              <img
-                src="/tashkentparks.jpg"
-                alt={project.title}
-                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-            ) : (
-              <ProjectMockup
-                accent={project.accent}
-                variant={variantFor(project.span) as never}
-                className="h-full w-full"
-              />
-            )}
+          <div className="relative aspect-video flex-1 overflow-hidden bg-black/5 flex flex-col">
+            {/* Browser Header Bar */}
+            <div className="flex items-center gap-1.5 px-4 py-2.5 bg-surface-2/80 border-b border-hairline shrink-0">
+              <span className="h-2 w-2 rounded-full bg-[#FF5F56]" />
+              <span className="h-2 w-2 rounded-full bg-[#FFBD2E]" />
+              <span className="h-2 w-2 rounded-full bg-[#27C93F]" />
+              <div className="mx-auto bg-surface px-8 py-0.5 rounded text-[9px] text-muted-foreground font-mono truncate max-w-[150px]">
+                {project.slug === "tashkent-parks" ? "tashkentparks.uz" : ""}
+              </div>
+            </div>
+            
+            <div className="relative flex-1 overflow-hidden">
+              {project.slug === "tashkent-parks" ? (
+                <img
+                  src="/tashkentparks.jpg"
+                  alt={project.title}
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              ) : (
+                <ProjectMockup
+                  accent={project.accent}
+                  variant={variantFor(project.span) as never}
+                  className="h-full w-full"
+                />
+              )}
+            </div>
           </div>
           <div className="flex items-end justify-between gap-4 p-5 sm:p-6">
             <div className="min-w-0">

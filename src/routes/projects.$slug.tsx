@@ -90,23 +90,36 @@ function CaseStudy() {
         </div>
 
         {/* Hero mockup */}
+        {/* Hero mockup */}
         <motion.div
           initial={{ y: 24, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card bg-surface"
+          className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card bg-surface flex flex-col"
           style={{ aspectRatio: "16/9" }}
         >
-          {project.slug === "tashkent-parks" ? (
-            <img
-              src="/tashkentparks_inner.jpg"
-              alt={project.title}
-              className="h-full w-full object-cover object-top"
-            />
-          ) : (
-            <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
-          )}
+          {/* Browser Header Bar */}
+          <div className="flex items-center gap-1.5 px-5 py-3 bg-surface-2/80 border-b border-hairline shrink-0">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]" />
+            <div className="mx-auto bg-surface px-12 py-1 rounded-md text-[10px] text-muted-foreground font-mono truncate max-w-[200px]">
+              {project.slug === "tashkent-parks" ? "tashkentparks.uz/catalog" : ""}
+            </div>
+          </div>
+
+          <div className="relative flex-1 overflow-hidden">
+            {project.slug === "tashkent-parks" ? (
+              <img
+                src="/tashkentparks_inner.jpg"
+                alt={project.title}
+                className="h-full w-full object-cover object-top"
+              />
+            ) : (
+              <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
+            )}
+          </div>
         </motion.div>
 
         {/* Metrics */}
