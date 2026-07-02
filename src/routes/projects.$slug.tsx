@@ -173,12 +173,12 @@ function CaseStudy() {
             
             <div className="grid grid-cols-2 gap-6 sm:gap-12 max-w-2xl mx-auto w-full">
               {/* Phone 1: Catalog */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-[#b35c24] shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-black border-[3px] border-[#8a4314] flex flex-col">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#b35c24] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#8a4314] flex flex-col transition-all duration-300">
                 {/* Status Bar Container */}
-                <div className="h-9 bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
+                <div className="h-9 bg-zinc-100 dark:bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-zinc-800 dark:text-white text-[9px] font-semibold tracking-tight select-none transition-all duration-300">
                   <span>9:41</span>
                   {/* Dynamic Island */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-zinc-900 rounded-full flex items-center justify-between px-2">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-zinc-950 dark:bg-zinc-900 rounded-full flex items-center justify-between px-2">
                     <div className="w-1 h-1 rounded-full bg-zinc-800" />
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-900/40" />
                   </div>
@@ -195,8 +195,8 @@ function CaseStudy() {
                       <path d="M50 80c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM17.2 47.2c18.1-18.1 47.5-18.1 65.6 0l-7.1 7.1c-14.2-14.2-37.3-14.2-51.4 0l-7.1-7.1zm-14.2-14.2c25.9-25.9 67.9-25.9 93.8 0l-7.1 7.1c-22-22-57.7-22-79.6 0l-7.1-7.1z" />
                     </svg>
                     {/* Battery */}
-                    <div className="w-4 h-2.5 border border-white/80 rounded-md p-0.5 flex items-center">
-                      <div className="h-full w-full bg-white rounded-[2px]" />
+                    <div className="w-4 h-2.5 border border-zinc-800 dark:border-white/80 rounded-md p-0.5 flex items-center">
+                      <div className="h-full w-full bg-zinc-800 dark:bg-white rounded-[2px]" />
                     </div>
                   </div>
                 </div>
@@ -212,17 +212,17 @@ function CaseStudy() {
 
                 {/* Home Indicator */}
                 <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
-                  <div className="w-28 h-1 bg-white/95 rounded-full" />
+                  <div className="w-28 h-1 bg-black/60 dark:bg-white/95 rounded-full" />
                 </div>
               </div>
 
               {/* Phone 2: Main VR */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-[#b35c24] shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-black border-[3px] border-[#8a4314] flex flex-col">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#b35c24] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#8a4314] flex flex-col transition-all duration-300">
                 {/* Status Bar Container */}
-                <div className="h-9 bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
+                <div className="h-9 bg-zinc-100 dark:bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-zinc-800 dark:text-white text-[9px] font-semibold tracking-tight select-none transition-all duration-300">
                   <span>9:41</span>
                   {/* Dynamic Island */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-zinc-900 rounded-full flex items-center justify-between px-2">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-zinc-950 dark:bg-zinc-900 rounded-full flex items-center justify-between px-2">
                     <div className="w-1 h-1 rounded-full bg-zinc-800" />
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-900/40" />
                   </div>
@@ -239,8 +239,8 @@ function CaseStudy() {
                       <path d="M50 80c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM17.2 47.2c18.1-18.1 47.5-18.1 65.6 0l-7.1 7.1c-14.2-14.2-37.3-14.2-51.4 0l-7.1-7.1zm-14.2-14.2c25.9-25.9 67.9-25.9 93.8 0l-7.1 7.1c-22-22-57.7-22-79.6 0l-7.1-7.1z" />
                     </svg>
                     {/* Battery */}
-                    <div className="w-4 h-2.5 border border-white/80 rounded-md p-0.5 flex items-center">
-                      <div className="h-full w-full bg-white rounded-[2px]" />
+                    <div className="w-4 h-2.5 border border-zinc-800 dark:border-white/80 rounded-md p-0.5 flex items-center">
+                      <div className="h-full w-full bg-zinc-800 dark:bg-white rounded-[2px]" />
                     </div>
                   </div>
                 </div>
@@ -256,9 +256,8 @@ function CaseStudy() {
 
                 {/* Home Indicator */}
                 <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
-                  <div className="w-28 h-1 bg-white/95 rounded-full" />
+                  <div className="w-28 h-1 bg-black/60 dark:bg-white/95 rounded-full" />
                 </div>
-              </div>
             </div>
           </section>
         )}
