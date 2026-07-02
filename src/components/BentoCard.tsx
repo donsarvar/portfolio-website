@@ -40,12 +40,12 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex h-auto sm:h-full min-h-[300px] sm:min-h-[320px] flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
         >
-          <div className="relative aspect-[4/3] sm:aspect-auto sm:h-[68%] min-h-[180px] sm:min-h-[200px] flex-1 overflow-hidden">
+          <div className="relative aspect-video flex-1 overflow-hidden bg-black/5">
             {project.slug === "tashkent-parks" ? (
               <img
                 src={tashkentparksImg}
                 alt={project.title}
-                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
               />
             ) : (
               <ProjectMockup
