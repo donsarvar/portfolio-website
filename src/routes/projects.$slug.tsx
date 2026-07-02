@@ -183,8 +183,8 @@ function CaseStudy() {
                 {/* Screen Image */}
                 <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
                   <img
-                    src="/tashkentparks.jpg"
-                    alt="Main virtual walkthrough view"
+                    src="/tashkentparks_vr_mobile.jpg"
+                    alt="VR mobile view"
                     className="w-full object-cover object-top"
                   />
                 </div>
