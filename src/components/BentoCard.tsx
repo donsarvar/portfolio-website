@@ -5,7 +5,6 @@ import { useI18n } from "@/lib/i18n";
 import { ProjectMockup } from "./ProjectMockup";
 import type { Project } from "@/lib/projects";
 
-import tashkentparksImg from "../routes/tashkentparks.png";
 
 const spanClasses: Record<Project["span"], string> = {
   lg: "sm:col-span-2 lg:col-span-7 lg:row-span-2",
@@ -43,7 +42,7 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           <div className="relative aspect-video flex-1 overflow-hidden bg-black/5">
             {project.slug === "tashkent-parks" ? (
               <img
-                src={tashkentparksImg}
+                src="/tashkentparks.png"
                 alt={project.title}
                 className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
               />

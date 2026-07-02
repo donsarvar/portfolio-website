@@ -9,8 +9,6 @@ import { LikeButton } from "@/components/LikeButton";
 import { FeedbackModal } from "@/components/FeedbackModal";
 import { findProject, projects } from "@/lib/projects";
 import { useI18n } from "@/lib/i18n";
-import tashkentparksImg from "./tashkentparks.png";
-import tashkentparksInnerImg from "./tashkentparks_inner.png";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -102,7 +100,7 @@ function CaseStudy() {
         >
           {project.slug === "tashkent-parks" ? (
             <img
-              src={tashkentparksInnerImg}
+              src="/tashkentparks_inner.png"
               alt={project.title}
               className="h-full w-full object-cover object-top"
             />
