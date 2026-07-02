@@ -159,34 +159,90 @@ function CaseStudy() {
               {/* Phone 1: Catalog */}
               <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-8 sm:ring-[12px] ring-black/90 shadow-2xl overflow-hidden bg-zinc-900 border-2 sm:border-4 border-zinc-800">
                 {/* Dynamic Island */}
-                <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-16 sm:w-24 h-4 sm:h-6 bg-black rounded-full z-20 flex items-center justify-between px-2">
+                <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-16 sm:w-24 h-4 sm:h-6 bg-black rounded-full z-30 flex items-center justify-between px-2">
                   <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-800" />
                   <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-blue-900/40" />
                 </div>
+                
+                {/* Status Bar */}
+                <div className="absolute top-0 inset-x-0 h-8 z-20 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
+                  <span>9:41</span>
+                  <div className="flex items-center gap-1">
+                    {/* Signal */}
+                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
+                      <rect x="5" y="65" width="15" height="25" rx="3" />
+                      <rect x="28" y="50" width="15" height="40" rx="3" />
+                      <rect x="51" y="30" width="15" height="60" rx="3" />
+                      <rect x="74" y="10" width="15" height="80" rx="3" />
+                    </svg>
+                    {/* Wifi */}
+                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
+                      <path d="M50 80c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM17.2 47.2c18.1-18.1 47.5-18.1 65.6 0l-7.1 7.1c-14.2-14.2-37.3-14.2-51.4 0l-7.1-7.1zm-14.2-14.2c25.9-25.9 67.9-25.9 93.8 0l-7.1 7.1c-22-22-57.7-22-79.6 0l-7.1-7.1z" />
+                    </svg>
+                    {/* Battery */}
+                    <div className="w-4 h-2.5 border border-white/80 rounded-md p-0.5 flex items-center">
+                      <div className="h-full w-full bg-white rounded-[2px]" />
+                    </div>
+                  </div>
+                </div>
+
                 {/* Screen Image */}
-                <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
+                <div className="h-full w-full overflow-hidden relative">
                   <img
                     src="/tashkentparks_vr_mobile1.png"
                     alt="VR mobile view close"
-                    className="w-full object-cover object-top"
+                    className="h-full w-full object-cover object-top"
                   />
+                </div>
+
+                {/* Home Indicator */}
+                <div className="absolute bottom-2.5 inset-x-0 z-20 flex justify-center">
+                  <div className="w-28 h-1 bg-white/90 rounded-full" />
                 </div>
               </div>
 
               {/* Phone 2: Main VR */}
               <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-8 sm:ring-[12px] ring-black/90 shadow-2xl overflow-hidden bg-zinc-900 border-2 sm:border-4 border-zinc-800">
                 {/* Dynamic Island */}
-                <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-16 sm:w-24 h-4 sm:h-6 bg-black rounded-full z-20 flex items-center justify-between px-2">
+                <div className="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-16 sm:w-24 h-4 sm:h-6 bg-black rounded-full z-30 flex items-center justify-between px-2">
                   <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-zinc-800" />
                   <div className="w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 rounded-full bg-blue-900/40" />
                 </div>
+
+                {/* Status Bar */}
+                <div className="absolute top-0 inset-x-0 h-8 z-20 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
+                  <span>9:41</span>
+                  <div className="flex items-center gap-1">
+                    {/* Signal */}
+                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
+                      <rect x="5" y="65" width="15" height="25" rx="3" />
+                      <rect x="28" y="50" width="15" height="40" rx="3" />
+                      <rect x="51" y="30" width="15" height="60" rx="3" />
+                      <rect x="74" y="10" width="15" height="80" rx="3" />
+                    </svg>
+                    {/* Wifi */}
+                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
+                      <path d="M50 80c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM17.2 47.2c18.1-18.1 47.5-18.1 65.6 0l-7.1 7.1c-14.2-14.2-37.3-14.2-51.4 0l-7.1-7.1zm-14.2-14.2c25.9-25.9 67.9-25.9 93.8 0l-7.1 7.1c-22-22-57.7-22-79.6 0l-7.1-7.1z" />
+                    </svg>
+                    {/* Battery */}
+                    <div className="w-4 h-2.5 border border-white/80 rounded-md p-0.5 flex items-center">
+                      <div className="h-full w-full bg-white rounded-[2px]" />
+                    </div>
+                  </div>
+                </div>
+
                 {/* Screen Image */}
-                <div className="h-full w-full overflow-y-auto no-scrollbar pt-6 sm:pt-8">
+                <div className="h-full w-full overflow-hidden relative">
                   <img
                     src="/tashkentparks_vr_mobile2.png"
                     alt="VR mobile view distance"
-                    className="w-full object-cover object-top"
+                    className="h-full w-full object-cover object-top"
                   />
+                </div>
+
+                {/* Home Indicator */}
+                <div className="absolute bottom-2.5 inset-x-0 z-20 flex justify-center">
+                  <div className="w-28 h-1 bg-white/90 rounded-full" />
                 </div>
               </div>
             </div>
