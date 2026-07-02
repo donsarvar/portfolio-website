@@ -7,8 +7,9 @@ export type Project = {
   span: "lg" | "md" | "sm" | "wide" | "tall" | "xl" | "half";
   accent: string; // gradient
   year: string;
-  role: string;
-  platform: string;
+  roleKey: DictKey;
+  platformKey: DictKey;
+  typeKey: DictKey;
   summaryKey: DictKey;
   challengeKey: DictKey;
   outcomeKey: DictKey;
@@ -23,8 +24,9 @@ export const projects: Project[] = [
     span: "wide",
     accent: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
     year: "2025",
-    role: "UI/UX Designer (Concept & Research)",
-    platform: "Web (Fully Responsive)",
+    roleKey: "proj_tp_role",
+    platformKey: "proj_tp_platform",
+    typeKey: "proj_tp_type",
     summaryKey: "proj_tp_summary",
     challengeKey: "proj_tp_challenge",
     outcomeKey: "proj_tp_outcome",

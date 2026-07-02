@@ -77,10 +77,10 @@ function CaseStudy() {
         {/* Meta */}
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-3xl bg-hairline">
           {[
-            [t("role"), project.role],
+            [t("role"), t(project.roleKey)],
             [t("year"), project.year],
-            [t("platform"), project.platform],
-            ["Type", "Concept / University"],
+            [t("platform"), t(project.platformKey)],
+            [t("type"), t(project.typeKey)],
           ].map(([k, v]) => (
             <div key={k} className="bg-surface p-5">
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{k}</div>
@@ -89,7 +89,6 @@ function CaseStudy() {
           ))}
         </div>
 
-        {/* Hero mockup */}
         {/* Hero mockup */}
         <motion.div
           initial={{ y: 24, opacity: 0 }}
