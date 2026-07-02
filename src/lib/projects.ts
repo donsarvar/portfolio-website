@@ -13,7 +13,7 @@ export type Project = {
   summaryKey: DictKey;
   challengeKey: DictKey;
   outcomeKey: DictKey;
-  metrics: { label: string; value: string }[];
+  metrics: { labelKey: DictKey; valueKey: DictKey }[];
 };
 
 export const projects: Project[] = [
@@ -31,9 +31,9 @@ export const projects: Project[] = [
     challengeKey: "proj_tp_challenge",
     outcomeKey: "proj_tp_outcome",
     metrics: [
-      { label: "Format", value: "360° VR" },
-      { label: "Responsiveness", value: "Mobile + PC" },
-      { label: "Status", value: "Concept" },
+      { labelKey: "metric_format", valueKey: "val_360_vr" },
+      { labelKey: "metric_responsiveness", valueKey: "val_mobile_pc" },
+      { labelKey: "metric_status", valueKey: "val_concept" },
     ],
   },
 ];

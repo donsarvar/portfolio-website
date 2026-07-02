@@ -123,10 +123,10 @@ function CaseStudy() {
 
         {/* Metrics */}
         <section className="mt-16 grid sm:grid-cols-3 gap-4">
-          {project.metrics.map((m: { label: string; value: string }) => (
-            <div key={m.label} className="rounded-3xl bg-surface hairline p-6 shadow-card">
-              <div className="text-4xl font-semibold tracking-tight">{m.value}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{m.label}</div>
+          {project.metrics.map((m) => (
+            <div key={m.labelKey} className="rounded-3xl bg-surface hairline p-6 shadow-card">
+              <div className="text-4xl font-semibold tracking-tight">{t(m.valueKey)}</div>
+              <div className="mt-2 text-sm text-muted-foreground">{t(m.labelKey)}</div>
             </div>
           ))}
         </section>
