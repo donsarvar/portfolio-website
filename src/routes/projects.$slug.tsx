@@ -100,7 +100,7 @@ function CaseStudy() {
         >
           {project.slug === "tashkent-parks" ? (
             <img
-              src="/tashkentparks_inner.png"
+              src="/tashkentparks_inner.jpg"
               alt={project.title}
               className="h-full w-full object-cover object-top"
             />

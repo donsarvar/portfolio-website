@@ -42,7 +42,7 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           <div className="relative aspect-video flex-1 overflow-hidden bg-black/5">
             {project.slug === "tashkent-parks" ? (
               <img
-                src="/tashkentparks.png"
+                src="/tashkentparks.jpg"
                 alt={project.title}
                 className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
               />
