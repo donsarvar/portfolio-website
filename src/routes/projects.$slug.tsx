@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, Bot, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -141,6 +141,15 @@ function CaseStudy() {
           </div>
         </section>
 
+
+        {/* Process */}
+        <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("process")}</h2>
+          <div className="rounded-3xl bg-surface hairline p-7 shadow-card">
+            <h3 className="text-2xl font-semibold tracking-tight">{t("process_title")}</h3>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t("process_body")}</p>
+          </div>
+        </section>
 
         {/* Interactive */}
         <section className="mt-24 flex flex-col items-center gap-4">
