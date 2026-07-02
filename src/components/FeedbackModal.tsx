@@ -7,29 +7,35 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 export function FeedbackModal({ open, onClose, projectSlug }: { open: boolean; onClose: () => void; projectSlug?: string }) {
   const { t } = useI18n();
+  const [name, setName] = useState("");
+  const [telegram, setTelegram] = useState("");
   const [value, setValue] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
   const submit = async () => {
-    if (!value.trim()) return;
+    if (!value.trim() || !name.trim()) return;
     setStatus("sending");
     try {
-      const token = import.meta.env.VITE_TG_BOT_TOKEN as string | undefined;
-      const chat = import.meta.env.VITE_TG_CHAT_ID as string | undefined;
-      const text = `🟣 Portfolio feedback${projectSlug ? ` — ${projectSlug}` : ""}\n\n${value}`;
+      const token = "8566617538:AAE-rV84ahtpy51MQzqCdfJeaHMnCri7sGE";
+      const chat = "922839560";
+      
+      const text = `<b>📬 Yangi Fikr (Feedback)</b>\n\n` +
+                   `<b>Loyiha:</b> ${projectSlug ? projectSlug : "Bosh sahifa"}\n` +
+                   `<b>Ism:</b> ${name.trim()}\n` +
+                   `<b>Telegram:</b> ${telegram.trim() ? (telegram.startsWith("@") ? telegram.trim() : `@${telegram.trim()}`) : "Kiritilmadi"}\n\n` +
+                   `<b>Fikr:</b>\n<i>"${value.trim()}"</i>`;
 
-      if (!token || !chat) {
-        // Placeholder mode — pretend success so the UI flow is reviewable.
-        await new Promise((r) => setTimeout(r, 700));
-      } else {
-        const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ chat_id: chat, text, parse_mode: "HTML" }),
-        });
-        if (!res.ok) throw new Error("tg failed");
-      }
+      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chat, text, parse_mode: "HTML" }),
+      });
+
+      if (!res.ok) throw new Error("tg failed");
+
       setStatus("sent");
+      setName("");
+      setTelegram("");
       setValue("");
       setTimeout(() => {
         setStatus("idle");
@@ -39,6 +45,8 @@ export function FeedbackModal({ open, onClose, projectSlug }: { open: boolean; o
       setStatus("error");
     }
   };
+
+  const isFormValid = name.trim() && value.trim();
 
   return (
     <AnimatePresence>
@@ -72,18 +80,50 @@ export function FeedbackModal({ open, onClose, projectSlug }: { open: boolean; o
             </button>
             <h3 className="text-xl font-semibold tracking-tight">{t("feedback_title")}</h3>
             <p className="mt-1.5 text-sm text-muted-foreground">{t("feedback_desc")}</p>
-            <textarea
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder={t("feedback_placeholder")}
-              rows={5}
-              className="mt-4 w-full resize-none rounded-2xl bg-surface-2 hairline p-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
-            />
+
+            <div className="mt-4 space-y-3">
+              {/* Name Input */}
+              <div className="flex flex-col gap-1">
+                <label className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{t("feedback_name")} *</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder={t("feedback_name_placeholder")}
+                  className="w-full rounded-xl bg-surface-2 border border-hairline px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                />
+              </div>
+
+              {/* Telegram Username Input */}
+              <div className="flex flex-col gap-1">
+                <label className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{t("feedback_tg")}</label>
+                <input
+                  type="text"
+                  value={telegram}
+                  onChange={(e) => setTelegram(e.target.value)}
+                  placeholder={t("feedback_tg_placeholder")}
+                  className="w-full rounded-xl bg-surface-2 border border-hairline px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                />
+              </div>
+
+              {/* Feedback Text Area */}
+              <div className="flex flex-col gap-1">
+                <label className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{t("leave_feedback")} *</label>
+                <textarea
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  placeholder={t("feedback_placeholder")}
+                  rows={4}
+                  className="w-full resize-none rounded-xl bg-surface-2 border border-hairline p-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
+                />
+              </div>
+            </div>
+
             <div className="mt-4 flex items-center justify-between">
               <span className="text-xs text-muted-foreground">{value.length}/600</span>
               <button
                 onClick={submit}
-                disabled={status === "sending" || !value.trim()}
+                disabled={status === "sending" || !isFormValid}
                 className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-90 disabled:opacity-40"
               >
                 {status === "sent" ? <Check className="h-4 w-4" /> : <Send className="h-4 w-4" />}
