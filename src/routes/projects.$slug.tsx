@@ -10,6 +10,7 @@ import { FeedbackModal } from "@/components/FeedbackModal";
 import { findProject, projects } from "@/lib/projects";
 import { useI18n } from "@/lib/i18n";
 import tashkentparksImg from "./tashkentparks.png";
+import tashkentparksInnerImg from "./tashkentparks_inner.png";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -101,7 +102,7 @@ function CaseStudy() {
         >
           {project.slug === "tashkent-parks" ? (
             <img
-              src={tashkentparksImg}
+              src={tashkentparksInnerImg}
               alt={project.title}
               className="h-full w-full object-cover object-top"
             />
