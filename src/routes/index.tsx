@@ -93,7 +93,7 @@ function Home() {
           <p className="hidden sm:block max-w-sm text-sm text-muted-foreground">{t("work_subtitle")}</p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-6 lg:gap-8 auto-rows-auto lg:auto-rows-[340px]">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-6 lg:gap-8 auto-rows-auto">
           {projects.map((p, i) => (
             <BentoCard key={p.slug} project={p} index={i} />
           ))}

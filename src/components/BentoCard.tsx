@@ -38,7 +38,7 @@ export function BentoCard({ project, index }: { project: Project; index: number 
         <motion.article
           whileHover={{ y: -4 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex h-auto sm:h-full min-h-[300px] sm:min-h-[320px] flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
+          className="relative flex h-auto flex-col overflow-hidden rounded-[24px] bg-surface hairline shadow-card transition-shadow duration-300 hover:shadow-card-hover"
         >
           <div className="relative aspect-video flex-1 overflow-hidden bg-black/5">
             {project.slug === "tashkent-parks" ? (
