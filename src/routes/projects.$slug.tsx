@@ -170,94 +170,25 @@ function CaseStudy() {
         {project.slug === "tashkent-parks" && (
           <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("mobile_interface")}</h2>
-                     <div className="grid grid-cols-2 gap-6 sm:gap-12 max-w-3xl mx-auto w-full">
-              {/* Phone 1: Catalog */}
-              <div className="relative aspect-[9/19.5] max-w-[310px] mx-auto w-full max-h-[640px] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#1c1c1e] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.8)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#101011] flex flex-col transition-all duration-300">
-                {/* Status Bar Container */}
-                <div className="h-9 bg-zinc-100 dark:bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-zinc-800 dark:text-white text-[9px] font-semibold tracking-tight select-none transition-all duration-300">
-                  <span>9:41</span>
-                  {/* Dynamic Island */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-zinc-950 dark:bg-zinc-900 rounded-full flex items-center justify-between px-2">
-                    <div className="w-1 h-1 rounded-full bg-zinc-800" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-900/40" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {/* Signal */}
-                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
-                      <rect x="5" y="65" width="15" height="25" rx="3" />
-                      <rect x="28" y="50" width="15" height="40" rx="3" />
-                      <rect x="51" y="30" width="15" height="60" rx="3" />
-                      <rect x="74" y="10" width="15" height="80" rx="3" />
-                    </svg>
-                    {/* Wifi */}
-                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
-                      <path d="M50 80c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM17.2 47.2c18.1-18.1 47.5-18.1 65.6 0l-7.1 7.1c-14.2-14.2-37.3-14.2-51.4 0l-7.1-7.1zm-14.2-14.2c25.9-25.9 67.9-25.9 93.8 0l-7.1 7.1c-22-22-57.7-22-79.6 0l-7.1-7.1z" />
-                    </svg>
-                    {/* Battery */}
-                    <div className="w-4 h-2.5 border border-zinc-800 dark:border-white/80 rounded-md p-0.5 flex items-center">
-                      <div className="h-full w-full bg-zinc-800 dark:bg-white rounded-[2px]" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Screen Image */}
-                <div className="flex-1 w-full overflow-hidden relative">
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto w-full">
+              {[
+                { src: "/tashkentparks_vr_mobile1.png", alt: "VR view close" },
+                { src: "/tashkentparks_vr_mobile2.png", alt: "VR view distance" },
+                { src: "/tashkentparks_vr_mobile3.jpg", alt: "VR view lake" },
+                { src: "/tashkentparks_vr_mobile4.png", alt: "VR view park pathway" }
+              ].map((img, idx) => (
+                <div 
+                  key={idx} 
+                  className="relative aspect-[9/19.5] overflow-hidden rounded-[24px] sm:rounded-[32px] border border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_12px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_24px_48px_rgba(0,0,0,0.4)] w-full max-w-[260px] mx-auto bg-zinc-100 dark:bg-zinc-950 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_32px_64px_rgba(0,0,0,0.6)]"
+                >
                   <img
-                    src="/tashkentparks_vr_mobile1.png"
-                    alt="VR mobile view close"
-                    className="h-full w-full object-cover object-top animate-fade-in"
+                    src={img.src}
+                    alt={img.alt}
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
-
-                {/* Home Indicator */}
-                <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
-                  <div className="w-28 h-1 bg-black/60 dark:bg-white/95 rounded-full" />
-                </div>
-              </div>
-
-              {/* Phone 2: Main VR */}
-              <div className="relative aspect-[9/19.5] max-w-[310px] mx-auto w-full max-h-[640px] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-zinc-200 dark:ring-[#1c1c1e] shadow-[0_24px_48px_rgba(0,0,0,0.08)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.8)] overflow-hidden bg-zinc-100 dark:bg-black border-[3px] border-zinc-300/80 dark:border-[#101011] flex flex-col transition-all duration-300">
-                {/* Status Bar Container */}
-                <div className="h-9 bg-zinc-100 dark:bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-zinc-800 dark:text-white text-[9px] font-semibold tracking-tight select-none transition-all duration-300">
-                  <span>9:41</span>
-                  {/* Dynamic Island */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-zinc-950 dark:bg-zinc-900 rounded-full flex items-center justify-between px-2">
-                    <div className="w-1 h-1 rounded-full bg-zinc-800" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-900/40" />
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {/* Signal */}
-                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
-                      <rect x="5" y="65" width="15" height="25" rx="3" />
-                      <rect x="28" y="50" width="15" height="40" rx="3" />
-                      <rect x="51" y="30" width="15" height="60" rx="3" />
-                      <rect x="74" y="10" width="15" height="80" rx="3" />
-                    </svg>
-                    {/* Wifi */}
-                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 100 100">
-                      <path d="M50 80c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM17.2 47.2c18.1-18.1 47.5-18.1 65.6 0l-7.1 7.1c-14.2-14.2-37.3-14.2-51.4 0l-7.1-7.1zm-14.2-14.2c25.9-25.9 67.9-25.9 93.8 0l-7.1 7.1c-22-22-57.7-22-79.6 0l-7.1-7.1z" />
-                    </svg>
-                    {/* Battery */}
-                    <div className="w-4 h-2.5 border border-zinc-800 dark:border-white/80 rounded-md p-0.5 flex items-center">
-                      <div className="h-full w-full bg-zinc-800 dark:bg-white rounded-[2px]" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Screen Image */}
-                <div className="flex-1 w-full overflow-hidden relative">
-                  <img
-                    src="/tashkentparks_vr_mobile2.png"
-                    alt="VR mobile view distance"
-                    className="h-full w-full object-cover object-top animate-fade-in"
-                  />
-                </div>
-
-                {/* Home Indicator */}
-                <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
-                  <div className="w-28 h-1 bg-black/60 dark:bg-white/95 rounded-full" />
-                </div>
-              </div>
+              ))}
             </div>
           </section>
         )}
