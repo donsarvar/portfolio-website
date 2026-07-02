@@ -258,6 +258,7 @@ function CaseStudy() {
                 <div className="absolute bottom-2 inset-x-0 z-20 flex justify-center">
                   <div className="w-28 h-1 bg-black/60 dark:bg-white/95 rounded-full" />
                 </div>
+              </div>
             </div>
           </section>
         )}
