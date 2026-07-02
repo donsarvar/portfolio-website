@@ -173,7 +173,7 @@ function CaseStudy() {
             
             <div className="grid grid-cols-2 gap-6 sm:gap-12 max-w-2xl mx-auto w-full">
               {/* Phone 1: Catalog */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-[#9e8f80] shadow-[0_32px_64px_-16px_rgba(158,143,128,0.22)] overflow-hidden bg-black border-[3px] border-[#6b5e52] flex flex-col">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-[#b35c24] shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-black border-[3px] border-[#8a4314] flex flex-col">
                 {/* Status Bar Container */}
                 <div className="h-9 bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
                   <span>9:41</span>
@@ -217,7 +217,7 @@ function CaseStudy() {
               </div>
 
               {/* Phone 2: Main VR */}
-              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-[#9e8f80] shadow-[0_32px_64px_-16px_rgba(158,143,128,0.22)] overflow-hidden bg-black border-[3px] border-[#6b5e52] flex flex-col">
+              <div className="relative aspect-[9/19.5] rounded-[40px] sm:rounded-[48px] ring-[10px] sm:ring-[12px] ring-[#b35c24] shadow-[0_32px_64px_-16px_rgba(179,92,36,0.25)] overflow-hidden bg-black border-[3px] border-[#8a4314] flex flex-col">
                 {/* Status Bar Container */}
                 <div className="h-9 bg-black w-full relative shrink-0 z-30 flex items-center justify-between px-6 text-white text-[9px] font-semibold tracking-tight select-none">
                   <span>9:41</span>
