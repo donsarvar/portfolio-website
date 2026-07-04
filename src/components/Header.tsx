@@ -146,7 +146,7 @@ export function Header() {
               </Link>
               <div className="pt-2 border-t border-hairline flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">
-                  {theme === "dark" ? "Qorong'i rejim" : "Yorug' rejim"}
+                  {theme === "dark" ? t("theme_dark") : t("theme_light")}
                 </span>
                 <button
                   onClick={toggle}
