@@ -33,19 +33,7 @@ function Home() {
             style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 30%, transparent), transparent 70%)" }} />
         </div>
 
-        <motion.div
-          initial={{ y: 12, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span className="inline-flex items-center gap-2 rounded-full hairline bg-surface px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            </span>
-            {t("hero_available")}
-          </span>
-        </motion.div>
+
 
         <motion.h1
           initial={{ y: 20, opacity: 0 }}

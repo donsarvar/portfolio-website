@@ -1,5 +1,5 @@
 import { useI18n } from "@/lib/i18n";
-import { Linkedin, Send } from "lucide-react";
+import { Linkedin, Send, Instagram } from "lucide-react";
 
 export function Footer() {
   const { t } = useI18n();
@@ -18,7 +18,7 @@ export function Footer() {
               <Linkedin className="h-4 w-4" />
             </a>
             <a href="https://instagram.com/sarvarsalimovv" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="Instagram">
-              <span className="text-[11px] font-black">IG</span>
+              <Instagram className="h-4 w-4" />
             </a>
             <a href="https://t.me/sarvarsalimovv" target="_blank" rel="noreferrer" className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2 hover:bg-surface" aria-label="Telegram">
               <Send className="h-4 w-4" />

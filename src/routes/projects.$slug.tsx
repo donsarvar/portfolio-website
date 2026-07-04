@@ -138,17 +138,17 @@ function CaseStudy() {
         </motion.div>
 
         {/* Metrics */}
-        <section className="mt-16 grid sm:grid-cols-3 gap-4">
+        <section className="mt-12 grid sm:grid-cols-3 gap-4">
           {project.metrics.map((m) => (
             <div key={m.labelKey} className="rounded-3xl bg-surface hairline p-6 shadow-card">
-              <div className="text-4xl font-semibold tracking-tight">{t(m.valueKey)}</div>
-              <div className="mt-2 text-sm text-muted-foreground">{t(m.labelKey)}</div>
+              <div className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">{t(m.valueKey)}</div>
+              <div className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">{t(m.labelKey)}</div>
             </div>
           ))}
         </section>
 
         {/* Overview */}
-        <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
+        <section className="mt-12 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
           <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("overview")}</h2>
           <div className="space-y-6 text-lg leading-relaxed text-foreground/90">
             <p>{t(project.challengeKey)}</p>
@@ -156,19 +156,18 @@ function CaseStudy() {
           </div>
         </section>
 
-
         {/* Process */}
-        <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
+        <section className="mt-12 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
           <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("process")}</h2>
           <div className="rounded-3xl bg-surface hairline p-7 shadow-card">
-            <h3 className="text-2xl font-semibold tracking-tight">{t("process_title")}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight">{t("process_title")}</h3>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t("process_body")}</p>
           </div>
         </section>
 
         {/* Mobile Showcase */}
         {project.slug === "tashkent-parks" && (
-          <section className="mt-20 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
+          <section className="mt-12 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
             <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("mobile_interface")}</h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto w-full">
@@ -194,7 +193,7 @@ function CaseStudy() {
         )}
 
         {/* Interactive */}
-        <section className="mt-24 flex flex-col items-center gap-4">
+        <section className="mt-16 flex flex-col items-center gap-4">
           <LikeButton slug={project.slug} />
           <button
             onClick={() => setFeedbackOpen(true)}
@@ -205,7 +204,7 @@ function CaseStudy() {
         </section>
 
         {/* Next */}
-        <section className="mt-24 pt-10 border-t border-hairline">
+        <section className="mt-16 pt-8 border-t border-hairline">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Next</span>
           <Link
             to="/projects/$slug"

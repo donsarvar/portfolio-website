@@ -68,10 +68,12 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           </div>
           <div className="flex items-end justify-between gap-4 p-5 sm:p-6">
             <div className="min-w-0">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                {t(project.categoryKey)}
-              </span>
+              {project.categoryKey && project.categoryKey !== "cat_portal" && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {t(project.categoryKey)}
+                </span>
+              )}
               <h3 className="mt-2.5 truncate text-lg font-semibold tracking-tight text-foreground">
                 {project.title}
               </h3>
