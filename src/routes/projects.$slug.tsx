@@ -204,21 +204,23 @@ function CaseStudy() {
         </section>
 
         {/* Next */}
-        <section className="mt-16 pt-8 border-t border-hairline">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Next</span>
-          <Link
-            to="/projects/$slug"
-            params={{ slug: next.slug }}
-            className="mt-3 group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4"
-          >
-            <h3 className="truncate text-3xl sm:text-4xl font-semibold tracking-tight group-hover:text-primary transition-colors">
-              {next.title}
-            </h3>
-            <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full hairline bg-surface group-hover:bg-foreground group-hover:text-background transition-all">
-              →
-            </span>
-          </Link>
-        </section>
+        {projects.length > 1 && next.slug !== project.slug && (
+          <section className="mt-16 pt-8 border-t border-hairline">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Next</span>
+            <Link
+              to="/projects/$slug"
+              params={{ slug: next.slug }}
+              className="mt-3 group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4"
+            >
+              <h3 className="truncate text-3xl sm:text-4xl font-semibold tracking-tight group-hover:text-primary transition-colors">
+                {next.title}
+              </h3>
+              <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full hairline bg-surface group-hover:bg-foreground group-hover:text-background transition-all">
+                →
+              </span>
+            </Link>
+          </section>
+        )}
       </article>
 
       <FeedbackModal open={feedbackOpen} onClose={() => setFeedbackOpen(false)} projectSlug={project.slug} />
