@@ -46,7 +46,7 @@ export function BentoCard({ project, index }: { project: Project; index: number 
               <span className="h-2 w-2 rounded-full bg-[#FFBD2E]" />
               <span className="h-2 w-2 rounded-full bg-[#27C93F]" />
               <div className="mx-auto bg-surface px-8 py-0.5 rounded text-[9px] text-muted-foreground font-mono truncate max-w-[150px]">
-                {project.slug === "tashkent-parks" ? "tashkentparks.uz" : ""}
+                {project.slug === "tashkent-parks" ? "tashkentparks.uz" : project.slug === "atlas-medical" ? "atlasmedical.uz" : ""}
               </div>
             </div>
             
@@ -54,6 +54,12 @@ export function BentoCard({ project, index }: { project: Project; index: number 
               {project.slug === "tashkent-parks" ? (
                 <img
                   src="/tashkentparks.jpg"
+                  alt={project.title}
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              ) : project.slug === "atlas-medical" ? (
+                <img
+                  src="/atlas_medical_dark.png"
                   alt={project.title}
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                 />
@@ -74,9 +80,12 @@ export function BentoCard({ project, index }: { project: Project; index: number 
                   {t(project.categoryKey)}
                 </span>
               )}
-              <h3 className="mt-2.5 truncate text-lg font-semibold tracking-tight text-foreground">
+              <h3 className="mt-3 truncate text-xl font-bold tracking-tight text-foreground sm:text-2xl">
                 {project.title}
               </h3>
+              <p className="mt-1.5 line-clamp-2 text-xs text-muted-foreground leading-relaxed">
+                {t(project.summaryKey)}
+              </p>
             </div>
             <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-surface-2 text-muted-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background group-hover:rotate-45">
               <ArrowUpRight className="h-4 w-4" />

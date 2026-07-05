@@ -46,6 +46,7 @@ function CaseStudy() {
   const { project } = Route.useLoaderData();
   const { t } = useI18n();
   const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [dashboardTheme, setDashboardTheme] = useState<"dark" | "light">("dark");
 
   const next = projects[(projects.findIndex((p) => p.slug === project.slug) + 1) % projects.length];
 
@@ -115,21 +116,60 @@ function CaseStudy() {
           style={{ aspectRatio: "16/9" }}
         >
           {/* Browser Header Bar */}
-          <div className="flex items-center gap-1.5 px-5 py-3 bg-surface-2/80 border-b border-hairline shrink-0">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]" />
-            <div className="mx-auto bg-surface px-12 py-1 rounded-md text-[10px] text-muted-foreground font-mono truncate max-w-[200px]">
-              {project.slug === "tashkent-parks" ? "tashkentparks.uz/catalog" : ""}
+          <div className="grid grid-cols-[80px_1fr_80px] sm:grid-cols-3 items-center px-4 py-2 bg-surface-2/85 border-b border-hairline shrink-0 gap-2">
+            {/* Left: Traffic Lights */}
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56] shrink-0" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E] shrink-0" />
+              <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F] shrink-0" />
+            </div>
+
+            {/* Center: Address Bar */}
+            <div className="mx-auto bg-surface px-4 py-0.5 sm:py-1 rounded-md text-[10px] text-muted-foreground font-mono truncate w-full max-w-[220px] text-center border border-hairline/60">
+              {project.slug === "tashkent-parks" ? "tashkentparks.uz/catalog" : project.slug === "atlas-medical" ? "atlasmedical.uz/medicines" : ""}
+            </div>
+
+            {/* Right: Switcher */}
+            <div className="flex justify-end shrink-0">
+              {project.slug === "atlas-medical" && (
+                <div className="flex items-center gap-0.5 bg-surface/80 p-0.5 rounded-lg border border-hairline shrink-0">
+                  <button
+                    onClick={() => setDashboardTheme("dark")}
+                    className={`px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide transition-all ${
+                      dashboardTheme === "dark"
+                        ? "bg-foreground text-background shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    Dark
+                  </button>
+                  <button
+                    onClick={() => setDashboardTheme("light")}
+                    className={`px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide transition-all ${
+                      dashboardTheme === "light"
+                        ? "bg-foreground text-background shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    Light
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="relative flex-1 overflow-hidden">
+          <div className="relative flex-1 overflow-hidden bg-[#0A0D14]">
             {project.slug === "tashkent-parks" ? (
               <img
                 src="/tashkentparks_inner.jpg"
                 alt={project.title}
                 className="h-full w-full object-cover object-top"
+              />
+            ) : project.slug === "atlas-medical" ? (
+              <img
+                src={dashboardTheme === "dark" ? "/atlas_medical_dark.png" : "/atlas_medical_light.png"}
+                alt={project.title}
+                className="h-full w-full object-cover object-top transition-all duration-300"
               />
             ) : (
               <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
