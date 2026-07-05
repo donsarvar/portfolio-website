@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getLikes, toggleLike } from "@/lib/likes";
 import { useI18n } from "@/lib/i18n";
 
-const THRESHOLD = 10;
+const THRESHOLD = 0;
 
 export function LikeButton({ slug }: { slug: string }) {
   const { t } = useI18n();

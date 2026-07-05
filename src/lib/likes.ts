@@ -10,6 +10,8 @@ const SEED: Record<string, number> = {
   "north-fitness": 4,
   "verse-cms": 9,
   "kavir-brand": 23,
+  "tashkent-parks": 18,
+  "atlas-medical": 12,
 };
 
 export function getLikes(slug: string) {
