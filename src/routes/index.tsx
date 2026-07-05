@@ -26,7 +26,7 @@ function Home() {
       <Header />
 
       {/* HERO */}
-      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-40 sm:pt-48 pb-24">
+      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-24">
         {/* Ambient glow */}
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[600px] opacity-60 overflow-hidden">
           <div className="absolute left-1/2 top-20 h-[400px] w-[90%] max-w-[700px] -translate-x-1/2 rounded-full blur-3xl"
