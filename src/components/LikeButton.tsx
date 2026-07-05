@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { fetchLikesCount, toggleLikeInFirebase } from "@/lib/likes";
 
-export function LikeButton({ slug }: { slug: string }) {
+export function LikeButton({ slug, title }: { slug: string; title?: string }) {
   const { t } = useI18n();
   const [state, setState] = useState({ count: 0, liked: false });
   const [loading, setLoading] = useState(true);
@@ -43,6 +43,21 @@ export function LikeButton({ slug }: { slug: string }) {
       // Async database update
       const result = await toggleLikeInFirebase(slug);
       setState(result);
+
+      // If the user liked the project, notify the Telegram Bot
+      if (nextLiked) {
+        const token = "8566617538:AAE-rV84ahtpy51MQzqCdfJeaHMnCri7sGE";
+        const chat = "922839560";
+        const text = `<b>❤️ Yangi Layk!</b>\n\n` +
+                     `<b>Loyiha:</b> ${title || slug}\n` +
+                     `<b>Jami layklar:</b> ${result.count} ta`;
+
+        fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: chat, text, parse_mode: "HTML" }),
+        }).catch((err) => console.error("Telegram notification failed", err));
+      }
     } catch (e) {
       console.error("Failed to sync like in Firebase", e);
       // Revert if it fails

@@ -233,7 +233,7 @@ function CaseStudy() {
 
         {/* Interactive */}
         <section className="mt-16 flex flex-col items-center gap-4">
-          <LikeButton slug={project.slug} />
+          <LikeButton slug={project.slug} title={project.title} />
           <button
             onClick={() => setFeedbackOpen(true)}
             className="text-sm font-medium text-muted-foreground underline-offset-4 hover:underline hover:text-foreground transition-colors"
