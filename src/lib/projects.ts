@@ -33,7 +33,7 @@ export const projects: Project[] = [
     metrics: [
       { labelKey: "metric_format", valueKey: "val_360_vr" },
       { labelKey: "metric_responsiveness", valueKey: "val_mobile_pc" },
-      { labelKey: "metric_status", valueKey: "val_concept" },
+      { labelKey: "metric_status", valueKey: "val_launched" },
     ],
   },
   {
