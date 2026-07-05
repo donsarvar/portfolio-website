@@ -42,17 +42,22 @@ export function LikeButton({ slug }: { slug: string }) {
           />
         )}
       </motion.span>
-      <span className="text-sm font-semibold">{t("like")}</span>
+      <span className={`text-sm font-semibold transition-colors duration-200 ${state.liked ? "text-primary" : "text-foreground"}`}>
+        {t("like")}
+      </span>
       <AnimatePresence initial={false}>
-        {showCount && (
-          <motion.span
+        {showCount && state.count > 0 && (
+          <motion.div
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "auto", opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
-            className="overflow-hidden text-sm font-mono tabular-nums text-muted-foreground"
+            className="flex items-center gap-2 overflow-hidden shrink-0"
           >
-            {state.count}
-          </motion.span>
+            <span className="h-3.5 w-px bg-foreground/15 dark:bg-foreground/25" />
+            <span className={`text-sm font-bold tabular-nums transition-colors duration-200 ${state.liked ? "text-primary" : "text-muted-foreground"}`}>
+              {state.count}
+            </span>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.button>
