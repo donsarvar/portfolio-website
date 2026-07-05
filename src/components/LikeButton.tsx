@@ -1,27 +1,63 @@
 import { useEffect, useState } from "react";
 import { Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { getLikes, toggleLike } from "@/lib/likes";
 import { useI18n } from "@/lib/i18n";
-
-const THRESHOLD = 0;
+import { fetchLikesCount, toggleLikeInFirebase } from "@/lib/likes";
 
 export function LikeButton({ slug }: { slug: string }) {
   const { t } = useI18n();
   const [state, setState] = useState({ count: 0, liked: false });
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => setState(getLikes(slug)), [slug]);
+  useEffect(() => {
+    let active = true;
+    const load = async () => {
+      if (typeof window === "undefined") return;
+      try {
+        const localLiked = localStorage.getItem(`like:${slug}`) === "1";
+        const count = await fetchLikesCount(slug);
+        if (active) {
+          setState({ count, liked: localLiked });
+          setLoading(false);
+        }
+      } catch (e) {
+        console.error("Failed to load likes count", e);
+      }
+    };
+    load();
+    return () => {
+      active = false;
+    };
+  }, [slug]);
 
-  const onClick = () => setState(toggleLike(slug));
-  const showCount = state.count >= THRESHOLD;
+  const onClick = async () => {
+    if (loading) return;
+    
+    // Optimistic UI update to feel instant
+    const nextLiked = !state.liked;
+    const nextCount = nextLiked ? state.count + 1 : Math.max(0, state.count - 1);
+    
+    setState({ count: nextCount, liked: nextLiked });
+    
+    try {
+      // Async database update
+      const result = await toggleLikeInFirebase(slug);
+      setState(result);
+    } catch (e) {
+      console.error("Failed to sync like in Firebase", e);
+      // Revert if it fails
+      setState({ count: state.count, liked: state.liked });
+    }
+  };
 
   return (
     <motion.button
       onClick={onClick}
       whileTap={{ scale: 0.94 }}
+      disabled={loading}
       className={`group inline-flex items-center gap-3 rounded-full px-5 py-3 hairline transition-colors ${
         state.liked ? "bg-primary/10 text-primary" : "bg-surface text-foreground hover:bg-surface-2"
-      }`}
+      } ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
     >
       <motion.span
         key={state.liked ? "on" : "off"}
@@ -46,7 +82,7 @@ export function LikeButton({ slug }: { slug: string }) {
         {t("like")}
       </span>
       <AnimatePresence initial={false}>
-        {showCount && state.count > 0 && (
+        {!loading && state.count > 0 && (
           <motion.div
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "auto", opacity: 1 }}
