@@ -126,7 +126,7 @@ function CaseStudy() {
 
             {/* Center: Address Bar */}
             <div className="mx-auto bg-surface px-4 py-0.5 sm:py-1 rounded-md text-[10px] text-muted-foreground font-mono truncate w-full max-w-[220px] text-center border border-hairline/60">
-              {project.slug === "tashkent-parks" ? "tashkentparks.uz/catalog" : project.slug === "atlas-medical" ? "atlasmedical.uz/medicines" : ""}
+              {project.slug === "tashkent-parks" ? "tashkentparks.uz/catalog" : project.slug === "atlas-medical" ? "atlas-medical/medicines" : ""}
             </div>
 
             {/* Right: Switcher */}

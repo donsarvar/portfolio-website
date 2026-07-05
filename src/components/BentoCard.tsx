@@ -46,7 +46,7 @@ export function BentoCard({ project, index }: { project: Project; index: number 
               <span className="h-2 w-2 rounded-full bg-[#FFBD2E]" />
               <span className="h-2 w-2 rounded-full bg-[#27C93F]" />
               <div className="mx-auto bg-surface px-8 py-0.5 rounded text-[9px] text-muted-foreground font-mono truncate max-w-[150px]">
-                {project.slug === "tashkent-parks" ? "tashkentparks.uz" : project.slug === "atlas-medical" ? "atlasmedical.uz" : ""}
+                {project.slug === "tashkent-parks" ? "tashkentparks.uz" : project.slug === "atlas-medical" ? "atlas-medical/dashboard" : ""}
               </div>
             </div>
             
@@ -75,8 +75,7 @@ export function BentoCard({ project, index }: { project: Project; index: number 
           <div className="flex items-end justify-between gap-4 p-5 sm:p-6">
             <div className="min-w-0">
               {project.categoryKey && project.categoryKey !== "cat_portal" && (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-surface-2 px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                <span className="inline-flex items-center rounded-full bg-surface-2 px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
                   {t(project.categoryKey)}
                 </span>
               )}

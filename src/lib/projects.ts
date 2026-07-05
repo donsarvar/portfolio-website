@@ -42,7 +42,7 @@ export const projects: Project[] = [
     categoryKey: "cat_admin_panel",
     span: "wide",
     accent: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
-    year: "2025",
+    year: "2026",
     roleKey: "proj_am_role",
     platformKey: "proj_am_platform",
     typeKey: "proj_am_type",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     metrics: [
       { labelKey: "metric_platform", valueKey: "val_web" },
       { labelKey: "metric_type", valueKey: "val_concept_design" },
-      { labelKey: "metric_status", valueKey: "val_discontinued" },
+      { labelKey: "metric_status", valueKey: "val_in_progress" },
     ],
   },
 ];
