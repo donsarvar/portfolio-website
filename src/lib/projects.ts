@@ -23,7 +23,7 @@ export const projects: Project[] = [
     categoryKey: "cat_portal",
     span: "wide",
     accent: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
-    year: "2025",
+    year: "2026",
     roleKey: "proj_tp_role",
     platformKey: "proj_tp_platform",
     typeKey: "proj_tp_type",

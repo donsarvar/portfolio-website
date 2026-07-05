@@ -19,10 +19,15 @@ export function FeedbackModal({ open, onClose, projectSlug }: { open: boolean; o
       const token = "8566617538:AAE-rV84ahtpy51MQzqCdfJeaHMnCri7sGE";
       const chat = "922839560";
       
+      const contact = telegram.trim();
+      const contactText = contact
+        ? (contact.includes("@") || contact.includes(".") ? contact : `@${contact}`)
+        : "Kiritilmadi";
+
       const text = `<b>📬 Yangi Fikr (Feedback)</b>\n\n` +
                    `<b>Loyiha:</b> ${projectSlug ? projectSlug : "Bosh sahifa"}\n` +
                    `<b>Ism:</b> ${name.trim()}\n` +
-                   `<b>Telegram:</b> ${telegram.trim() ? (telegram.startsWith("@") ? telegram.trim() : `@${telegram.trim()}`) : "Kiritilmadi"}\n\n` +
+                   `<b>Aloqa:</b> ${contactText}\n\n` +
                    `<b>Fikr:</b>\n<i>"${value.trim()}"</i>`;
 
       const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
