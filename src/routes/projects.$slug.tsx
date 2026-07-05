@@ -113,7 +113,6 @@ function CaseStudy() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card bg-surface flex flex-col"
-          style={{ aspectRatio: "16/9" }}
         >
           {/* Browser Header Bar */}
           <div className="grid grid-cols-[80px_1fr_80px] sm:grid-cols-3 items-center px-4 py-2 bg-surface-2/85 border-b border-hairline shrink-0 gap-2">
@@ -158,7 +157,7 @@ function CaseStudy() {
             </div>
           </div>
 
-          <div className="relative flex-1 overflow-hidden bg-[#0A0D14]">
+          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0A0D14]">
             {project.slug === "tashkent-parks" ? (
               <img
                 src="/tashkentparks_inner.jpg"
