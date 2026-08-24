@@ -1,12 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Moon, Sun, Menu, X, ChevronDown } from "lucide-react";
-import { useTheme } from "@/lib/theme";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useI18n, type Lang } from "@/lib/i18n";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 
 export function Header() {
-  const { theme, toggle } = useTheme();
   const { lang, setLang, t } = useI18n();
   const langs: Lang[] = ["uz", "ru", "en"];
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -96,15 +94,6 @@ export function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Theme toggle — desktop only */}
-            <button
-              onClick={toggle}
-              aria-label="Toggle theme"
-              className="hidden sm:grid hairline h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
-            >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
-
             {/* Hamburger — mobile only */}
             <button
               onClick={() => setMobileOpen((v) => !v)}
@@ -144,18 +133,6 @@ export function Header() {
               >
                 {t("nav_about")}
               </Link>
-              <div className="pt-2 border-t border-hairline flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">
-                  {theme === "dark" ? t("theme_dark") : t("theme_light")}
-                </span>
-                <button
-                  onClick={toggle}
-                  aria-label="Toggle theme"
-                  className="hairline grid h-9 w-9 place-items-center rounded-full bg-surface-2/60 text-foreground transition-colors hover:bg-surface-2"
-                >
-                  {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                </button>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>

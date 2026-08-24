@@ -9,7 +9,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { ThemeProvider } from "@/lib/theme";
 import { I18nProvider } from "@/lib/i18n";
 
 function NotFoundComponent() {
@@ -101,11 +100,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <I18nProvider>
-          <Outlet />
-        </I18nProvider>
-      </ThemeProvider>
+      <I18nProvider>
+        <Outlet />
+      </I18nProvider>
     </QueryClientProvider>
   );
 }

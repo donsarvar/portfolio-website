@@ -39,46 +39,10 @@
   --shadow-card-hover: var(--shadow-card-hover);
 }
 
-:root {
+:root,
+.dark {
   --radius: 1.25rem;
 
-  /* Light — Dribbble premium */
-  /* ORIGINAL VALUES FOR EASY REVERT:
-  --background: oklch(0.985 0.002 240);          
-  --surface-2: oklch(0.97 0.003 240);
-  --hairline: oklch(0.95 0.004 240);             
-  */
-  --background: oklch(0.965 0.002 260);          /* Silent Studio Gray #F3F3F5 */
-  --foreground: oklch(0.18 0.02 260);            /* slate-900 */
-  --surface: oklch(1 0 0);                       /* card white */
-  --surface-2: oklch(0.94 0.003 260);            /* Soft cool surface-2 */
-  --hairline: oklch(0.92 0.004 260);             /* Soft cool border */
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 260);
-
-  --primary: oklch(0.585 0.21 277);              /* indigo #6366F1 */
-  --primary-foreground: oklch(0.99 0 0);
-
-  --secondary: oklch(0.97 0.003 240);
-  --secondary-foreground: oklch(0.22 0.02 260);
-  --muted: oklch(0.97 0.003 240);
-  --muted-foreground: oklch(0.55 0.02 260);      /* slate-500 */
-  --accent: oklch(0.96 0.01 277);
-  --accent-foreground: oklch(0.3 0.1 277);
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.95 0.004 240);
-  --input: oklch(0.93 0.005 240);
-  --ring: oklch(0.585 0.21 277);
-
-  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-
-.dark {
   /* Dark — Apple premium */
   --background: oklch(0.165 0.003 260);          /* #0F0F0F */
   --foreground: oklch(0.99 0 0);
