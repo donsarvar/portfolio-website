@@ -2,8 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/sections/Footer";
 import { ProjectMockup } from "@/components/ProjectMockup";
 import { LikeButton } from "@/components/LikeButton";
 import { FeedbackModal } from "@/components/FeedbackModal";
@@ -52,7 +52,7 @@ function CaseStudy() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Nav />
 
       <article className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-12">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">

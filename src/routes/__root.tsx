@@ -11,18 +11,19 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { ThemeProvider } from "@/lib/theme";
 import { I18nProvider } from "@/lib/i18n";
+import { CustomCursor } from "@/components/CustomCursor";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+    <div style={{ display: "flex", minHeight: "100vh", alignItems: "center", justifyContent: "center", background: "var(--background)", padding: "1rem" }}>
+      <div style={{ maxWidth: 400, textAlign: "center" }}>
+        <h1 style={{ fontSize: "5rem", fontWeight: 700, color: "var(--foreground)", lineHeight: 1 }}>404</h1>
+        <h2 style={{ marginTop: "1rem", fontSize: "1.125rem", fontWeight: 500, color: "var(--foreground)" }}>Page not found</h2>
+        <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "var(--fg-muted)" }}>
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <div className="mt-6">
-          <a href="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background">
+        <div style={{ marginTop: "1.5rem" }}>
+          <a href="/" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "0.625rem 1.25rem", borderRadius: 10, background: "var(--foreground)", color: "var(--elevated)", fontSize: "0.875rem", fontWeight: 500, textDecoration: "none" }}>
             Go home
           </a>
         </div>
@@ -34,20 +35,23 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-  }, [error]);
+  useEffect(() => {}, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end.</p>
-        <div className="mt-6 flex justify-center gap-2">
+    <div style={{ display: "flex", minHeight: "100vh", alignItems: "center", justifyContent: "center", background: "var(--background)", padding: "1rem" }}>
+      <div style={{ maxWidth: 400, textAlign: "center" }}>
+        <h1 style={{ fontSize: "1.125rem", fontWeight: 500, color: "var(--foreground)" }}>This page didn't load</h1>
+        <p style={{ marginTop: "0.5rem", fontSize: "0.875rem", color: "var(--fg-muted)" }}>Something went wrong on our end.</p>
+        <div style={{ marginTop: "1.5rem", display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
           <button
             onClick={() => { router.invalidate(); reset(); }}
-            className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background"
-          >Try again</button>
-          <a href="/" className="rounded-full hairline bg-surface px-5 py-2.5 text-sm font-medium text-foreground">Go home</a>
+            style={{ padding: "0.625rem 1.25rem", borderRadius: 10, background: "var(--foreground)", color: "var(--elevated)", fontSize: "0.875rem", fontWeight: 500, border: "none" }}
+          >
+            Try again
+          </button>
+          <a href="/" style={{ padding: "0.625rem 1.25rem", borderRadius: 10, border: "1px solid var(--border-color)", background: "transparent", color: "var(--foreground)", fontSize: "0.875rem", fontWeight: 500, textDecoration: "none" }}>
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -59,22 +63,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Salimov Sarvarbek — UI/UX Designer" },
-      { name: "description", content: "Selected work by Sarvarbek Salimov, a UI/UX designer based in Tashkent designing digital products for web and mobile platforms." },
+      { title: "Sarvarbek Salimov — Product Designer" },
+      { name: "description", content: "Toshkentlik UI/UX dizayner — veb va mobil platformalar uchun raqamli mahsulotlar yarataman." },
       { name: "author", content: "Sarvarbek Salimov" },
-      { property: "og:title", content: "Salimov Sarvarbek — UI/UX Designer" },
-      { property: "og:description", content: "Selected work by Sarvarbek Salimov, a UI/UX designer based in Tashkent designing digital products for web and mobile platforms." },
+      { property: "og:title", content: "Sarvarbek Salimov — Product Designer" },
+      { property: "og:description", content: "UI/UX Designer based in Tashkent." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@sarvarbeksalimov" },
-      { name: "twitter:title", content: "Salimov Sarvarbek — UI/UX Designer" },
-      { name: "twitter:description", content: "Selected work by Sarvarbek Salimov, a UI/UX designer based in Tashkent designing digital products for web and mobile platforms." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600&display=swap",
+      },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
@@ -85,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="uz">
       <head>
         <HeadContent />
       </head>
@@ -103,9 +108,19 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <I18nProvider>
+          {/* Custom cursor — desktop only, hidden on touch */}
+          <CustomCursorDesktop />
           <Outlet />
         </I18nProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
+}
+
+function CustomCursorDesktop() {
+  // Only render on pointer:fine (mouse) devices
+  if (typeof window !== "undefined" && !window.matchMedia("(pointer: fine)").matches) {
+    return null;
+  }
+  return <CustomCursor />;
 }
