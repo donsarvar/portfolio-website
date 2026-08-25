@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ProjectItem } from "@/types/portfolio";
+import { useCursor } from "@/components/CustomCursor";
 import { ProjectMeta } from "./ProjectMeta";
 import { ViewLink } from "./ViewLink";
 
@@ -9,12 +10,20 @@ interface ProjectSplitCardProps {
 
 export function ProjectSplitCard({ project }: ProjectSplitCardProps) {
   const [hovered, setHovered] = useState(false);
+  const { setVariant, setPreview, reset } = useCursor();
 
   return (
     <article
       data-cursor="project"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => {
+        setHovered(true);
+        setVariant("view", "VIEW");
+        setPreview({ src: project.image, label: project.name, sub: project.year });
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+        reset();
+      }}
     >
       <div
         style={{

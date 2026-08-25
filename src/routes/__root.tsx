@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { ThemeProvider } from "@/lib/theme";
 import { I18nProvider } from "@/lib/i18n";
-import { CustomCursor } from "@/components/CustomCursor";
+import { CursorProvider } from "@/components/CustomCursor";
 
 function NotFoundComponent() {
   return (
@@ -108,19 +108,11 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <I18nProvider>
-          {/* Custom cursor — desktop only, hidden on touch */}
-          <CustomCursorDesktop />
-          <Outlet />
+          <CursorProvider>
+            <Outlet />
+          </CursorProvider>
         </I18nProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
-}
-
-function CustomCursorDesktop() {
-  // Only render on pointer:fine (mouse) devices
-  if (typeof window !== "undefined" && !window.matchMedia("(pointer: fine)").matches) {
-    return null;
-  }
-  return <CustomCursor />;
 }
