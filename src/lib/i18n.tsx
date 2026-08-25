@@ -11,7 +11,7 @@ const dict = {
     contact_cta: "Contact",
 
     // Hero
-    hero_greeting: "Simple solutions for complex digital products.",
+    hero_greeting: "Good design, for me, should above all be simple.",
     hero_subtitle: "UI/UX Designer based in Tashkent — designing digital products for web and mobile platforms.",
     hero_cta: "See selected work",
     hero_secondary: "Get in touch",
@@ -136,7 +136,7 @@ const dict = {
     contact_cta: "Связаться",
 
     // Hero
-    hero_greeting: "Простые решения для сложных цифровых продуктов.",
+    hero_greeting: "Хороший дизайн для меня должен быть прежде всего простым.",
     hero_subtitle: "UI/UX дизайнер из Ташкента — проектирую цифровые продукты для веб и мобильных платформ.",
     hero_cta: "Смотреть работы",
     hero_secondary: "Связаться",
@@ -261,7 +261,7 @@ const dict = {
     contact_cta: "Bog'lanish",
 
     // Hero
-    hero_greeting: "Murakkab tizimlar uchun sodda va qulay yechimlar yarataman.",
+    hero_greeting: "Yaxshi dizayn men uchun avvalo oddiy bo‘lishi kerak.",
     hero_subtitle: "Toshkentlik UI/UX dizayner — veb va mobil platformalar uchun raqamli mahsulotlar yarataman.",
     hero_cta: "Ishlarni ko'rish",
     hero_secondary: "Bog'lanish",
