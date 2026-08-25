@@ -17,7 +17,7 @@ export function ViewLink({
   const { t } = useI18n();
   const linkLabel = text || t("view_case_study");
 
-  const content = (
+  return (
     <div
       style={{
         display: "inline-flex",
@@ -50,18 +50,4 @@ export function ViewLink({
       </span>
     </div>
   );
-
-  if (slug) {
-    return (
-      <Link
-        to="/projects/$slug"
-        params={{ slug }}
-        style={{ textDecoration: "none", display: "inline-block" }}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return content;
 }
