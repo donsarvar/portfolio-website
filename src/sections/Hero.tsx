@@ -45,14 +45,14 @@ export function Hero() {
         }}
         className="hero-container"
       >
-        <div style={{ maxWidth: 1120 }}>
+        <div style={{ maxWidth: 1240 }}>
           {/* Main headline */}
           <h1
             className="display-text"
             style={{
-              fontSize: "clamp(2.5rem, 4.8vw, 4.75rem)",
+              fontSize: "clamp(2.25rem, 4.3vw, 4.25rem)",
               color: "var(--foreground)",
-              maxWidth: "26ch",
+              maxWidth: "100%",
               marginBottom: "2.5rem",
               lineHeight: 1.15,
             }}
