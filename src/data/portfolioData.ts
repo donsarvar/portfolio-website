@@ -10,7 +10,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     name: "Новаторы Медицины",
     descriptor: "Healthcare Innovation Platform",
     meta: ["Product Design", "UX / UI", "Web Platform"],
-    year: "2025",
+    year: "2026",
     image: "/novatory-mediciny.jpg",
     alt: "Novatory Mediciny healthcare innovation platform — hero dashboard with live statistics",
     layout: "wide",
