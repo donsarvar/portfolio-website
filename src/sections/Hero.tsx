@@ -57,11 +57,11 @@ export function Hero() {
           <h1
             className="display-text"
             style={{
-              fontSize: "clamp(2.5rem, 4.4vw, 4.6rem)",
+              fontSize: "clamp(2.75rem, 5.8vw, 5.5rem)",
               color: "var(--foreground)",
-              lineHeight: 1.15,
+              lineHeight: 1.14,
               whiteSpace: "pre-line",
-              letterSpacing: "-0.025em",
+              letterSpacing: "-0.03em",
             }}
           >
             {t("hero_greeting")}
