@@ -1,7 +1,6 @@
 import { useI18n } from "@/lib/i18n";
 import { MagneticCTA } from "@/components/MagneticCTA";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
-import { HeroProjectIndex } from "./HeroProjectIndex";
 
 export function Hero() {
   const { t } = useI18n();
@@ -115,9 +114,6 @@ export function Hero() {
             </div>
           </div>
         </div>
-
-        {/* Project index sidebar indicator */}
-        <HeroProjectIndex />
       </div>
 
       <ScrollIndicator targetId="work" />
@@ -130,7 +126,6 @@ export function Hero() {
         @media (max-width: 768px) {
           .hero-container { padding: 6rem 1.5rem 4rem !important; }
           .hero-sub-row { grid-template-columns: 1fr !important; }
-          .hero-sidebar { display: none !important; }
         }
       `}</style>
     </section>
