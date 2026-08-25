@@ -77,9 +77,6 @@ function CaseStudyPage() {
           }}
         >
           <div>
-            <span className="meta-label" style={{ color: "var(--accent)", marginBottom: "0.5rem", display: "block" }}>
-              {project.number} · {project.descriptor}
-            </span>
             <h1
               className="display-text"
               style={{

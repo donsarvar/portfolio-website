@@ -37,7 +37,7 @@ export function CaseStudyNext({ nextProject }: CaseStudyNextProps) {
         }}
       >
         <div>
-          <span className="meta-label" style={{ color: "var(--accent)" }}>
+          <span className="meta-label" style={{ color: "var(--fg-subtle)" }}>
             {nextProject.number}
           </span>
           <h3
