@@ -24,26 +24,6 @@ export function SelectedWork() {
           className="work-section-header"
         >
           <div>
-            <p
-              className="eyebrow"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                marginBottom: "1rem",
-              }}
-            >
-              <span
-                style={{
-                  width: 4,
-                  height: 4,
-                  borderRadius: "50%",
-                  background: "var(--accent)",
-                  display: "inline-block",
-                }}
-              />
-              2025 — 2026
-            </p>
             <h2
               className="display-text"
               style={{
