@@ -54,7 +54,8 @@ export function Hero() {
               color: "var(--foreground)",
               maxWidth: "100%",
               marginBottom: "2.5rem",
-              lineHeight: 1.15,
+              lineHeight: 1.18,
+              whiteSpace: "pre-line",
             }}
           >
             {t("hero_greeting")}

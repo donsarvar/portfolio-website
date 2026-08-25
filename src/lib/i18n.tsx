@@ -11,7 +11,7 @@ const dict = {
     contact_cta: "Contact",
 
     // Hero
-    hero_greeting: "The better the design, the more intuitive it should be.",
+    hero_greeting: "The better the design,\nthe more intuitive it should be.",
     hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
     hero_cta: "See selected work",
     hero_secondary: "Get in touch",
@@ -136,7 +136,7 @@ const dict = {
     contact_cta: "Связаться",
 
     // Hero
-    hero_greeting: "Чем лучше дизайн, тем понятнее он должен быть.",
+    hero_greeting: "Чем лучше дизайн,\nтем понятнее он должен быть.",
     hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
     hero_cta: "Смотреть работы",
     hero_secondary: "Связаться",
@@ -261,7 +261,7 @@ const dict = {
     contact_cta: "Bog'lanish",
 
     // Hero
-    hero_greeting: "Dizayn qanchalik yaxshi bo‘lsa, shunchalik tushunarli bo‘lishi kerak.",
+    hero_greeting: "Dizayn qanchalik yaxshi bo‘lsa,\nshunchalik tushunarli bo‘lishi kerak.",
     hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
     hero_cta: "Ishlarni ko'rish",
     hero_secondary: "Bog'lanish",
