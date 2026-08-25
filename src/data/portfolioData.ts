@@ -6,29 +6,27 @@ import healnixImg from "@/assets/healnix.jpg";
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
   {
     number: "01",
-    slug: "tashkent-parks",
-    name: "Tashkent 360",
-    descriptor: "Digital Tourism Platform",
+    slug: "novatory-mediciny",
+    name: "Новаторы Медицины",
+    descriptor: "Healthcare Innovation Platform",
     meta: ["Product Design", "UX / UI", "Web Platform"],
-    year: "2026",
-    image: "/tashkentparks.jpg",
-    alt: "Tashkent 360 virtual tour web platform and interactive panoramic environment",
+    year: "2025",
+    image: "/novatory-mediciny.jpg",
+    alt: "Novatory Mediciny healthcare innovation platform — hero dashboard with live statistics",
     layout: "wide",
-    liveUrl: "https://tashkentparks.uz",
     role: "Lead UI/UX & Product Designer",
-    platform: "Web & Mobile Responsive",
-    type: "Digital Tourism & Interactive 360 VR",
+    platform: "Web Platform (Desktop & Responsive)",
+    type: "Healthcare Innovation & Medical Research",
     overview:
-      "Toshkent shahridagi eng go'zal bog'lar, xiyobonlar va diqqatga sazovor maskanlarni yuqori aniqlikdagi 360° virtual panorama formatida kashf etish uchun yaratilgan raqamli platforma.",
+      "Shifokorlar, tadqiqotchilar, talabalar va tibbiyot mutaxassislari uchun innovatsion yechimlarni birlashtirib, tibbiy yordam sifatini oshirish va sog'liqni saqlash tizimini rivojlantirishga qaratilgan raqamli platforma.",
     challenge:
-      "Foydalanuvchilarga jismonan bormasdan turib bog'larning atmosferasini his qilish, qulay marshrut tanlash va immersiv virtual sayohatni har qanday qurilmada tez va qotmasdan ishlashini ta'minlash.",
+      "Turli xil foydalanuvchi guruhlarini (shifokorlar, tadqiqotchilar, talabalar) bitta qulay interfeysda jamlash, real-vaqt statistikani tushunarli dashboard formatida taqdim etish va tibbiyot sohasiga xos murakkab ma'lumot arxitekturasini soddalashtirish.",
     solution:
-      "Intuitiv boshqaruv paneli, interaktiv xaritalar, engil yuklanuvchi 360° panorama pleyeri hamda zamonaviy Shveytsariya editorial uslubidagi UI tizimi ishlab chiqildi.",
+      "Minimal va toza hero dizayn, real-vaqt statistika kartochkalari, yashil-ko'k medical brand tizimi va foydalanuvchi guruhlariga mos moslashuvchan navigatsiya arxitekturasi ishlab chiqildi.",
     metrics: [
-      { label: "Foydalanuvchilar qoniqishi", value: "98%" },
-      { label: "O'rtacha sessiya vaqti", value: "4.2 daqiqa" },
-      { label: "Yuklanish tezligi", value: "< 1.2s" },
-      { label: "360° Panoramalar", value: "20+ Maskon" },
+      { label: "Foydalanuvchilar", value: "120+" },
+      { label: "Tadqiqot loyihalari", value: "45" },
+      { label: "Hamkorlik muassasalari", value: "84" },
     ],
   },
   {
