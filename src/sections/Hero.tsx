@@ -10,10 +10,6 @@ export function Hero() {
       id="top"
       style={{
         position: "relative",
-        minHeight: "100svh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
         borderBottom: "1px solid var(--border-color)",
         overflow: "hidden",
       }}
@@ -36,7 +32,7 @@ export function Hero() {
           maxWidth: 1460,
           margin: "0 auto",
           width: "100%",
-          padding: "5rem 3.5rem 4rem",
+          padding: "8rem 3.5rem 6.5rem",
           display: "grid",
           gridTemplateColumns: "1fr",
           gap: "2.5rem",
