@@ -8,6 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import type { CursorVariant, ProjectPreviewData } from "@/types/portfolio";
 import { CursorPreviewCard } from "./CursorPreviewCard";
 
@@ -37,6 +38,9 @@ export function CursorProvider({ children }: { children: ReactNode }) {
   const pos = useRef({ x: -300, y: -300 });
   const slow = useRef({ x: -300, y: -300 });
 
+  const routerState = useRouterState();
+  const pathname = routerState.location.pathname;
+
   const setVariant = useCallback((v: CursorVariant, l?: string) => {
     setVariantState(v);
     if (l) setLabel(l);
@@ -50,6 +54,11 @@ export function CursorProvider({ children }: { children: ReactNode }) {
     setVariantState("default");
     setPreviewState(null);
   }, []);
+
+  // Strict route change reset
+  useEffect(() => {
+    reset();
+  }, [pathname, reset]);
 
   const api = useMemo(() => ({ setVariant, setPreview, reset }), [setVariant, setPreview, reset]);
 
@@ -67,13 +76,23 @@ export function CursorProvider({ children }: { children: ReactNode }) {
 
     const onPointerMove = (e: PointerEvent) => {
       target.current = { x: e.clientX, y: e.clientY };
+      const el = e.target as HTMLElement | null;
+      if (!el?.closest('[data-cursor="project"]')) {
+        setPreviewState((prev) => (prev ? null : prev));
+      }
     };
 
-    const loop = () => {
-      // Primary ring interpolation
+    const handleReset = () => reset();
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("blur", handleReset);
+    window.addEventListener("scroll", handleReset, { passive: true });
+    document.addEventListener("mouseleave", handleReset);
+    raf = requestAnimationFrame(loop);
+
+    function loop() {
       pos.current.x += (target.current.x - pos.current.x) * 0.18;
       pos.current.y += (target.current.y - pos.current.y) * 0.18;
-      // Secondary inertia for floating preview card
       slow.current.x += (target.current.x - slow.current.x) * 0.085;
       slow.current.y += (target.current.y - slow.current.y) * 0.085;
 
@@ -84,16 +103,16 @@ export function CursorProvider({ children }: { children: ReactNode }) {
         previewRef.current.style.transform = `translate3d(${slow.current.x + 28}px, ${slow.current.y + 24}px, 0)`;
       }
       raf = requestAnimationFrame(loop);
-    };
-
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
-    raf = requestAnimationFrame(loop);
+    }
 
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("blur", handleReset);
+      window.removeEventListener("scroll", handleReset);
+      document.removeEventListener("mouseleave", handleReset);
       cancelAnimationFrame(raf);
     };
-  }, [fine]);
+  }, [fine, reset]);
 
   const ringSize = variant === "view" ? 86 : variant === "open" ? 44 : 26;
 
@@ -102,7 +121,6 @@ export function CursorProvider({ children }: { children: ReactNode }) {
       {children}
       {fine && (
         <>
-          {/* Main Circular Cursor Ring */}
           <div
             ref={ringRef}
             aria-hidden="true"
@@ -123,9 +141,7 @@ export function CursorProvider({ children }: { children: ReactNode }) {
               backdropFilter: variant === "default" ? "none" : "blur(20px) saturate(150%)",
               WebkitBackdropFilter: variant === "default" ? "none" : "blur(20px) saturate(150%)",
               boxShadow:
-                variant === "default"
-                  ? "none"
-                  : "0 8px 24px rgba(20, 20, 15, 0.06)",
+                variant === "default" ? "none" : "0 8px 24px rgba(20, 20, 15, 0.06)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -150,28 +166,12 @@ export function CursorProvider({ children }: { children: ReactNode }) {
             )}
 
             {variant === "open" && (
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 13 13"
-                fill="none"
-                style={{
-                  color: "var(--foreground)",
-                  display: "block",
-                }}
-              >
-                <path
-                  d="M3 10L10 3M10 3H4.5M10 3V8.5"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ color: "var(--foreground)", display: "block" }}>
+                <path d="M3 10L10 3M10 3H4.5M10 3V8.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             )}
           </div>
 
-          {/* Floating Secondary Inertia Project Preview */}
           <CursorPreviewCard preview={preview} forwardRef={previewRef} />
         </>
       )}

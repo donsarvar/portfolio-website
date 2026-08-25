@@ -13,23 +13,28 @@ export function ProjectWideCard({ project }: ProjectWideCardProps) {
   const [hovered, setHovered] = useState(false);
   const { setVariant, setPreview, reset } = useCursor();
 
+  const handlePointerEnter = () => {
+    setHovered(true);
+    setVariant("view", "VIEW");
+    setPreview({ src: project.image, label: project.name, sub: project.year });
+  };
+
+  const handlePointerLeave = () => {
+    setHovered(false);
+    reset();
+  };
+
   return (
     <article
       data-cursor="project"
-      onMouseEnter={() => {
-        setHovered(true);
-        setVariant("view", "VIEW");
-        setPreview({ src: project.image, label: project.name, sub: project.year });
-      }}
-      onMouseLeave={() => {
-        setHovered(false);
-        reset();
-      }}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
       style={{ position: "relative" }}
     >
       <Link
         to="/projects/$slug"
         params={{ slug: project.slug }}
+        onClick={handlePointerLeave}
         style={{ textDecoration: "none", color: "inherit", display: "block" }}
       >
         <ProjectMeta project={project} hovered={hovered} />
