@@ -14,6 +14,22 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image: "/tashkentparks.jpg",
     alt: "Tashkent 360 virtual tour web platform and interactive panoramic environment",
     layout: "wide",
+    liveUrl: "https://tashkentparks.uz",
+    role: "Lead UI/UX & Product Designer",
+    platform: "Web & Mobile Responsive",
+    type: "Digital Tourism & Interactive 360 VR",
+    overview:
+      "Toshkent shahridagi eng go'zal bog'lar, xiyobonlar va diqqatga sazovor maskanlarni yuqori aniqlikdagi 360° virtual panorama formatida kashf etish uchun yaratilgan raqamli platforma.",
+    challenge:
+      "Foydalanuvchilarga jismonan bormasdan turib bog'larning atmosferasini his qilish, qulay marshrut tanlash va immersiv virtual sayohatni har qanday qurilmada tez va qotmasdan ishlashini ta'minlash.",
+    solution:
+      "Intuitiv boshqaruv paneli, interaktiv xaritalar, engil yuklanuvchi 360° panorama pleyeri hamda zamonaviy Shveytsariya editorial uslubidagi UI tizimi ishlab chiqildi.",
+    metrics: [
+      { label: "Foydalanuvchilar qoniqishi", value: "98%" },
+      { label: "O'rtacha sessiya vaqti", value: "4.2 daqiqa" },
+      { label: "Yuklanish tezligi", value: "< 1.2s" },
+      { label: "360° Panoramalar", value: "20+ Maskon" },
+    ],
   },
   {
     number: "02",
@@ -25,6 +41,19 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image: fitasistImg,
     alt: "FitAsist mobile fitness application tracking and workout experience",
     layout: "split",
+    role: "Product & Mobile UI Designer",
+    platform: "iOS & Android (Mobile App)",
+    type: "Health, Fitness & AI Coaching",
+    overview:
+      "Shaxsiy mashg'ulotlar dasturi, ovqatlanish rejasi va progressni real vaqtda kuzatuvchi intellektual fitness yordamchisi.",
+    challenge:
+      "Foydalanuvchilarning mashg'ulotlar davomiyligini doimiy saqlab qolish va murakkab statistik ma'lumotlarni tushunarli vizual grafiklarda taqdim etish.",
+    solution:
+      "Geymifikatsiya elementlari, mashqlar davomida minimal chalg'ituvchi 'Focus Mode' hamda silliq micro-interaksiyalar bilan boyitilgan interfeys.",
+    metrics: [
+      { label: "Faol foydalanuvchilar (DAU)", value: "+45%" },
+      { label: "Mashq yakunlash darajasi", value: "82%" },
+    ],
   },
   {
     number: "03",
@@ -36,6 +65,19 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image: dhpMobileImg,
     alt: "DHP Mobile digital healthcare appointment and records application",
     layout: "offset",
+    role: "Senior UX/UI Designer",
+    platform: "Cross-Platform Mobile App",
+    type: "Digital Healthcare & Telemedicine",
+    overview:
+      "Bemorlar uchun shifokor qabuliga yozilish, elektron tibbiy kartalar va onlayn konsultatsiyalarni boshqarish tizimi.",
+    challenge:
+      "Barcha yoshdagi foydalanuvchilar uchun tibbiy hujjatlarni o'qishni soddalashtirish va qabulga yozilish jarayonini 3 qadamgacha qisqartirish.",
+    solution:
+      "Katta kontrastli tipografiya, qulay kalendar vidjeti va shifokorlar bilan xavfsiz audio/video aloqa interfeysi.",
+    metrics: [
+      { label: "Qabulga yozilish vaqti", value: "-60%" },
+      { label: "Xatolar soni", value: "-75%" },
+    ],
   },
   {
     number: "04",
@@ -47,6 +89,19 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     image: healnixImg,
     alt: "Healnix comprehensive clinical data and hospital management dashboard",
     layout: "wide",
+    role: "Design System Lead & UX Architect",
+    platform: "Web Application / Desktop Dashboard",
+    type: "Hospital Management & Analytics",
+    overview:
+      "Shifoxona xodimlari va boshqaruvchilari uchun katta hajmdagi klinik ma'lumotlar, bemorlar oqimi va laboratoriya natijalarini real vaqtda tahlil qiluvchi boshqaruv paneli.",
+    challenge:
+      "Yuzlab parametrlar, grafiklar va jadval ma'lumotlarini operator ko'zini toliqtirmaydigan, o'ta aniq va tartibli axborot arxitekturasiga joylash.",
+    solution:
+      "Maxsus ishlab chiqilgan modul dizayn tizimi (Design System), moslashuvchan vidjetlar va qorong'u/yorug' rejimli yuqori zichlikdagi jadvallar.",
+    metrics: [
+      { label: "Ma'lumot qidirish tezligi", value: "3x tezroq" },
+      { label: "Dizayn komponentlari", value: "120+ Atom" },
+    ],
   },
 ];
 
@@ -81,3 +136,7 @@ export const APPROACH_STEPS: ApproachStep[] = [
     description: "Foydalanuvchilar bilan testlash, micro-interaksiyalarni sozlash va mukammallashtirish.",
   },
 ];
+
+export function findPortfolioProject(slug: string): ProjectItem | undefined {
+  return PORTFOLIO_PROJECTS.find((p) => p.slug === slug);
+}

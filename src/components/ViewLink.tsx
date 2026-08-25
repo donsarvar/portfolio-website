@@ -1,15 +1,19 @@
+import { Link } from "@tanstack/react-router";
+
 interface ViewLinkProps {
   hovered: boolean;
+  slug?: string;
   text?: string;
   style?: React.CSSProperties;
 }
 
 export function ViewLink({
   hovered,
+  slug,
   text = "View case study",
   style: customStyle,
 }: ViewLinkProps) {
-  return (
+  const content = (
     <div
       style={{
         display: "inline-flex",
@@ -42,4 +46,18 @@ export function ViewLink({
       </span>
     </div>
   );
+
+  if (slug) {
+    return (
+      <Link
+        to="/projects/$slug"
+        params={{ slug }}
+        style={{ textDecoration: "none", display: "inline-block" }}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }

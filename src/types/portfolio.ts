@@ -10,12 +10,15 @@ export interface ProjectItem {
   image: string;
   alt: string;
   layout: ProjectLayout;
-  externalLink?: string;
-  details?: {
-    overview?: string;
-    role?: string;
-    metrics?: { label: string; value: string }[];
-  };
+  liveUrl?: string;
+  role?: string;
+  platform?: string;
+  type?: string;
+  overview?: string;
+  challenge?: string;
+  solution?: string;
+  metrics?: { label: string; value: string }[];
+  gallery?: string[];
 }
 
 export interface CapabilityItem {

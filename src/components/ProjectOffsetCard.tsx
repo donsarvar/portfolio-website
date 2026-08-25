@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import type { ProjectItem } from "@/types/portfolio";
 import { useCursor } from "@/components/CustomCursor";
 import { ProjectMeta } from "./ProjectMeta";
@@ -25,48 +26,54 @@ export function ProjectOffsetCard({ project }: ProjectOffsetCardProps) {
         reset();
       }}
     >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          gap: "2rem",
-          alignItems: "start",
-        }}
-        className="offset-card-grid"
+      <Link
+        to="/projects/$slug"
+        params={{ slug: project.slug }}
+        style={{ textDecoration: "none", color: "inherit", display: "block" }}
       >
-        <div style={{ gridColumn: "1 / 5", gridRow: 1 }} className="offset-card-meta">
-          <ProjectMeta project={project} hovered={hovered} />
-          <ViewLink hovered={hovered} style={{ marginTop: "2rem" }} />
-        </div>
-
         <div
           style={{
-            gridColumn: "5 / 13",
-            borderRadius: 20,
-            overflow: "hidden",
-            border: "1px solid var(--border-color)",
-            background: "var(--surface)",
-            boxShadow: hovered
-              ? "0 24px 60px rgba(20, 20, 15, 0.09)"
-              : "0 12px 40px rgba(20, 20, 15, 0.05)",
-            transition: "box-shadow 400ms ease, border-color 300ms ease",
+            display: "grid",
+            gridTemplateColumns: "repeat(12, 1fr)",
+            gap: "2rem",
+            alignItems: "start",
           }}
-          className="offset-card-visual"
+          className="offset-card-grid"
         >
-          <img
-            src={project.image}
-            alt={project.alt}
-            loading="lazy"
+          <div style={{ gridColumn: "1 / 5", gridRow: 1 }} className="offset-card-meta">
+            <ProjectMeta project={project} hovered={hovered} />
+            <ViewLink hovered={hovered} slug={project.slug} style={{ marginTop: "2rem" }} />
+          </div>
+
+          <div
             style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-              transform: hovered ? "scale(1.015)" : "scale(1)",
-              transition: "transform 600ms cubic-bezier(0.16, 1, 0.3, 1)",
+              gridColumn: "5 / 13",
+              borderRadius: 20,
+              overflow: "hidden",
+              border: "1px solid var(--border-color)",
+              background: "var(--surface)",
+              boxShadow: hovered
+                ? "0 24px 60px rgba(20, 20, 15, 0.09)"
+                : "0 12px 40px rgba(20, 20, 15, 0.05)",
+              transition: "box-shadow 400ms ease, border-color 300ms ease",
             }}
-          />
+            className="offset-card-visual"
+          >
+            <img
+              src={project.image}
+              alt={project.alt}
+              loading="lazy"
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                transform: hovered ? "scale(1.015)" : "scale(1)",
+                transition: "transform 600ms cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
+            />
+          </div>
         </div>
-      </div>
+      </Link>
 
       <style>{`
         .offset-card-grid { display: flex !important; flex-direction: column !important; gap: 2rem !important; }
