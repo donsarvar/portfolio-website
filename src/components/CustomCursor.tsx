@@ -78,18 +78,14 @@ export function CursorProvider({ children }: { children: ReactNode }) {
       target.current = { x: e.clientX, y: e.clientY };
     };
 
-    const handleWindowLeave = () => reset();
-
     window.addEventListener("pointermove", onPointerMove, { passive: true });
-    window.addEventListener("blur", handleWindowLeave);
-    document.addEventListener("mouseleave", handleWindowLeave);
     raf = requestAnimationFrame(loop);
 
     function loop() {
-      pos.current.x += (target.current.x - pos.current.x) * 0.18;
-      pos.current.y += (target.current.y - pos.current.y) * 0.18;
-      slow.current.x += (target.current.x - slow.current.x) * 0.085;
-      slow.current.y += (target.current.y - slow.current.y) * 0.085;
+      pos.current.x += (target.current.x - pos.current.x) * 0.2;
+      pos.current.y += (target.current.y - pos.current.y) * 0.2;
+      slow.current.x += (target.current.x - slow.current.x) * 0.09;
+      slow.current.y += (target.current.y - slow.current.y) * 0.09;
 
       if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
@@ -102,11 +98,9 @@ export function CursorProvider({ children }: { children: ReactNode }) {
 
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("blur", handleWindowLeave);
-      document.removeEventListener("mouseleave", handleWindowLeave);
       cancelAnimationFrame(raf);
     };
-  }, [fine, reset]);
+  }, [fine]);
 
   const ringSize = variant === "view" ? 86 : variant === "open" ? 44 : 26;
 

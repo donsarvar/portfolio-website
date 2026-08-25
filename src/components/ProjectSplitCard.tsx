@@ -19,13 +19,13 @@ export function ProjectSplitCard({ project }: ProjectSplitCardProps) {
     lang === "ru" ? (project.name_ru ?? project.name) :
     project.name;
 
-  const handlePointerEnter = () => {
+  const handleEnter = () => {
     setHovered(true);
     setVariant("view", t("cursor_view"));
     setPreview({ src: project.image, label: displayName, sub: project.year });
   };
 
-  const handlePointerLeave = () => {
+  const handleLeave = () => {
     setHovered(false);
     reset();
   };
@@ -33,13 +33,17 @@ export function ProjectSplitCard({ project }: ProjectSplitCardProps) {
   return (
     <article
       data-cursor="project"
-      onPointerEnter={handlePointerEnter}
-      onPointerLeave={handlePointerLeave}
+      onPointerEnter={handleEnter}
+      onPointerLeave={handleLeave}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
     >
       <Link
         to="/projects/$slug"
         params={{ slug: project.slug }}
-        onClick={handlePointerLeave}
+        onClick={handleLeave}
+        onPointerEnter={handleEnter}
+        onMouseEnter={handleEnter}
         style={{ textDecoration: "none", color: "inherit", display: "block" }}
       >
         <div
