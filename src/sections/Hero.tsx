@@ -16,7 +16,7 @@ export function Hero() {
         justifyContent: "space-between",
         borderBottom: "1px solid var(--border-color)",
         overflow: "hidden",
-        paddingTop: "4.5rem", // Navbar height clearance
+        paddingTop: "5.5rem", // Navbar height clearance
         paddingBottom: "2.5rem",
       }}
     >
@@ -34,54 +34,49 @@ export function Hero() {
       />
 
       {/* Optical balance spacer */}
-      <div aria-hidden="true" style={{ height: "1rem" }} />
+      <div aria-hidden="true" style={{ height: "1.5rem" }} />
 
-      {/* Main split hero container */}
+      {/* Main hero container */}
       <div
         style={{
           maxWidth: 1460,
           margin: "0 auto",
           width: "100%",
           padding: "0 3.5rem",
-          display: "grid",
-          gridTemplateColumns: "1.85fr 1fr",
-          alignItems: "end",
-          gap: "3.5rem",
           position: "relative",
           zIndex: 1,
         }}
-        className="hero-split-grid"
+        className="hero-container"
       >
-        {/* Left Column: Big Headline */}
-        <div>
-          <h1
-            className="display-text"
-            style={{
-              fontSize: "clamp(2.35rem, 4.2vw, 4.25rem)",
-              color: "var(--foreground)",
-              lineHeight: 1.15,
-              whiteSpace: "pre-line",
-              letterSpacing: "-0.025em",
-            }}
-          >
-            {t("hero_greeting")}
-          </h1>
-        </div>
+        {/* Main headline - Full Grand Scale */}
+        <h1
+          className="display-text"
+          style={{
+            fontSize: "clamp(2.75rem, 5.8vw, 5.5rem)",
+            color: "var(--foreground)",
+            lineHeight: 1.12,
+            whiteSpace: "pre-line",
+            letterSpacing: "-0.03em",
+            marginBottom: "3.5rem",
+          }}
+        >
+          {t("hero_greeting")}
+        </h1>
 
-        {/* Right Column: Subtitle on top + CTA Buttons stacked directly underneath */}
+        {/* Subtitle & CTA buttons row - Perfectly aligned with large elements */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "1.75rem",
-            paddingBottom: "0.25rem",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "2.5rem",
           }}
-          className="hero-right-col"
+          className="hero-sub-row"
         >
           <p
             style={{
-              fontSize: "0.9375rem",
+              fontSize: "1rem",
               lineHeight: 1.6,
               color: "var(--fg-muted)",
               letterSpacing: "0.04em",
@@ -96,7 +91,7 @@ export function Hero() {
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "0.875rem",
+              gap: "1rem",
               alignItems: "center",
             }}
           >
@@ -112,12 +107,9 @@ export function Hero() {
       </div>
 
       <style>{`
-        .hero-split-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-        @media (min-width: 900px) {
-          .hero-split-grid { grid-template-columns: 1.35fr 1fr !important; gap: 4rem !important; }
-        }
         @media (max-width: 768px) {
-          .hero-split-grid { padding: 0 1.5rem !important; }
+          .hero-container { padding: 0 1.5rem !important; }
+          .hero-sub-row { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; }
         }
       `}</style>
     </section>
