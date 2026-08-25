@@ -78,9 +78,10 @@ export function Nav() {
                 color: "var(--foreground)",
                 fontWeight: 600,
                 letterSpacing: "0.12em",
+                textTransform: "uppercase",
               }}
             >
-              Sarvarbek Salimov
+              SARVARBEK SALIMOV
             </span>
           </Link>
 
