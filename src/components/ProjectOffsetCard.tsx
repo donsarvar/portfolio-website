@@ -12,6 +12,7 @@ interface ProjectOffsetCardProps {
 
 export function ProjectOffsetCard({ project }: ProjectOffsetCardProps) {
   const [hovered, setHovered] = useState(false);
+  const { setVariant, setPreview, reset } = useCursor();
   const { t, lang } = useI18n();
 
   const displayName =

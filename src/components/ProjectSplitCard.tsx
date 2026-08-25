@@ -12,6 +12,7 @@ interface ProjectSplitCardProps {
 
 export function ProjectSplitCard({ project }: ProjectSplitCardProps) {
   const [hovered, setHovered] = useState(false);
+  const { setVariant, setPreview, reset } = useCursor();
   const { t, lang } = useI18n();
 
   const displayName =

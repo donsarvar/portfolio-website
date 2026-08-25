@@ -91,7 +91,19 @@ export function CursorProvider({ children }: { children: ReactNode }) {
         ringRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
       }
       if (previewRef.current) {
-        previewRef.current.style.transform = `translate3d(${slow.current.x + 28}px, ${slow.current.y + 24}px, 0)`;
+        const cardWidth = 260;
+        const cardHeight = 180;
+        let px = slow.current.x + 28;
+        let py = slow.current.y + 24;
+        if (typeof window !== "undefined") {
+          if (px + cardWidth > window.innerWidth - 20) {
+            px = slow.current.x - cardWidth - 28;
+          }
+          if (py + cardHeight > window.innerHeight - 20) {
+            py = slow.current.y - cardHeight - 24;
+          }
+        }
+        previewRef.current.style.transform = `translate3d(${px}px, ${py}px, 0)`;
       }
       raf = requestAnimationFrame(loop);
     }
