@@ -44,7 +44,7 @@ export function Hero() {
           width: "100%",
           padding: "0 3.5rem",
           display: "grid",
-          gridTemplateColumns: "1.35fr 1fr",
+          gridTemplateColumns: "1.55fr 1fr",
           alignItems: "end",
           gap: "4rem",
           position: "relative",

@@ -261,7 +261,7 @@ const dict = {
     contact_cta: "Bog'lanish",
 
     // Hero
-    hero_greeting: "Dizayn qanchalik\nyaxshi bo‘lsa,\nshunchalik\ntushunarli bo‘lishi kerak.",
+    hero_greeting: "Dizayn qanchalik\nyaxshi bo‘lsa, shunchalik\ntushunarli bo‘lishi kerak.",
     hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
     hero_cta: "Ishlarni ko'rish",
     hero_secondary: "Bog'lanish",
