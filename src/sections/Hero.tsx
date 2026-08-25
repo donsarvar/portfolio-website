@@ -46,32 +46,6 @@ export function Hero() {
         className="hero-container"
       >
         <div style={{ maxWidth: 880 }}>
-          {/* Eyebrow metadata */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: "2rem",
-              marginBottom: "2.5rem",
-              animation: "heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
-            }}
-          >
-            <span className="eyebrow" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <span
-                style={{
-                  width: 5,
-                  height: 5,
-                  borderRadius: "50%",
-                  background: "var(--accent)",
-                  display: "inline-block",
-                }}
-              />
-              Product Designer
-            </span>
-            <span className="eyebrow">Tashkent, UZ</span>
-          </div>
-
           {/* Main headline */}
           <h1
             className="display-text"
