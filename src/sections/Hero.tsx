@@ -44,9 +44,9 @@ export function Hero() {
           width: "100%",
           padding: "0 3.5rem",
           display: "grid",
-          gridTemplateColumns: "1.55fr 1fr",
+          gridTemplateColumns: "1.85fr 1fr",
           alignItems: "end",
-          gap: "4rem",
+          gap: "3.5rem",
           position: "relative",
           zIndex: 1,
         }}
@@ -57,11 +57,11 @@ export function Hero() {
           <h1
             className="display-text"
             style={{
-              fontSize: "clamp(2.75rem, 5.8vw, 5.5rem)",
+              fontSize: "clamp(2.35rem, 4.2vw, 4.25rem)",
               color: "var(--foreground)",
-              lineHeight: 1.14,
+              lineHeight: 1.15,
               whiteSpace: "pre-line",
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.025em",
             }}
           >
             {t("hero_greeting")}
