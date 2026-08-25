@@ -1,268 +1,170 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
-import { useState } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { ProjectMockup } from "@/components/ProjectMockup";
-import { LikeButton } from "@/components/LikeButton";
-import { FeedbackModal } from "@/components/FeedbackModal";
-import { findProject, projects } from "@/lib/projects";
-import { useI18n } from "@/lib/i18n";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/sections/Footer";
+import { CaseStudyMeta } from "@/components/CaseStudyMeta";
+import { CaseStudyContent } from "@/components/CaseStudyContent";
+import { CaseStudyMetrics } from "@/components/CaseStudyMetrics";
+import { CaseStudyNext } from "@/components/CaseStudyNext";
+import { PORTFOLIO_PROJECTS, findPortfolioProject } from "@/data/portfolioData";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
-    const project = findProject(params.slug);
+    const project = findPortfolioProject(params.slug);
     if (!project) throw notFound();
     return { project };
   },
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.project.title} — Case Study` },
-          { name: "description", content: "Case study" },
-          { property: "og:title", content: `${loaderData.project.title} — Case Study` },
-          { property: "og:description", content: "Case study" },
+          { title: `${loaderData.project.name} — Case Study` },
+          { name: "description", content: loaderData.project.descriptor },
+          { property: "og:title", content: `${loaderData.project.name} — Case Study` },
+          { property: "og:description", content: loaderData.project.descriptor },
         ]
       : [],
   }),
   notFoundComponent: () => (
-    <div className="min-h-screen grid place-items-center">
-      <p className="text-muted-foreground">Project not found.</p>
-    </div>
-  ),
-  errorComponent: ({ error }) => (
-    <div className="min-h-screen grid place-items-center text-center px-4">
-      <div>
-        <p className="text-muted-foreground">{error.message}</p>
-        <Link to="/" className="mt-4 inline-block underline">Go home</Link>
+    <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "var(--background)" }}>
+      <div style={{ textAlign: "center" }}>
+        <p className="meta-label">Project not found.</p>
+        <Link to="/" style={{ marginTop: "1rem", display: "inline-block", color: "var(--accent)" }}>
+          Back to home
+        </Link>
       </div>
     </div>
   ),
-  component: CaseStudy,
+  component: CaseStudyPage,
 });
 
-function CaseStudy() {
+function CaseStudyPage() {
   const { project } = Route.useLoaderData();
-  const { t } = useI18n();
-  const [feedbackOpen, setFeedbackOpen] = useState(false);
-  const [dashboardTheme, setDashboardTheme] = useState<"dark" | "light">("dark");
-
-  const next = projects[(projects.findIndex((p) => p.slug === project.slug) + 1) % projects.length];
+  const currentIndex = PORTFOLIO_PROJECTS.findIndex((p) => p.slug === project.slug);
+  const nextProject = PORTFOLIO_PROJECTS[(currentIndex + 1) % PORTFOLIO_PROJECTS.length];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div style={{ minHeight: "100vh", background: "var(--background)" }}>
+      <Nav />
 
-      <article className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-12">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-          <ArrowLeft className="h-4 w-4" /> {t("back_to_work")}
+      <main style={{ maxWidth: 1200, margin: "0 auto", padding: "8rem 2.5rem 6rem" }}>
+        {/* Back Link */}
+        <Link
+          to="/"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            textDecoration: "none",
+            color: "var(--fg-muted)",
+            fontSize: "0.8125rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            fontWeight: 500,
+          }}
+        >
+          <span>←</span>
+          <span>Ishlarga qaytish</span>
         </Link>
 
-        <header className="mt-10">
-          <motion.h1
-            initial={{ y: 16, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance text-4xl sm:text-6xl font-semibold tracking-[-0.03em] leading-[1.05]"
-          >
-            {project.slug === "tashkent-parks" ? (
-              <a 
-                href="https://tashkentparks.uz" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 hover:text-primary transition-colors duration-300"
-              >
-                {project.title}
-                <svg 
-                  className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor" 
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            ) : (
-              project.title
-            )}
-          </motion.h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted-foreground leading-relaxed">{t(project.summaryKey)}</p>
+        {/* Header with Title & Live Link Button */}
+        <header
+          style={{
+            marginTop: "2.5rem",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: "2rem",
+          }}
+        >
+          <div>
+            <span className="meta-label" style={{ color: "var(--accent)", marginBottom: "0.5rem", display: "block" }}>
+              {project.number} · {project.descriptor}
+            </span>
+            <h1
+              className="display-text"
+              style={{
+                fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)",
+                color: "var(--foreground)",
+              }}
+            >
+              {project.name}
+            </h1>
+          </div>
+
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="cta"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.625rem",
+                padding: "0.875rem 1.625rem",
+                borderRadius: 13,
+                background: "var(--foreground)",
+                color: "var(--elevated)",
+                textDecoration: "none",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                boxShadow: "0 8px 24px rgba(23, 23, 22, 0.12)",
+                transition: "transform 250ms ease",
+              }}
+            >
+              <span>Live Website</span>
+              <span>↗</span>
+            </a>
+          )}
         </header>
 
-        {/* Meta */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-3xl bg-hairline">
-          {[
-            [t("role"), t(project.roleKey)],
-            [t("year"), project.year],
-            [t("platform"), t(project.platformKey)],
-            [t("type"), t(project.typeKey)],
-          ].map(([k, v]) => (
-            <div key={k} className="bg-surface p-5">
-              <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{k}</div>
-              <div className="mt-1.5 text-sm font-semibold">{v}</div>
-            </div>
-          ))}
+        {/* Metadata Grid */}
+        <CaseStudyMeta project={project} />
+
+        {/* Browser Frame Mockup */}
+        <div
+          style={{
+            marginTop: "3.5rem",
+            borderRadius: 22,
+            overflow: "hidden",
+            border: "1px solid var(--border-color)",
+            background: "var(--surface)",
+            boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
+          }}
+        >
+          <div
+            style={{
+              padding: "0.75rem 1.25rem",
+              background: "rgba(255, 255, 255, 0.4)",
+              borderBottom: "1px solid var(--border-color)",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
+            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
+            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
+          </div>
+          <img src={project.image} alt={project.alt} style={{ width: "100%", height: "auto", display: "block" }} />
         </div>
 
-        {/* Hero mockup */}
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mt-8 overflow-hidden rounded-[28px] hairline shadow-card bg-surface flex flex-col"
-        >
-          {/* Browser Header Bar */}
-          <div className="grid grid-cols-[80px_1fr_80px] sm:grid-cols-3 items-center px-4 py-2 bg-surface-2/85 border-b border-hairline shrink-0 gap-2">
-            {/* Left: Traffic Lights */}
-            <div className="flex items-center gap-1.5 shrink-0">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56] shrink-0" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E] shrink-0" />
-              <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F] shrink-0" />
-            </div>
+        {/* 3-Column Content (Overview / Challenge / Solution) */}
+        <CaseStudyContent
+          overview={project.overview}
+          challenge={project.challenge}
+          solution={project.solution}
+        />
 
-            {/* Center: Address Bar */}
-            <div className="mx-auto bg-surface px-4 py-0.5 sm:py-1 rounded-md text-[10px] text-muted-foreground font-mono truncate w-full max-w-[220px] text-center border border-hairline/60">
-              {project.slug === "tashkent-parks" ? "tashkentparks.uz/catalog" : project.slug === "atlas-medical" ? "atlas-medical/medicines" : ""}
-            </div>
+        {/* Metrics Grid */}
+        <CaseStudyMetrics metrics={project.metrics} />
 
-            {/* Right: Switcher */}
-            <div className="flex justify-end shrink-0">
-              {project.slug === "atlas-medical" && (
-                <div className="flex items-center gap-0.5 bg-surface/80 p-0.5 rounded-lg border border-hairline shrink-0">
-                  <button
-                    onClick={() => setDashboardTheme("dark")}
-                    className={`px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide transition-all ${
-                      dashboardTheme === "dark"
-                        ? "bg-foreground text-background shadow-sm"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    Dark
-                  </button>
-                  <button
-                    onClick={() => setDashboardTheme("light")}
-                    className={`px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide transition-all ${
-                      dashboardTheme === "light"
-                        ? "bg-foreground text-background shadow-sm"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    Light
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
+        {/* Next Project Transition */}
+        <CaseStudyNext nextProject={nextProject} />
+      </main>
 
-          <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0A0D14]">
-            {project.slug === "tashkent-parks" ? (
-              <img
-                src="/tashkentparks_inner.jpg"
-                alt={project.title}
-                className="h-full w-full object-cover object-top"
-              />
-            ) : project.slug === "atlas-medical" ? (
-              <img
-                src={dashboardTheme === "dark" ? "/atlas_medical_dark.png" : "/atlas_medical_light.png"}
-                alt={project.title}
-                className="h-full w-full object-cover object-top transition-all duration-300"
-              />
-            ) : (
-              <ProjectMockup accent={project.accent} variant="dashboard" className="h-full w-full" />
-            )}
-          </div>
-        </motion.div>
-
-        {/* Metrics */}
-        <section className="mt-12 grid sm:grid-cols-3 gap-4">
-          {project.metrics.map((m) => (
-            <div key={m.labelKey} className="rounded-3xl bg-surface hairline p-6 shadow-card">
-              <div className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">{t(m.valueKey)}</div>
-              <div className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">{t(m.labelKey)}</div>
-            </div>
-          ))}
-        </section>
-
-        {/* Overview */}
-        <section className="mt-12 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("overview")}</h2>
-          <div className="space-y-6 text-lg leading-relaxed text-foreground/90">
-            <p>{t(project.challengeKey)}</p>
-            <p className="text-muted-foreground">{t(project.outcomeKey)}</p>
-          </div>
-        </section>
-
-        {/* Process */}
-        <section className="mt-12 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("process")}</h2>
-          <div className="rounded-3xl bg-surface hairline p-7 shadow-card">
-            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight">{t("process_title")}</h3>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t("process_body")}</p>
-          </div>
-        </section>
-
-        {/* Mobile Showcase */}
-        {project.slug === "tashkent-parks" && (
-          <section className="mt-12 grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-12">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t("mobile_interface")}</h2>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto w-full">
-              {[
-                { src: "/tashkentparks_vr_mobile1.png", alt: "VR view close" },
-                { src: "/tashkentparks_vr_mobile2.png", alt: "VR view distance" },
-                { src: "/tashkentparks_vr_mobile3.jpg", alt: "VR view lake" },
-                { src: "/tashkentparks_vr_mobile4.png", alt: "VR view park pathway" }
-              ].map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative aspect-[9/19.5] overflow-hidden rounded-[24px] sm:rounded-[32px] border border-zinc-200/80 dark:border-zinc-800/80 shadow-[0_12px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_24px_48px_rgba(0,0,0,0.4)] w-full max-w-[260px] mx-auto bg-zinc-100 dark:bg-zinc-950 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_32px_64px_rgba(0,0,0,0.6)]"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Interactive */}
-        <section className="mt-16 flex flex-col items-center gap-4">
-          <LikeButton slug={project.slug} title={project.title} />
-          <button
-            onClick={() => setFeedbackOpen(true)}
-            className="text-sm font-medium text-muted-foreground underline-offset-4 hover:underline hover:text-foreground transition-colors"
-          >
-            {t("leave_feedback")}
-          </button>
-        </section>
-
-        {/* Next */}
-        {projects.length > 1 && next.slug !== project.slug && (
-          <section className="mt-16 pt-8 border-t border-hairline">
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Next</span>
-            <Link
-              to="/projects/$slug"
-              params={{ slug: next.slug }}
-              className="mt-3 group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4"
-            >
-              <h3 className="truncate text-3xl sm:text-4xl font-semibold tracking-tight group-hover:text-primary transition-colors">
-                {next.title}
-              </h3>
-              <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full hairline bg-surface group-hover:bg-foreground group-hover:text-background transition-all">
-                →
-              </span>
-            </Link>
-          </section>
-        )}
-      </article>
-
-      <FeedbackModal open={feedbackOpen} onClose={() => setFeedbackOpen(false)} projectSlug={project.slug} />
       <Footer />
     </div>
   );
