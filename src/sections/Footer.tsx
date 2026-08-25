@@ -101,9 +101,6 @@ export function Footer() {
           <span className="meta-label" style={{ color: "var(--fg-subtle)" }}>
             © 2026 Sarvarbek Salimov. {t("footer_rights")}
           </span>
-          <span className="meta-label" style={{ color: "var(--fg-subtle)" }}>
-            {t("footer_city")}
-          </span>
         </div>
       </div>
 
