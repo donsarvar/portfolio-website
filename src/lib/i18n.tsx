@@ -4,40 +4,62 @@ export type Lang = "uz" | "ru" | "en";
 
 const dict = {
   en: {
+    // Navigation
     nav_work: "Work",
     nav_about: "About",
     nav_contact: "Contact",
+    contact_cta: "Contact",
+
+    // Hero
     hero_greeting: "Simple solutions for complex digital products.",
     hero_subtitle: "UI/UX Designer based in Tashkent — designing digital products for web and mobile platforms.",
     hero_cta: "See selected work",
     hero_secondary: "Get in touch",
-    hero_available: "Open to new opportunities · 2026",
+
+    // Selected Work
     work_title: "Selected Work",
-    work_subtitle: "A curated set of case studies across web, mobile and product design.",
-    back_to_work: "Back to work",
-    overview: "Overview",
-    role: "Role",
-    year: "Year",
-    platform: "Platform",
-    type: "Type",
-    proj_tp_role: "UI/UX Designer & Researcher",
-    proj_tp_platform: "Web (Fully Responsive)",
-    proj_tp_type: "Interface Design",
-    process: "Process",
-    process_title: "Process",
-    process_body: "Initial wireframes and visual flows drafted for testing. UI/UX logic, user flows, and final interface strictly designed and optimized for human accessibility and business requirements.",
-    mobile_interface: "Mobile Interface",
-    before_after: "Before & After",
-    before: "Before",
-    after: "After",
+    work_subtitle: "Curated digital products and user experience case studies.",
+    view_case_study: "View case study",
+    next_project: "Next Project",
+    back_to_work: "Back to selected work",
+
+    // Case study labels
+    meta_role: "Role",
+    meta_year: "Year",
+    meta_platform: "Platform",
+    meta_category: "Category",
+    sec_overview: "Overview",
+    sec_challenge: "Challenge",
+    sec_solution: "Solution",
+
+    // About Section (Home)
+    about_eyebrow: "About",
+    about_heading: "Transforming complex systems and digital products into simple, intuitive interfaces.",
+    about_full_bio: "Full bio",
+
+    // Approach Section
+    approach_eyebrow: "Approach",
+    approach_1_title: "Understand",
+    approach_1_desc: "Deep research into user behavior, business objectives, and technical constraints.",
+    approach_2_title: "Structure",
+    approach_2_desc: "Information architecture, user journey maps, and structured wireframing.",
+    approach_3_title: "Design",
+    approach_3_desc: "Visual design systems, typographic rhythm, and interactive prototyping.",
+    approach_4_title: "Refine",
+    approach_4_desc: "User testing, micro-interaction polishing, and design system scaling.",
+
+    // Contact Section
+    contact_eyebrow: "Contact",
+    contact_heading: "Let's build meaningful products together.",
+    contact_subtitle: "Available for new projects, design systems, and product consulting.",
+    contact_btn: "Get in touch",
+
+    // Cursor
+    cursor_view: "VIEW",
+    cursor_open: "OPEN",
+
+    // Feedback & Likes
     like: "Like",
-    metric_format: "Format",
-    metric_responsiveness: "Responsiveness",
-    metric_status: "Status",
-    val_mobile_pc: "Mobile + PC",
-    val_concept: "Concept",
-    val_launched: "Launched",
-    val_360_vr: "360° VR",
     leave_feedback: "Leave Feedback",
     feedback_title: "Leave feedback",
     feedback_desc: "Thoughts, critique, or an opportunity — it all lands directly in my inbox.",
@@ -50,22 +72,18 @@ const dict = {
     sending: "Sending…",
     sent: "Sent — thank you.",
     error: "Something went wrong. Try again.",
+
+    // Footer
     footer_rights: "All rights reserved.",
-    footer_built: "Designed & built in Tashkent.",
-    cat_mobile: "Mobile App",
-    cat_fintech: "Fintech",
-    cat_redesign: "Redesign",
-    cat_saas: "SaaS",
-    cat_web: "Web Platform",
-    cat_branding: "Product Design",
-    cat_portal: "Virtual Portal",
+    footer_city: "Tashkent, UZ",
+
+    // Full About Page
     about_title: "I design digital products that people love to use.",
     about_bio: "I'm a product designer passionate about creating accessible, beautiful, and functional interfaces. I focus on bridging the gap between business goals and user needs.",
     about_experience: "Experience",
     about_education: "Education",
     about_interests: "Interests",
     about_connect: "Connect",
-    about_view_resume: "View Resume",
     about_present: "Present",
     about_location: "Tashkent, Uzbekistan",
     about_role_designer: "UI/UX Designer",
@@ -82,57 +100,91 @@ const dict = {
     interest_running: "Vibe Coding",
     interest_books: "No-Code Web Build",
     interest_hiking: "AI Prompts",
-    proj_tp_summary: "Design of a virtual platform showcasing parks and green zones of Tashkent city.",
-    proj_tp_challenge: "A project designed to consolidate Tashkent city's parks into a single platform, offering citizens and tourists a virtual tour. The platform helps users explore the parks' atmosphere, amenities, and locations before visiting in person.",
-    proj_tp_outcome: "Designed an intuitive interface allowing users to explore 360° panoramas, interactive maps, and detailed guides from any distance. This streamlined the process of planning park visits.",
+
+    // Legacy/Old schema support
+    cat_portal: "Virtual Portal",
     cat_admin_panel: "Admin Panel",
-    proj_am_role: "UI/UX Designer (Concept)",
-    proj_am_platform: "Web (Desktop Only)",
+    proj_tp_role: "UI/UX Designer & Researcher",
+    proj_tp_platform: "Web (Fully Responsive)",
+    proj_tp_type: "Interface Design",
+    proj_tp_summary: "Design of a virtual platform showcasing parks and green zones of Tashkent city.",
+    proj_tp_challenge: "Consolidate Tashkent city's parks into a single platform offering virtual tours.",
+    proj_tp_outcome: "Designed an intuitive 360° VR interface.",
+    proj_am_role: "UI/UX Designer",
+    proj_am_platform: "Web (Desktop)",
     proj_am_type: "Interface Design",
-    proj_am_summary: "High-fidelity UI concept for a medical and pharmaceutical database management dashboard.",
-    proj_am_challenge: "The challenge was to design a clean, highly structured, and readable dashboard interface for pharmaceutical catalog management, ensuring clear hierarchy and ease of database operations for medical professionals.",
-    proj_am_outcome: "Designed a premium dark and light mode dashboard concept focusing on catalog statistics and a clean database view, highlighting clean visual contrast and a modular UI/UX system.",
+    proj_am_summary: "High-fidelity UI concept for a medical database management dashboard.",
+    proj_am_challenge: "Design a clean dashboard for pharmaceutical catalog management.",
+    proj_am_outcome: "Designed a premium dashboard concept.",
+    metric_format: "Format",
+    metric_responsiveness: "Responsiveness",
+    metric_status: "Status",
     metric_platform: "Platform",
     metric_type: "Type",
+    val_360_vr: "360° VR",
+    val_mobile_pc: "Mobile + PC",
+    val_launched: "Launched",
     val_web: "Web",
     val_concept_design: "Interface Design",
     val_in_progress: "In progress",
   },
   ru: {
+    // Navigation
     nav_work: "Работы",
     nav_about: "Обо мне",
     nav_contact: "Контакты",
+    contact_cta: "Связаться",
+
+    // Hero
     hero_greeting: "Простые решения для сложных цифровых продуктов.",
-    hero_subtitle: "UI/UX дизайнер из Ташкента — разрабатываю цифровые продукты для веб и мобильных платформ.",
+    hero_subtitle: "UI/UX дизайнер из Ташкента — проектирую цифровые продукты для веб и мобильных платформ.",
     hero_cta: "Смотреть работы",
     hero_secondary: "Связаться",
-    hero_available: "Yangi imkoniyatlarga ochiqman · 2026",
+
+    // Selected Work
     work_title: "Избранные работы",
     work_subtitle: "Подборка кейсов: веб, мобильные и продуктовый дизайн.",
-    back_to_work: "К работам",
-    overview: "Обзор",
-    role: "Роль",
-    year: "Год",
-    platform: "Платформа",
-    type: "Тип",
-    proj_tp_role: "UI/UX дизайнер и исследователь",
-    proj_tp_platform: "Веб (Полная адаптивность)",
-    proj_tp_type: "Дизайн интерфейса",
-    process: "Процесс",
-    process_title: "Процесс",
-    process_body: "Начальные вайрфреймы и пользовательские сценарии протестированы на удобство. UI/UX логика и финальный интерфейс полностью спроектированы и оптимизированы под стандарты доступности и бизнес-требования.",
-    mobile_interface: "Мобильный интерфейс",
-    before_after: "До и После",
-    before: "До",
-    after: "После",
+    view_case_study: "Смотреть кейс",
+    next_project: "Следующий проект",
+    back_to_work: "К списку работ",
+
+    // Case study labels
+    meta_role: "Роль",
+    meta_year: "Год",
+    meta_platform: "Платформа",
+    meta_category: "Категория",
+    sec_overview: "Обзор",
+    sec_challenge: "Задача",
+    sec_solution: "Решение",
+
+    // About Section (Home)
+    about_eyebrow: "Обо мне",
+    about_heading: "Превращаю сложные системы и цифровые продукты в простые и удобные интерфейсы.",
+    about_full_bio: "Полная биография",
+
+    // Approach Section
+    approach_eyebrow: "Подход",
+    approach_1_title: "Понимание",
+    approach_1_desc: "Глубокое исследование потребностей пользователей, целей бизнеса и технических рамок.",
+    approach_2_title: "Структура",
+    approach_2_desc: "Информационная архитектура, сценарии пользователей и четкие прототипы.",
+    approach_3_title: "Дизайн",
+    approach_3_desc: "Визуальные дизайн-системы, типографический ритм и интерактивные прототипы.",
+    approach_4_title: "Доработка",
+    approach_4_desc: "Тестирование с пользователями, доводка микро-взаимодействий и масштабирование.",
+
+    // Contact Section
+    contact_eyebrow: "Контакты",
+    contact_heading: "Давайте создадим отличный продукт вместе.",
+    contact_subtitle: "Открыт для новых проектов, сложных систем и продуктовых задач.",
+    contact_btn: "Связаться",
+
+    // Cursor
+    cursor_view: "СМОТРЕТЬ",
+    cursor_open: "ОТКРЫТЬ",
+
+    // Feedback & Likes
     like: "Нравится",
-    metric_format: "Формат",
-    metric_responsiveness: "Адаптивность",
-    metric_status: "Статус",
-    val_mobile_pc: "Моб. устройства + ПК",
-    val_concept: "Концепт",
-    val_launched: "Запущен",
-    val_360_vr: "360° VR",
     leave_feedback: "Оставить отзыв",
     feedback_title: "Оставить отзыв",
     feedback_desc: "Мысли, критика или предложение — всё придёт прямо мне.",
@@ -145,22 +197,18 @@ const dict = {
     sending: "Отправка…",
     sent: "Отправлено — спасибо.",
     error: "Что-то пошло не так. Попробуйте ещё раз.",
+
+    // Footer
     footer_rights: "Все права защищены.",
-    footer_built: "Создано в Ташкенте.",
-    cat_mobile: "Мобильное приложение",
-    cat_fintech: "Финтех",
-    cat_redesign: "Редизайн",
-    cat_saas: "SaaS",
-    cat_web: "Веб платформа",
-    cat_branding: "Продуктовый дизайн",
-    cat_portal: "Виртуальный портал",
+    footer_city: "Ташкент, UZ",
+
+    // Full About Page
     about_title: "Я создаю цифровые продукты, которыми удобно пользоваться.",
     about_bio: "Я продуктовый дизайнер, увлеченный созданием доступных, красивых и функциональных интерфейсов. Моя цель — соединить бизнес-задачи и потребности пользователей.",
     about_experience: "Опыт работы",
     about_education: "Образование",
     about_interests: "Интересы",
     about_connect: "Связаться",
-    about_view_resume: "Смотреть резюме",
     about_present: "Настоящее время",
     about_location: "Ташкент, Узбекистан",
     about_role_designer: "UI/UX дизайнер",
@@ -177,57 +225,91 @@ const dict = {
     interest_running: "Вайб-кодинг",
     interest_books: "No-Code разработка",
     interest_hiking: "AI Промптинг",
-    proj_tp_summary: "Дизайн виртуальной платформы для прогулок по паркам и зеленым зонам Ташкента.",
-    proj_tp_challenge: "Проект, созданный для объединения парков Ташкента на единой платформе и предоставления жителям и туристам возможности виртуального тура. Платформа помогает пользователям изучить атмосферу, удобства и расположение парков перед личным посещением.",
-    proj_tp_outcome: "Создан удобный интерфейс, позволяющий пользователям просматривать 360° панорамы, интерактивные карты и детальные гиды на любом расстоянии, что значительно упростило планирование посещения парков.",
+
+    // Legacy/Old schema support
+    cat_portal: "Виртуальный портал",
     cat_admin_panel: "Панель управления",
-    proj_am_role: "UI/UX дизайнер (Концепт)",
-    proj_am_platform: "Веб (Только ПК)",
+    proj_tp_role: "UI/UX дизайнер и исследователь",
+    proj_tp_platform: "Веб (Полная адаптивность)",
+    proj_tp_type: "Дизайн интерфейса",
+    proj_tp_summary: "Дизайн виртуальной платформы для прогулок по паркам и зеленым зонам Ташкента.",
+    proj_tp_challenge: "Объединение парков Ташкента на единой платформе.",
+    proj_tp_outcome: "Создан удобный 360° VR интерфейс.",
+    proj_am_role: "UI/UX дизайнер",
+    proj_am_platform: "Веб (ПК)",
     proj_am_type: "Дизайн интерфейса",
-    proj_am_summary: "Интерфейсный концепт панели управления для медицинских баз данных и учета лекарственных средств.",
-    proj_am_challenge: "Задача заключалась в создании чистого, высокоструктурированного и удобного интерфейса для фармацевтического каталога, обеспечивающего понятную иерархию данных и простоту управления базой для медицинских специалистов.",
-    proj_am_outcome: "Разработан концепт панели управления премиум-класса с поддержкой темной и светлой тем, ориентированный на статистику каталога и чистый табличный вид, демонстрирующий проработку контрастов и модульного UI/UX.",
+    proj_am_summary: "Интерфейсный концепт панели управления для медицинских баз данных.",
+    proj_am_challenge: "Интерфейс для фармацевтического каталога.",
+    proj_am_outcome: "Разработан концепт панели управления.",
+    metric_format: "Формат",
+    metric_responsiveness: "Адаптивность",
+    metric_status: "Статус",
     metric_platform: "Платформа",
     metric_type: "Тип",
+    val_360_vr: "360° VR",
+    val_mobile_pc: "Моб. + ПК",
+    val_launched: "Запущен",
     val_web: "Веб",
     val_concept_design: "Дизайн интерфейса",
     val_in_progress: "В процессе",
   },
   uz: {
+    // Navigation
     nav_work: "Ishlar",
     nav_about: "Men haqimda",
     nav_contact: "Aloqa",
+    contact_cta: "Bog'lanish",
+
+    // Hero
     hero_greeting: "Murakkab tizimlar uchun sodda va qulay yechimlar yarataman.",
     hero_subtitle: "Toshkentlik UI/UX dizayner — veb va mobil platformalar uchun raqamli mahsulotlar yarataman.",
-    hero_cta: "Ishlarni ko‘rish",
-    hero_secondary: "Bog‘lanish",
-    hero_available: "Yangi imkoniyatlarga ochiqman · 2026",
+    hero_cta: "Ishlarni ko'rish",
+    hero_secondary: "Bog'lanish",
+
+    // Selected Work
     work_title: "Tanlangan ishlar",
-    work_subtitle: "Veb, mobil va mahsulot dizaynidagi ishlar to'plami.",
+    work_subtitle: "Veb, mobil va raqamli mahsulotlar uchun tanlangan ishlar.",
+    view_case_study: "Keysni ko'rish",
+    next_project: "Keyingi loyiha",
     back_to_work: "Ishlarga qaytish",
-    overview: "Umumiy",
-    role: "Rol",
-    year: "Yil",
-    platform: "Platforma",
-    type: "Turi",
-    proj_tp_role: "UI/UX dizayner va tadqiqotchi",
-    proj_tp_platform: "Veb (To'liq moslashuvchan)",
-    proj_tp_type: "Interfeys dizayni",
-    process: "Jarayon",
-    process_title: "Jarayon",
-    process_body: "Dastlabki wireframe'lar va vizual oqimlar (user flows) sinovdan o'tkazildi. UI/UX mantiq, foydalanuvchi yo'llari va yakuniy interfeys inson omili hamda biznes talablariga mos ravishda to'liq ishlab chiqildi.",
-    mobile_interface: "Mobil interfeys",
-    before_after: "Oldin va Keyin",
-    before: "Oldin",
-    after: "Keyin",
+
+    // Case study labels
+    meta_role: "Rol",
+    meta_year: "Yil",
+    meta_platform: "Platforma",
+    meta_category: "Kategoriya",
+    sec_overview: "Loyiha haqida",
+    sec_challenge: "Muammo",
+    sec_solution: "Yechim",
+
+    // About Section (Home)
+    about_eyebrow: "Men haqimda",
+    about_heading: "Murakkab tizimlar, raqamli mahsulotlar va foydalanuvchi tajribasini sodda va tushunarli interfeyslarga aylantiraman.",
+    about_full_bio: "To'liq bio",
+
+    // Approach Section
+    approach_eyebrow: "Yondashuv",
+    approach_1_title: "Tushunish",
+    approach_1_desc: "Foydalanuvchi xulq-atvori, biznes talablari va texnik imkoniyatlarni chuqur o'rganish.",
+    approach_2_title: "Tuzilma",
+    approach_2_desc: "Informatsion arxitektura, foydalanuvchi ssenariylari va wireframe'larni qat'iy rejalashtirish.",
+    approach_3_title: "Dizayn",
+    approach_3_desc: "Vizual tizim, tipografik ritm va yuqori darajadagi interaktiv prototiplarni yaratish.",
+    approach_4_title: "Sayqallash",
+    approach_4_desc: "Foydalanuvchilar bilan testlash, micro-interaksiyalarni sozlash va mukammallashtirish.",
+
+    // Contact Section
+    contact_eyebrow: "Bog'lanish",
+    contact_heading: "Yaxshi mahsulot yaratish haqida gaplashamiz.",
+    contact_subtitle: "Yangi loyiha, raqamli mahsulot yoki murakkab tizim ustida ishlash uchun bog'laning.",
+    contact_btn: "Bog'lanish",
+
+    // Cursor
+    cursor_view: "KO'RISH",
+    cursor_open: "OCHISH",
+
+    // Feedback & Likes
     like: "Yoqdi",
-    metric_format: "Format",
-    metric_responsiveness: "Moslashuvchanlik",
-    metric_status: "Holati",
-    val_mobile_pc: "Mobil + Kompyuter",
-    val_concept: "Konsept",
-    val_launched: "Ishga tushirilgan",
-    val_360_vr: "360° VR",
     leave_feedback: "Fikr qoldirish",
     feedback_title: "Fikr qoldiring",
     feedback_desc: "Fikr, tanqid yoki taklif — to‘g‘ridan-to‘g‘ri menga keladi.",
@@ -240,22 +322,18 @@ const dict = {
     sending: "Yuborilmoqda…",
     sent: "Yuborildi — rahmat.",
     error: "Xatolik yuz berdi. Qayta urinib ko‘ring.",
+
+    // Footer
     footer_rights: "Barcha huquqlar himoyalangan.",
-    footer_built: "Toshkentda yaratilgan.",
-    cat_mobile: "Mobil ilova",
-    cat_fintech: "Fintech",
-    cat_redesign: "Redizayn",
-    cat_saas: "SaaS",
-    cat_web: "Veb platforma",
-    cat_branding: "Mahsulot dizayni",
-    cat_portal: "Virtual portal",
+    footer_city: "Toshkent, UZ",
+
+    // Full About Page
     about_title: "Foydalanuvchilar sevib ishlatadigan raqamli mahsulotlar yarataman.",
     about_bio: "Men qulay, chiroyli va foydali interfeyslar yaratishga qiziqadigan mahsulot dizayneriman. Mening maqsadim biznes talablari va foydalanuvchi ehtiyojlarini birlashtirishdir.",
     about_experience: "Ish tajribasi",
     about_education: "Ta'lim",
     about_interests: "Qiziqishlar",
     about_connect: "Bog'lanish",
-    about_view_resume: "Rezyumeni ko'rish",
     about_present: "Hozirgi vaqt",
     about_location: "Toshkent, O'zbekiston",
     about_role_designer: "UI/UX dizayner",
@@ -272,18 +350,30 @@ const dict = {
     interest_running: "Vibe coding",
     interest_books: "No-code saytlar",
     interest_hiking: "AI promptlash",
-    proj_tp_summary: "Toshkent shahridagi yashil hududlar va istirohat bog'lari bo'ylab virtual sayohat qilish imkonini beruvchi platforma dizayni.",
-    proj_tp_challenge: "Toshkent shahridagi istirohat bog'lari va yashil hududlarni yagona platformaga jamlash hamda shahar aholisi va mehmonlariga virtual sayohat imkoniyatini taqdim etish maqsadida yaratilgan loyiha. Platforma foydalanuvchilarga bog'larga bormasdan turib, u yerdagi muhit, qulayliklar va joylashuv haqida to'liq ma'lumot olishga yordam beradi.",
-    proj_tp_outcome: "Foydalanuvchilar istalgan masofadan turib platformadagi bog'larning 360° formatidagi yuqori sifatli rasmlarini tomosha qilishlari, xaritalardan foydalanishlari va batafsil ma'lumot olishlari uchun qulay interfeys yaratildi. Bu bog'larni tanlash jarayonini tezlashtirdi va qulay qildi.",
+
+    // Legacy/Old schema support
+    cat_portal: "Virtual portal",
     cat_admin_panel: "Admin panel",
-    proj_am_role: "UI/UX dizayner (Konsept)",
-    proj_am_platform: "Veb (Faqat kompyuter)",
+    proj_tp_role: "UI/UX dizayner va tadqiqotchi",
+    proj_tp_platform: "Veb (To'liq moslashuvchan)",
+    proj_tp_type: "Interfeys dizayni",
+    proj_tp_summary: "Toshkent shahridagi yashil hududlar va istirohat bog'lari bo'ylab virtual sayohat platformasi.",
+    proj_tp_challenge: "Toshkent shahridagi istirohat bog'larini yagona platformaga jamlash.",
+    proj_tp_outcome: "360° formatidagi qulay VR interfeys.",
+    proj_am_role: "UI/UX dizayner",
+    proj_am_platform: "Veb (Kompyuter)",
     proj_am_type: "Interfeys dizayni",
-    proj_am_summary: "Tibbiy ma'lumotlar bazasi va dori-darmonlar reyestrini boshqarish uchun admin panelning vizual interfeys konsepti.",
-    proj_am_challenge: "Asosiy maqsad farmatsevtika kataloglarini boshqarish uchun qulay, yuqori darajada tuzilmaviy va o'qilishi oson bo'lgan interfeys yaratish, tibbiyot mutaxassislari uchun ma'lumotlar bazasini boshqarishda aniq ierarxiya va qulaylikni ta'minlash edi.",
-    proj_am_outcome: "Katalog statistikasi va toza jadval ko'rinishiga qaratilgan premium qorong'i va yorug' rejimdagi admin panel konsepti loyihalandi, u quyuq va yorug' interfeyslar kontrasti hamda modulli UI/UX tizimining vizual ifodasidir.",
+    proj_am_summary: "Tibbiy ma'lumotlar bazasi boshqaruv paneli konsepti.",
+    proj_am_challenge: "Farmatsevtika kataloglarini boshqarish uchun interfeys.",
+    proj_am_outcome: "Admin panel konsepti.",
+    metric_format: "Format",
+    metric_responsiveness: "Moslashuvchanlik",
+    metric_status: "Holati",
     metric_platform: "Platforma",
     metric_type: "Turi",
+    val_360_vr: "360° VR",
+    val_mobile_pc: "Mobil + Kompyuter",
+    val_launched: "Ishga tushirilgan",
     val_web: "Veb",
     val_concept_design: "Interfeys dizayni",
     val_in_progress: "Jarayonda",
@@ -297,15 +387,23 @@ const I18nCtx = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
+
   useEffect(() => {
     const stored = (typeof window !== "undefined" && (localStorage.getItem("lang") as Lang)) || null;
-    if (stored && ["uz", "ru", "en"].includes(stored)) setLangState(stored);
+    if (stored && ["uz", "ru", "en"].includes(stored)) {
+      setLangState(stored);
+    }
   }, []);
+
   const setLang = (l: Lang) => {
     setLangState(l);
-    if (typeof window !== "undefined") localStorage.setItem("lang", l);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("lang", l);
+    }
   };
+
   const t = (k: DictKey) => dict[lang][k] ?? dict.en[k];
+
   return <I18nCtx.Provider value={{ lang, setLang, t }}>{children}</I18nCtx.Provider>;
 }
 

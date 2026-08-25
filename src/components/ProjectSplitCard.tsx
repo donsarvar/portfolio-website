@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { ProjectItem } from "@/types/portfolio";
 import { useCursor } from "@/components/CustomCursor";
+import { useI18n } from "@/lib/i18n";
 import { ProjectMeta } from "./ProjectMeta";
 import { ViewLink } from "./ViewLink";
 
@@ -12,10 +13,11 @@ interface ProjectSplitCardProps {
 export function ProjectSplitCard({ project }: ProjectSplitCardProps) {
   const [hovered, setHovered] = useState(false);
   const { setVariant, setPreview, reset } = useCursor();
+  const { t } = useI18n();
 
   const handlePointerEnter = () => {
     setHovered(true);
-    setVariant("view", "VIEW");
+    setVariant("view", t("cursor_view"));
     setPreview({ src: project.image, label: project.name, sub: project.year });
   };
 

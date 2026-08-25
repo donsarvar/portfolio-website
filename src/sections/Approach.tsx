@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { APPROACH_STEPS } from "@/data/portfolioData";
 import type { ApproachStep } from "@/types/portfolio";
+import { useI18n, type DictKey } from "@/lib/i18n";
 
 export function Approach() {
+  const { t } = useI18n();
+
   return (
     <section style={{ borderBottom: "1px solid var(--border-color)" }}>
       <div
@@ -14,7 +17,7 @@ export function Approach() {
         className="approach-section-container"
       >
         <p className="eyebrow" style={{ marginBottom: "3rem" }}>
-          Approach
+          {t("approach_eyebrow")}
         </p>
 
         <div
@@ -25,8 +28,8 @@ export function Approach() {
           }}
           className="approach-grid"
         >
-          {APPROACH_STEPS.map((step) => (
-            <ApproachCard key={step.number} step={step} />
+          {APPROACH_STEPS.map((step, idx) => (
+            <ApproachCard key={step.number} index={idx + 1} step={step} />
           ))}
         </div>
       </div>
@@ -47,8 +50,15 @@ export function Approach() {
   );
 }
 
-function ApproachCard({ step }: { step: ApproachStep }) {
+function ApproachCard({ step, index }: { step: ApproachStep; index: number }) {
   const [hovered, setHovered] = useState(false);
+  const { t } = useI18n();
+
+  const titleKey = `approach_${index}_title` as DictKey;
+  const descKey = `approach_${index}_desc` as DictKey;
+
+  const title = t(titleKey) || step.title;
+  const desc = t(descKey) || step.description;
 
   return (
     <div
@@ -58,15 +68,16 @@ function ApproachCard({ step }: { step: ApproachStep }) {
         borderTop: "1px solid var(--border-color)",
         padding: "2.25rem 2rem 2.25rem 0",
         paddingRight: "2.5rem",
+        transition: "opacity 200ms ease",
       }}
     >
       <span
         className="meta-label"
         style={{
           color: hovered ? "var(--accent)" : "var(--fg-subtle)",
-          transition: "color 250ms ease",
-          fontSize: "0.75rem",
-          fontWeight: 600,
+          transition: "color 200ms ease",
+          display: "block",
+          marginBottom: "1.5rem",
         }}
       >
         {step.number}
@@ -75,26 +86,24 @@ function ApproachCard({ step }: { step: ApproachStep }) {
       <h3
         className="display-text"
         style={{
-          fontSize: "1.125rem",
-          textTransform: "uppercase",
-          letterSpacing: "0.04em",
-          marginTop: "1.5rem",
+          fontSize: "1.375rem",
           color: "var(--foreground)",
+          marginBottom: "0.875rem",
+          letterSpacing: "-0.01em",
         }}
       >
-        {step.title}
+        {title}
       </h3>
 
       <p
         style={{
-          marginTop: "0.875rem",
-          fontSize: "0.8125rem",
+          fontSize: "0.875rem",
           lineHeight: 1.7,
           color: "var(--fg-muted)",
-          maxWidth: "24ch",
+          maxWidth: "28ch",
         }}
       >
-        {step.description}
+        {desc}
       </p>
     </div>
   );

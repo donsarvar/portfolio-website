@@ -1,15 +1,18 @@
 import type { ProjectItem } from "@/types/portfolio";
+import { useI18n } from "@/lib/i18n";
 
 interface CaseStudyMetaProps {
   project: ProjectItem;
 }
 
 export function CaseStudyMeta({ project }: CaseStudyMetaProps) {
+  const { t } = useI18n();
+
   const metaList = [
-    { label: "Role", value: project.role || "Lead Product Designer" },
-    { label: "Year", value: project.year },
-    { label: "Platform", value: project.platform || "Web & Mobile" },
-    { label: "Category", value: project.type || project.descriptor },
+    { label: t("meta_role"), value: project.role || "Lead Product Designer" },
+    { label: t("meta_year"), value: project.year },
+    { label: t("meta_platform"), value: project.platform || "Web & Mobile" },
+    { label: t("meta_category"), value: project.type || project.descriptor },
   ];
 
   return (

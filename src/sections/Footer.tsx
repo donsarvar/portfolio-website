@@ -1,4 +1,9 @@
+import { Link } from "@tanstack/react-router";
+import { useI18n } from "@/lib/i18n";
+
 export function Footer() {
+  const { t } = useI18n();
+
   return (
     <footer>
       <div
@@ -45,24 +50,39 @@ export function Footer() {
 
           {/* Nav links */}
           <nav style={{ display: "flex", flexWrap: "wrap", gap: "1.75rem", justifyContent: "flex-end" }}>
-            {[
-              { label: "Ishlar", href: "#work" },
-              { label: "Men haqimda", href: "/about" },
-              { label: "Contact", href: "#contact" },
-            ].map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="meta-label"
-                style={{
-                  color: "var(--fg-muted)",
-                  textDecoration: "none",
-                  transition: "color 200ms ease",
-                }}
-              >
-                {label}
-              </a>
-            ))}
+            <a
+              href="/#work"
+              className="meta-label"
+              style={{
+                color: "var(--fg-muted)",
+                textDecoration: "none",
+                transition: "color 200ms ease",
+              }}
+            >
+              {t("nav_work")}
+            </a>
+            <Link
+              to="/about"
+              className="meta-label"
+              style={{
+                color: "var(--fg-muted)",
+                textDecoration: "none",
+                transition: "color 200ms ease",
+              }}
+            >
+              {t("nav_about")}
+            </Link>
+            <a
+              href="/#contact"
+              className="meta-label"
+              style={{
+                color: "var(--fg-muted)",
+                textDecoration: "none",
+                transition: "color 200ms ease",
+              }}
+            >
+              {t("nav_contact")}
+            </a>
           </nav>
         </div>
 
@@ -79,10 +99,10 @@ export function Footer() {
           }}
         >
           <span className="meta-label" style={{ color: "var(--fg-subtle)" }}>
-            © 2026 Sarvarbek Salimov
+            © 2026 Sarvarbek Salimov. {t("footer_rights")}
           </span>
           <span className="meta-label" style={{ color: "var(--fg-subtle)" }}>
-            Tashkent, UZ
+            {t("footer_city")}
           </span>
         </div>
       </div>

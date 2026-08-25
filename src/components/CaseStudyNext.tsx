@@ -1,11 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import type { ProjectItem } from "@/types/portfolio";
+import { useI18n } from "@/lib/i18n";
 
 interface CaseStudyNextProps {
   nextProject: ProjectItem;
 }
 
 export function CaseStudyNext({ nextProject }: CaseStudyNextProps) {
+  const { t } = useI18n();
+
   return (
     <div
       style={{
@@ -15,7 +18,7 @@ export function CaseStudyNext({ nextProject }: CaseStudyNextProps) {
       }}
     >
       <span className="meta-label" style={{ color: "var(--fg-subtle)", display: "block", marginBottom: "1rem" }}>
-        Next Project
+        {t("next_project")}
       </span>
 
       <Link

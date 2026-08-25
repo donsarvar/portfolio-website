@@ -57,7 +57,7 @@ export function Hero() {
               animation: "heroFadeUp 0.7s 60ms cubic-bezier(0.16, 1, 0.3, 1) both",
             }}
           >
-            Murakkab tizimlar uchun sodda va qulay yechimlar yarataman.
+            {t("hero_greeting")}
           </h1>
 
           {/* Subtitle & CTA buttons */}
@@ -83,8 +83,8 @@ export function Hero() {
             </p>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem", alignItems: "center" }}>
-              <MagneticCTA href="#work" label="Ishlarni ko'rish" variant="primary" />
-              <MagneticCTA href="#contact" label="Bog'lanish" variant="glass" />
+              <MagneticCTA href="#work" label={t("hero_cta")} variant="primary" />
+              <MagneticCTA href="#contact" label={t("hero_secondary")} variant="glass" />
             </div>
           </div>
         </div>

@@ -1,9 +1,11 @@
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CAPABILITIES } from "@/data/portfolioData";
 import type { CapabilityItem } from "@/types/portfolio";
+import { useI18n } from "@/lib/i18n";
 
 export function About() {
+  const { t } = useI18n();
+
   return (
     <section id="about" style={{ borderBottom: "1px solid var(--border-color)" }}>
       <div
@@ -26,7 +28,7 @@ export function About() {
           {/* Statement */}
           <div>
             <p className="eyebrow" style={{ marginBottom: "2rem" }}>
-              Men haqimda
+              {t("about_eyebrow")}
             </p>
             <h2
               className="display-text"
@@ -37,8 +39,7 @@ export function About() {
                 maxWidth: "24ch",
               }}
             >
-              Murakkab tizimlar, raqamli mahsulotlar va foydalanuvchi tajribasini sodda va tushunarli interfeyslarga
-              aylantiraman.
+              {t("about_heading")}
             </h2>
 
             <div style={{ marginTop: "2.75rem" }}>
@@ -57,22 +58,23 @@ export function About() {
                   transition: "border-color 200ms ease",
                 }}
               >
-                <span>To'liq bio</span>
-                <span style={{ color: "var(--accent)" }}>→</span>
+                <span>{t("about_full_bio")}</span>
+                <span>→</span>
               </Link>
             </div>
           </div>
 
           {/* Capabilities */}
           <div>
-            <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>
+            <span className="eyebrow" style={{ display: "block", marginBottom: "2rem" }}>
               Capabilities
-            </p>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {CAPABILITIES.map((item) => (
-                <CapabilityRow key={item.number} item={item} />
+            </span>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 0 }}>
+              {CAPABILITIES.map((cap) => (
+                <CapabilityRow key={cap.number} cap={cap} />
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -90,57 +92,31 @@ export function About() {
   );
 }
 
-function CapabilityRow({ item }: { item: CapabilityItem }) {
-  const [hovered, setHovered] = useState(false);
-
+function CapabilityRow({ cap }: { cap: CapabilityItem }) {
   return (
-    <li
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <div
       style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "1.25rem",
-        padding: "1rem 0",
+        display: "grid",
+        gridTemplateColumns: "3rem 1fr",
+        alignItems: "baseline",
+        padding: "1.25rem 0",
         borderTop: "1px solid var(--border-color)",
-        cursor: "default",
       }}
     >
-      <span
-        className="meta-label"
-        style={{
-          color: hovered ? "var(--accent)" : "var(--fg-subtle)",
-          transition: "color 200ms ease",
-          fontSize: "0.75rem",
-          fontWeight: 600,
-          flexShrink: 0,
-        }}
-      >
-        {item.number}
+      <span className="meta-label" style={{ color: "var(--fg-subtle)" }}>
+        {cap.number}
       </span>
       <span
         style={{
-          fontSize: "0.9375rem",
+          fontFamily: "var(--font-sans)",
+          fontSize: "1.0625rem",
+          fontWeight: 500,
           color: "var(--foreground)",
-          fontWeight: 450,
-          transform: hovered ? "translateX(4px)" : "none",
-          transition: "transform 300ms cubic-bezier(0.16, 1, 0.3, 1)",
+          letterSpacing: "-0.01em",
         }}
       >
-        {item.title}
+        {cap.title}
       </span>
-      <span
-        style={{
-          marginLeft: "auto",
-          color: "var(--accent)",
-          fontSize: "0.75rem",
-          opacity: hovered ? 1 : 0,
-          transform: hovered ? "translateX(0)" : "translateX(-6px)",
-          transition: "opacity 250ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-      >
-        →
-      </span>
-    </li>
+    </div>
   );
 }

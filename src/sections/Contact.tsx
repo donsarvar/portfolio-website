@@ -1,6 +1,9 @@
 import { MagneticCTA } from "@/components/MagneticCTA";
+import { useI18n } from "@/lib/i18n";
 
 export function Contact() {
+  const { t } = useI18n();
+
   return (
     <section id="contact" style={{ borderBottom: "1px solid var(--border-color)" }}>
       <div
@@ -12,7 +15,7 @@ export function Contact() {
         className="contact-section-container"
       >
         <p className="eyebrow" style={{ marginBottom: "2.5rem" }}>
-          Contact
+          {t("contact_eyebrow")}
         </p>
 
         <div
@@ -32,7 +35,7 @@ export function Contact() {
               maxWidth: "18ch",
             }}
           >
-            Yaxshi mahsulot yaratish haqida gaplashamiz.
+            {t("contact_heading")}
           </h2>
 
           <div>
@@ -45,9 +48,9 @@ export function Contact() {
                 marginBottom: "2.75rem",
               }}
             >
-              Yangi loyiha, raqamli mahsulot yoki murakkab tizim ustida ishlash uchun bog'laning.
+              {t("contact_subtitle")}
             </p>
-            <MagneticCTA href="mailto:hello@sarvarbeksalimov.uz" label="Bog'lanish" variant="glass" />
+            <MagneticCTA href="mailto:hello@sarvarbeksalimov.uz" label={t("contact_btn")} variant="glass" />
           </div>
         </div>
       </div>

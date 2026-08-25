@@ -6,6 +6,7 @@ import { CaseStudyContent } from "@/components/CaseStudyContent";
 import { CaseStudyMetrics } from "@/components/CaseStudyMetrics";
 import { CaseStudyNext } from "@/components/CaseStudyNext";
 import { PORTFOLIO_PROJECTS, findPortfolioProject } from "@/data/portfolioData";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -38,6 +39,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function CaseStudyPage() {
   const { project } = Route.useLoaderData();
+  const { t } = useI18n();
   const currentIndex = PORTFOLIO_PROJECTS.findIndex((p) => p.slug === project.slug);
   const nextProject = PORTFOLIO_PROJECTS[(currentIndex + 1) % PORTFOLIO_PROJECTS.length];
 
@@ -62,7 +64,7 @@ function CaseStudyPage() {
           }}
         >
           <span>←</span>
-          <span>Ishlarga qaytish</span>
+          <span>{t("back_to_work")}</span>
         </Link>
 
         {/* Header with Title & Live Link Button */}

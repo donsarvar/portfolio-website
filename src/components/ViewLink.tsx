@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useI18n } from "@/lib/i18n";
 
 interface ViewLinkProps {
   hovered: boolean;
@@ -10,9 +11,12 @@ interface ViewLinkProps {
 export function ViewLink({
   hovered,
   slug,
-  text = "View case study",
+  text,
   style: customStyle,
 }: ViewLinkProps) {
+  const { t } = useI18n();
+  const linkLabel = text || t("view_case_study");
+
   const content = (
     <div
       style={{
@@ -31,7 +35,7 @@ export function ViewLink({
           fontWeight: 600,
         }}
       >
-        {text}
+        {linkLabel}
       </span>
       <span
         style={{

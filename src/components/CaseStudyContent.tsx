@@ -1,3 +1,5 @@
+import { useI18n } from "@/lib/i18n";
+
 interface CaseStudyContentProps {
   overview?: string;
   challenge?: string;
@@ -5,6 +7,8 @@ interface CaseStudyContentProps {
 }
 
 export function CaseStudyContent({ overview, challenge, solution }: CaseStudyContentProps) {
+  const { t } = useI18n();
+
   return (
     <div
       style={{
@@ -18,7 +22,7 @@ export function CaseStudyContent({ overview, challenge, solution }: CaseStudyCon
       {overview && (
         <div>
           <span className="eyebrow" style={{ display: "block", marginBottom: "1rem" }}>
-            Overview
+            {t("sec_overview")}
           </span>
           <p style={{ fontSize: "0.9375rem", lineHeight: 1.75, color: "var(--fg-muted)" }}>
             {overview}
@@ -28,7 +32,7 @@ export function CaseStudyContent({ overview, challenge, solution }: CaseStudyCon
       {challenge && (
         <div>
           <span className="eyebrow" style={{ display: "block", marginBottom: "1rem" }}>
-            Challenge
+            {t("sec_challenge")}
           </span>
           <p style={{ fontSize: "0.9375rem", lineHeight: 1.75, color: "var(--fg-muted)" }}>
             {challenge}
@@ -38,7 +42,7 @@ export function CaseStudyContent({ overview, challenge, solution }: CaseStudyCon
       {solution && (
         <div>
           <span className="eyebrow" style={{ display: "block", marginBottom: "1rem" }}>
-            Solution
+            {t("sec_solution")}
           </span>
           <p style={{ fontSize: "0.9375rem", lineHeight: 1.75, color: "var(--fg-muted)" }}>
             {solution}

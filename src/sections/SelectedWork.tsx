@@ -2,8 +2,11 @@ import { PORTFOLIO_PROJECTS } from "@/data/portfolioData";
 import { ProjectWideCard } from "@/components/ProjectWideCard";
 import { ProjectSplitCard } from "@/components/ProjectSplitCard";
 import { ProjectOffsetCard } from "@/components/ProjectOffsetCard";
+import { useI18n } from "@/lib/i18n";
 
 export function SelectedWork() {
+  const { t } = useI18n();
+
   return (
     <section id="work" style={{ borderBottom: "1px solid var(--border-color)" }}>
       <div style={{ maxWidth: 1460, margin: "0 auto", padding: "6rem 3.5rem" }} className="work-section-container">
@@ -48,7 +51,7 @@ export function SelectedWork() {
                 color: "var(--foreground)",
               }}
             >
-              Selected Work
+              {t("work_title")}
             </h2>
           </div>
           <p
@@ -60,7 +63,7 @@ export function SelectedWork() {
               justifySelf: "end",
             }}
           >
-            Veb, mobil va raqamli mahsulotlar uchun tanlangan ishlar.
+            {t("work_subtitle")}
           </p>
         </div>
 
