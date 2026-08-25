@@ -1,0 +1,125 @@
+export const en = {
+  // Navigation
+  nav_work: "Work",
+  nav_about: "About",
+  nav_contact: "Contact",
+  contact_cta: "Contact",
+
+  // Hero
+  hero_greeting: "The better the design,\nthe more intuitive\nit should be.",
+  hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
+  hero_cta: "See selected work",
+  hero_secondary: "Get in touch",
+
+  // Selected Work
+  work_title: "Selected Work",
+  work_subtitle: "Curated digital products and user experience case studies.",
+  view_case_study: "View case study",
+  next_project: "Next Project",
+  back_to_work: "Back to selected work",
+
+  // Case study labels
+  meta_role: "Role",
+  meta_year: "Year",
+  meta_platform: "Platform",
+  meta_category: "Category",
+  sec_overview: "Overview",
+  sec_challenge: "Challenge",
+  sec_solution: "Solution",
+
+  // About Section (Home)
+  about_eyebrow: "About",
+  about_heading: "Transforming complex systems and digital products into simple, intuitive interfaces.",
+  about_full_bio: "Full bio",
+
+  // Approach Section
+  approach_eyebrow: "Approach",
+  approach_1_title: "Understand",
+  approach_1_desc: "Deep research into user behavior, business objectives, and technical constraints.",
+  approach_2_title: "Structure",
+  approach_2_desc: "Information architecture, user journey maps, and structured wireframing.",
+  approach_3_title: "Design",
+  approach_3_desc: "Visual design systems, typographic rhythm, and interactive prototyping.",
+  approach_4_title: "Refine",
+  approach_4_desc: "User testing, micro-interaction polishing, and design system scaling.",
+
+  // Contact Section
+  contact_eyebrow: "Contact",
+  contact_heading: "Let's build meaningful products together.",
+  contact_subtitle: "Available for new projects, design systems, and product consulting.",
+  contact_btn: "Get in touch",
+
+  // Cursor
+  cursor_view: "VIEW",
+  cursor_open: "OPEN",
+
+  // Feedback & Likes
+  like: "Like",
+  leave_feedback: "Leave Feedback",
+  feedback_title: "Leave feedback",
+  feedback_desc: "Thoughts, critique, or an opportunity — it all lands directly in my inbox.",
+  feedback_name: "Your Name",
+  feedback_name_placeholder: "Enter your name",
+  feedback_tg: "Contact Info",
+  feedback_tg_placeholder: "Gmail or Telegram username",
+  feedback_placeholder: "Write something thoughtful…",
+  submit: "Send feedback",
+  sending: "Sending…",
+  sent: "Sent — thank you.",
+  error: "Something went wrong. Try again.",
+
+  // Footer
+  footer_rights: "All rights reserved.",
+  footer_city: "Tashkent, UZ",
+
+  // Full About Page
+  about_title: "I design digital products that people love to use.",
+  about_bio: "I'm a product designer passionate about creating accessible, beautiful, and functional interfaces. I focus on bridging the gap between business goals and user needs.",
+  about_experience: "Experience",
+  about_education: "Education",
+  about_interests: "Interests",
+  about_connect: "Connect",
+  about_present: "Present",
+  about_location: "Tashkent, Uzbekistan",
+  about_role_designer: "UI/UX Designer",
+  about_desc_designer: "Designing user interfaces and experiences for national digital government services.",
+  about_period_intern: "2025 (Jan — Aug)",
+  about_role_intern: "UI/UX Design Intern",
+  about_role_realsoft: "UI/UX Designer Intern",
+  about_period_realsoft: "2025 (Mar — May)",
+  about_desc_realsoft: "Contributed to UI design projects at Realsoft, gaining hands-on experience in product design workflows.",
+  about_desc_intern: "Completed an intensive internship program, contributing to real-world digital product design.",
+  about_edu_degree: "Bachelor's Degree",
+  about_edu_school: "UTAS (University of Applied Sciences Tashkent)",
+  interest_kurash: "UI/UX Design",
+  interest_running: "Vibe Coding",
+  interest_books: "No-Code Web Build",
+  interest_hiking: "AI Prompts",
+
+  // Legacy/Old schema support
+  cat_portal: "Virtual Portal",
+  cat_admin_panel: "Admin Panel",
+  proj_tp_role: "UI/UX Designer & Researcher",
+  proj_tp_platform: "Web (Fully Responsive)",
+  proj_tp_type: "Interface Design",
+  proj_tp_summary: "Design of a virtual platform showcasing parks and green zones of Tashkent city.",
+  proj_tp_challenge: "Consolidate Tashkent city's parks into a single platform offering virtual tours.",
+  proj_tp_outcome: "Designed an intuitive 360° VR interface.",
+  proj_am_role: "UI/UX Designer",
+  proj_am_platform: "Web (Desktop)",
+  proj_am_type: "Interface Design",
+  proj_am_summary: "High-fidelity UI concept for a medical database management dashboard.",
+  proj_am_challenge: "Design a clean dashboard for pharmaceutical catalog management.",
+  proj_am_outcome: "Designed a premium dashboard concept.",
+  metric_format: "Format",
+  metric_responsiveness: "Responsiveness",
+  metric_status: "Status",
+  metric_platform: "Platform",
+  metric_type: "Type",
+  val_360_vr: "360° VR",
+  val_mobile_pc: "Mobile + PC",
+  val_launched: "Launched",
+  val_web: "Web",
+  val_concept_design: "Interface Design",
+  val_in_progress: "In progress",
+} as const;
