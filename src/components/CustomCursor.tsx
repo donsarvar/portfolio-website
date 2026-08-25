@@ -95,7 +95,7 @@ export function CursorProvider({ children }: { children: ReactNode }) {
     };
   }, [fine]);
 
-  const ringSize = variant === "view" ? 86 : variant === "open" ? 48 : 26;
+  const ringSize = variant === "view" ? 86 : variant === "open" ? 44 : 26;
 
   return (
     <CursorContext.Provider value={api}>
@@ -116,33 +116,59 @@ export function CursorProvider({ children }: { children: ReactNode }) {
               height: ringSize,
               borderRadius: "50%",
               border:
-                variant === "view"
-                  ? "1px solid var(--glass-border)"
-                  : "1.2px solid rgba(23, 23, 22, 0.45)",
+                variant === "default"
+                  ? "1.2px solid rgba(23, 23, 22, 0.45)"
+                  : "1px solid var(--glass-border)",
               background: variant === "default" ? "transparent" : "var(--glass-bg)",
               backdropFilter: variant === "default" ? "none" : "blur(20px) saturate(150%)",
               WebkitBackdropFilter: variant === "default" ? "none" : "blur(20px) saturate(150%)",
+              boxShadow:
+                variant === "default"
+                  ? "none"
+                  : "0 8px 24px rgba(20, 20, 15, 0.06)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               transition:
-                "width 350ms cubic-bezier(0.16, 1, 0.3, 1), height 350ms cubic-bezier(0.16, 1, 0.3, 1), background 300ms ease, border-color 300ms ease",
+                "width 350ms cubic-bezier(0.16, 1, 0.3, 1), height 350ms cubic-bezier(0.16, 1, 0.3, 1), background 300ms ease, border-color 300ms ease, box-shadow 300ms ease",
               willChange: "transform",
             }}
           >
-            <span
-              className="meta-label"
-              style={{
-                fontSize: "0.625rem",
-                color: "var(--foreground)",
-                fontWeight: 600,
-                opacity: variant === "default" ? 0 : 1,
-                transition: "opacity 200ms ease",
-                userSelect: "none",
-              }}
-            >
-              {variant === "default" ? "" : label}
-            </span>
+            {variant === "view" && (
+              <span
+                className="meta-label"
+                style={{
+                  fontSize: "0.625rem",
+                  color: "var(--foreground)",
+                  fontWeight: 600,
+                  letterSpacing: "0.14em",
+                  userSelect: "none",
+                }}
+              >
+                {label}
+              </span>
+            )}
+
+            {variant === "open" && (
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 13 13"
+                fill="none"
+                style={{
+                  color: "var(--foreground)",
+                  display: "block",
+                }}
+              >
+                <path
+                  d="M3 10L10 3M10 3H4.5M10 3V8.5"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
           </div>
 
           {/* Floating Secondary Inertia Project Preview */}
