@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Briefcase, GraduationCap, MapPin, Palette, Sparkles, Layers, Brain, Send, Instagram, Linkedin } from "lucide-react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/sections/Footer";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
@@ -54,7 +54,7 @@ function About() {
 
   return (
     <div className="min-h-screen bg-background w-full overflow-x-hidden relative">
-      <Header />
+      <Nav />
 
       <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-0">
         {/* HERO SECTION */}
