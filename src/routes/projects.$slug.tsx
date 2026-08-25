@@ -39,7 +39,7 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function CaseStudyPage() {
   const { project } = Route.useLoaderData();
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const currentIndex = PORTFOLIO_PROJECTS.findIndex((p) => p.slug === project.slug);
   const nextProject = PORTFOLIO_PROJECTS[(currentIndex + 1) % PORTFOLIO_PROJECTS.length];
 
@@ -86,7 +86,9 @@ function CaseStudyPage() {
                 color: "var(--foreground)",
               }}
             >
-              {project.name}
+              {lang === "uz" ? (project.name_uz ?? project.name) :
+               lang === "ru" ? (project.name_ru ?? project.name) :
+               project.name}
             </h1>
           </div>
 

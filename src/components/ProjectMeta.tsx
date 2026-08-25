@@ -1,4 +1,5 @@
 import type { ProjectItem } from "@/types/portfolio";
+import { useI18n } from "@/lib/i18n";
 
 interface ProjectMetaProps {
   project: ProjectItem;
@@ -6,6 +7,18 @@ interface ProjectMetaProps {
 }
 
 export function ProjectMeta({ project, hovered }: ProjectMetaProps) {
+  const { lang } = useI18n();
+
+  const displayName =
+    lang === "uz" ? (project.name_uz ?? project.name) :
+    lang === "ru" ? (project.name_ru ?? project.name) :
+    project.name;
+
+  const displayDescriptor =
+    lang === "uz" ? (project.descriptor_uz ?? project.descriptor) :
+    lang === "ru" ? (project.descriptor_ru ?? project.descriptor) :
+    project.descriptor;
+
   return (
     <div>
       <div style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem" }}>
@@ -31,7 +44,7 @@ export function ProjectMeta({ project, hovered }: ProjectMetaProps) {
               transition: "transform 350ms cubic-bezier(0.16, 1, 0.3, 1)",
             }}
           >
-            {project.name}
+            {displayName}
           </h3>
           <p
             style={{
@@ -41,7 +54,7 @@ export function ProjectMeta({ project, hovered }: ProjectMetaProps) {
               lineHeight: 1.5,
             }}
           >
-            {project.descriptor}
+            {displayDescriptor}
           </p>
         </div>
       </div>

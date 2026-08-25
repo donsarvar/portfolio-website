@@ -7,7 +7,17 @@ interface CaseStudyNextProps {
 }
 
 export function CaseStudyNext({ nextProject }: CaseStudyNextProps) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+
+  const nextDisplayName =
+    lang === "uz" ? (nextProject.name_uz ?? nextProject.name) :
+    lang === "ru" ? (nextProject.name_ru ?? nextProject.name) :
+    nextProject.name;
+
+  const nextDisplayDescriptor =
+    lang === "uz" ? (nextProject.descriptor_uz ?? nextProject.descriptor) :
+    lang === "ru" ? (nextProject.descriptor_ru ?? nextProject.descriptor) :
+    nextProject.descriptor;
 
   return (
     <div
@@ -51,10 +61,10 @@ export function CaseStudyNext({ nextProject }: CaseStudyNextProps) {
               marginTop: "0.25rem",
             }}
           >
-            {nextProject.name}
+            {nextDisplayName}
           </h3>
           <p style={{ fontSize: "0.875rem", color: "var(--fg-muted)", marginTop: "0.25rem" }}>
-            {nextProject.descriptor}
+            {nextDisplayDescriptor}
           </p>
         </div>
 

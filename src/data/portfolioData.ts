@@ -7,8 +7,12 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
   {
     number: "01",
     slug: "novatory-mediciny",
-    name: "Novatory Mediciny",
+    name: "Medical Pioneers",
+    name_uz: "Tibbiyot Novatorlari",
+    name_ru: "Новаторы Медицины",
     descriptor: "Healthcare Innovation Platform",
+    descriptor_uz: "Tibbiyot innovatsiyalari platformasi",
+    descriptor_ru: "Платформа медицинских инноваций",
     meta: ["Product Design", "UX / UI", "Web Platform"],
     year: "2026",
     image: "/novatory-mediciny.jpg",

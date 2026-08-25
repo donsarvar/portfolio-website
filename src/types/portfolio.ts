@@ -4,7 +4,11 @@ export interface ProjectItem {
   number: string;
   slug: string;
   name: string;
+  name_uz?: string;
+  name_ru?: string;
   descriptor: string;
+  descriptor_uz?: string;
+  descriptor_ru?: string;
   meta: string[];
   year: string;
   image: string;

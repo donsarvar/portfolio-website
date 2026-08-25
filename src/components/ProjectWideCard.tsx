@@ -12,13 +12,17 @@ interface ProjectWideCardProps {
 
 export function ProjectWideCard({ project }: ProjectWideCardProps) {
   const [hovered, setHovered] = useState(false);
-  const { setVariant, setPreview, reset } = useCursor();
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+
+  const displayName =
+    lang === "uz" ? (project.name_uz ?? project.name) :
+    lang === "ru" ? (project.name_ru ?? project.name) :
+    project.name;
 
   const handlePointerEnter = () => {
     setHovered(true);
     setVariant("view", t("cursor_view"));
-    setPreview({ src: project.image, label: project.name, sub: project.year });
+    setPreview({ src: project.image, label: displayName, sub: project.year });
   };
 
   const handlePointerLeave = () => {
