@@ -36,7 +36,7 @@ export function Hero() {
       {/* Optical balance spacer */}
       <div aria-hidden="true" style={{ height: "1rem" }} />
 
-      {/* Main hero content container */}
+      {/* Main split hero container */}
       <div
         style={{
           maxWidth: 1460,
@@ -44,68 +44,80 @@ export function Hero() {
           width: "100%",
           padding: "0 3.5rem",
           display: "grid",
-          gridTemplateColumns: "1fr",
+          gridTemplateColumns: "1.35fr 1fr",
+          alignItems: "end",
+          gap: "4rem",
           position: "relative",
           zIndex: 1,
         }}
-        className="hero-container"
+        className="hero-split-grid"
       >
-        <div style={{ maxWidth: 1240 }}>
-          {/* Main headline */}
+        {/* Left Column: Big Headline */}
+        <div>
           <h1
             className="display-text"
             style={{
-              fontSize: "clamp(2.5rem, 4.8vw, 4.75rem)",
+              fontSize: "clamp(2.5rem, 4.4vw, 4.6rem)",
               color: "var(--foreground)",
-              maxWidth: "100%",
-              marginBottom: "3.25rem",
-              lineHeight: 1.16,
+              lineHeight: 1.15,
               whiteSpace: "pre-line",
               letterSpacing: "-0.025em",
             }}
           >
             {t("hero_greeting")}
           </h1>
+        </div>
 
-          {/* Subtitle & CTA buttons row */}
+        {/* Right Column: Subtitle on top + CTA Buttons stacked directly underneath */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "1.75rem",
+            paddingBottom: "0.25rem",
+          }}
+          className="hero-right-col"
+        >
+          <p
+            style={{
+              fontSize: "0.9375rem",
+              lineHeight: 1.6,
+              color: "var(--fg-muted)",
+              letterSpacing: "0.04em",
+              fontWeight: 500,
+              textTransform: "uppercase",
+            }}
+          >
+            {t("hero_subtitle")}
+          </p>
+
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.875rem",
               alignItems: "center",
-              gap: "2.5rem",
             }}
-            className="hero-sub-row"
           >
-            <p
-              style={{
-                fontSize: "1rem",
-                lineHeight: 1.6,
-                color: "var(--fg-muted)",
-                letterSpacing: "0.02em",
-                fontWeight: 500,
-              }}
-            >
-              {t("hero_subtitle")}
-            </p>
-
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem", alignItems: "center" }}>
-              <MagneticCTA href="#work" label={t("hero_cta")} variant="primary" />
-              <MagneticCTA href="#contact" label={t("hero_secondary")} variant="glass" />
-            </div>
+            <MagneticCTA href="#work" label={t("hero_cta")} variant="primary" />
+            <MagneticCTA href="#contact" label={t("hero_secondary")} variant="glass" />
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator pinned nicely at the bottom */}
+      {/* Scroll indicator pinned at the bottom */}
       <div style={{ position: "relative", zIndex: 1 }}>
         <ScrollIndicator targetId="work" />
       </div>
 
       <style>{`
+        .hero-split-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+        @media (min-width: 900px) {
+          .hero-split-grid { grid-template-columns: 1.35fr 1fr !important; gap: 4rem !important; }
+        }
         @media (max-width: 768px) {
-          .hero-container { padding: 0 1.5rem !important; }
-          .hero-sub-row { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+          .hero-split-grid { padding: 0 1.5rem !important; }
         }
       `}</style>
     </section>
