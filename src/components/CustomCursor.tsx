@@ -55,7 +55,7 @@ export function CursorProvider({ children }: { children: ReactNode }) {
     setPreviewState(null);
   }, []);
 
-  // Strict route change reset
+  // Har safar sahifa (URL) o'zgarganda tozalash
   useEffect(() => {
     reset();
   }, [pathname, reset]);
@@ -76,18 +76,13 @@ export function CursorProvider({ children }: { children: ReactNode }) {
 
     const onPointerMove = (e: PointerEvent) => {
       target.current = { x: e.clientX, y: e.clientY };
-      const el = e.target as HTMLElement | null;
-      if (!el?.closest('[data-cursor="project"]')) {
-        setPreviewState((prev) => (prev ? null : prev));
-      }
     };
 
-    const handleReset = () => reset();
+    const handleWindowLeave = () => reset();
 
     window.addEventListener("pointermove", onPointerMove, { passive: true });
-    window.addEventListener("blur", handleReset);
-    window.addEventListener("scroll", handleReset, { passive: true });
-    document.addEventListener("mouseleave", handleReset);
+    window.addEventListener("blur", handleWindowLeave);
+    document.addEventListener("mouseleave", handleWindowLeave);
     raf = requestAnimationFrame(loop);
 
     function loop() {
@@ -107,9 +102,8 @@ export function CursorProvider({ children }: { children: ReactNode }) {
 
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("blur", handleReset);
-      window.removeEventListener("scroll", handleReset);
-      document.removeEventListener("mouseleave", handleReset);
+      window.removeEventListener("blur", handleWindowLeave);
+      document.removeEventListener("mouseleave", handleWindowLeave);
       cancelAnimationFrame(raf);
     };
   }, [fine, reset]);
