@@ -10,8 +10,14 @@ export function Hero() {
       id="top"
       style={{
         position: "relative",
+        minHeight: "100svh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
         borderBottom: "1px solid var(--border-color)",
         overflow: "hidden",
+        paddingTop: "4.5rem", // Navbar height clearance
+        paddingBottom: "2.5rem",
       }}
     >
       {/* Editorial background grid */}
@@ -27,15 +33,18 @@ export function Hero() {
         }}
       />
 
+      {/* Optical balance spacer */}
+      <div aria-hidden="true" style={{ height: "1rem" }} />
+
+      {/* Main hero content container */}
       <div
         style={{
           maxWidth: 1460,
           margin: "0 auto",
           width: "100%",
-          padding: "8rem 3.5rem 6.5rem",
+          padding: "0 3.5rem",
           display: "grid",
           gridTemplateColumns: "1fr",
-          gap: "2.5rem",
           position: "relative",
           zIndex: 1,
         }}
@@ -46,23 +55,24 @@ export function Hero() {
           <h1
             className="display-text"
             style={{
-              fontSize: "clamp(2.25rem, 4.3vw, 4.25rem)",
+              fontSize: "clamp(2.5rem, 4.8vw, 4.75rem)",
               color: "var(--foreground)",
               maxWidth: "100%",
-              marginBottom: "2.5rem",
-              lineHeight: 1.18,
+              marginBottom: "3.25rem",
+              lineHeight: 1.16,
               whiteSpace: "pre-line",
+              letterSpacing: "-0.025em",
             }}
           >
             {t("hero_greeting")}
           </h1>
 
-          {/* Subtitle & CTA buttons */}
+          {/* Subtitle & CTA buttons row */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr auto",
-              alignItems: "end",
+              alignItems: "center",
               gap: "2.5rem",
             }}
             className="hero-sub-row"
@@ -70,9 +80,10 @@ export function Hero() {
             <p
               style={{
                 fontSize: "1rem",
-                lineHeight: 1.75,
+                lineHeight: 1.6,
                 color: "var(--fg-muted)",
-                maxWidth: "38ch",
+                letterSpacing: "0.02em",
+                fontWeight: 500,
               }}
             >
               {t("hero_subtitle")}
@@ -86,12 +97,15 @@ export function Hero() {
         </div>
       </div>
 
-      <ScrollIndicator targetId="work" />
+      {/* Scroll indicator pinned nicely at the bottom */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <ScrollIndicator targetId="work" />
+      </div>
 
       <style>{`
         @media (max-width: 768px) {
-          .hero-container { padding: 6rem 1.5rem 4rem !important; }
-          .hero-sub-row { grid-template-columns: 1fr !important; }
+          .hero-container { padding: 0 1.5rem !important; }
+          .hero-sub-row { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
         }
       `}</style>
     </section>
