@@ -11,6 +11,10 @@ export function Contact() {
         }}
         className="contact-section-container"
       >
+        <p className="eyebrow" style={{ marginBottom: "2.5rem" }}>
+          Contact
+        </p>
+
         <div
           style={{
             display: "grid",
@@ -43,7 +47,7 @@ export function Contact() {
             >
               Yangi loyiha, raqamli mahsulot yoki murakkab tizim ustida ishlash uchun bog'laning.
             </p>
-            <MagneticCTA href="mailto:hello@sarvarbeksalimov.uz" label="Bog'lanish" variant="primary" />
+            <MagneticCTA href="mailto:hello@sarvarbeksalimov.uz" label="Bog'lanish" variant="glass" />
           </div>
         </div>
       </div>

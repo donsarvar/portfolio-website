@@ -111,7 +111,7 @@ export function Hero() {
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem", alignItems: "center" }}>
               <MagneticCTA href="#work" label="Ishlarni ko'rish" variant="primary" />
-              <MagneticCTA href="#contact" label="Bog'lanish" variant="outline" />
+              <MagneticCTA href="#contact" label="Bog'lanish" variant="glass" />
             </div>
           </div>
         </div>

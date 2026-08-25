@@ -30,4 +30,10 @@ export interface ApproachStep {
   description: string;
 }
 
-export type CursorMode = "default" | "project" | "cta" | "text" | "hidden";
+export type CursorVariant = "default" | "view" | "open";
+
+export interface ProjectPreviewData {
+  src?: string;
+  label: string;
+  sub?: string;
+}

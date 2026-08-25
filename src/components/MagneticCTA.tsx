@@ -1,22 +1,25 @@
 import { useRef, useState } from "react";
+import { useCursor } from "@/components/CustomCursor";
 
 interface MagneticCTAProps {
   href: string;
   label: string;
-  variant?: "primary" | "outline" | "glass";
+  variant?: "glass" | "primary" | "outline";
   className?: string;
 }
 
 export function MagneticCTA({
   href,
   label,
-  variant = "primary",
+  variant = "glass",
   className = "",
 }: MagneticCTAProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
+  const { setVariant, reset } = useCursor();
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handlePointerMove = (e: React.PointerEvent<HTMLAnchorElement>) => {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -28,47 +31,19 @@ export function MagneticCTA({
     setOffset({ x: dx, y: dy });
   };
 
-  const handleMouseLeave = () => {
+  const handlePointerEnter = () => {
+    setHovered(true);
+    setVariant("open", "OPEN");
+  };
+
+  const handlePointerLeave = () => {
+    setHovered(false);
     setOffset({ x: 0, y: 0 });
+    reset();
   };
 
-  const baseStyles: React.CSSProperties = {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.625rem",
-    padding: "0.875rem 1.625rem",
-    borderRadius: 12,
-    fontFamily: "var(--font-sans)",
-    fontSize: "0.8125rem",
-    fontWeight: 500,
-    letterSpacing: "0.02em",
-    textDecoration: "none",
-    transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,
-    transition: "transform 350ms cubic-bezier(0.16, 1, 0.3, 1), background 200ms ease, border-color 200ms ease",
-    whiteSpace: "nowrap",
-  };
-
-  const variantStyles: Record<string, React.CSSProperties> = {
-    primary: {
-      background: "var(--foreground)",
-      color: "var(--elevated)",
-      border: "1px solid var(--foreground)",
-      boxShadow: "0 4px 16px rgba(23, 23, 22, 0.08)",
-    },
-    outline: {
-      background: "transparent",
-      color: "var(--foreground)",
-      border: "1px solid var(--border-color)",
-    },
-    glass: {
-      background: "var(--glass-bg)",
-      backdropFilter: "blur(20px)",
-      WebkitBackdropFilter: "blur(20px)",
-      color: "var(--foreground)",
-      border: "1px solid var(--glass-border)",
-      boxShadow: "0 4px 20px rgba(20, 20, 15, 0.04)",
-    },
-  };
+  const isGlass = variant === "glass";
+  const isPrimary = variant === "primary";
 
   return (
     <a
@@ -76,23 +51,60 @@ export function MagneticCTA({
       href={href}
       data-cursor="cta"
       className={className}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onPointerEnter={handlePointerEnter}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
       style={{
-        ...baseStyles,
-        ...variantStyles[variant],
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "0.75rem",
+        padding: "1rem 1.625rem",
+        borderRadius: 13,
+        fontFamily: "var(--font-sans)",
+        fontSize: "0.6875rem",
+        fontWeight: 600,
+        letterSpacing: "0.14em",
+        textTransform: "uppercase",
+        textDecoration: "none",
+        whiteSpace: "nowrap",
+        background: isGlass
+          ? hovered
+            ? "rgba(238, 235, 227, 0.95)"
+            : "rgba(248, 246, 241, 0.88)"
+          : isPrimary
+            ? "var(--foreground)"
+            : "transparent",
+        color: isPrimary ? "var(--elevated)" : "var(--foreground)",
+        backdropFilter: isGlass ? "blur(20px)" : "none",
+        WebkitBackdropFilter: isGlass ? "blur(20px)" : "none",
+        border: isGlass
+          ? `1px solid ${hovered ? "rgba(25, 25, 22, 0.18)" : "var(--border-color)"}`
+          : isPrimary
+            ? "1px solid var(--foreground)"
+            : "1px solid var(--border-color)",
+        boxShadow: isGlass
+          ? hovered
+            ? "0 8px 24px rgba(20, 20, 15, 0.08)"
+            : "0 4px 16px rgba(20, 20, 15, 0.04)"
+          : "none",
+        transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,
+        transition:
+          "transform 350ms cubic-bezier(0.16, 1, 0.3, 1), background 250ms ease, border-color 250ms ease, box-shadow 250ms ease",
       }}
     >
       <span>{label}</span>
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-        <path
-          d="M2 8L8 2M8 2H3.5M8 2V6.5"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <span
+        aria-hidden="true"
+        style={{
+          display: "inline-block",
+          fontSize: "0.8125rem",
+          color: hovered ? "var(--accent)" : "inherit",
+          transform: hovered ? "translateX(4px)" : "translateX(0)",
+          transition: "transform 250ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease",
+        }}
+      >
+        →
+      </span>
     </a>
   );
 }
