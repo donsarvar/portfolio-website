@@ -36,10 +36,10 @@ export function Hero() {
           maxWidth: 1460,
           margin: "0 auto",
           width: "100%",
-          padding: "7.5rem 3.5rem 5.5rem",
+          padding: "5rem 3.5rem 4rem",
           display: "grid",
           gridTemplateColumns: "1fr",
-          gap: "3rem",
+          gap: "2.5rem",
           position: "relative",
           zIndex: 1,
         }}
@@ -54,7 +54,6 @@ export function Hero() {
               color: "var(--foreground)",
               maxWidth: "18ch",
               marginBottom: "2.5rem",
-              animation: "heroFadeUp 0.7s 60ms cubic-bezier(0.16, 1, 0.3, 1) both",
             }}
           >
             {t("hero_greeting")}
@@ -67,7 +66,6 @@ export function Hero() {
               gridTemplateColumns: "1fr auto",
               alignItems: "end",
               gap: "2.5rem",
-              animation: "heroFadeUp 0.8s 120ms cubic-bezier(0.16, 1, 0.3, 1) both",
             }}
             className="hero-sub-row"
           >
@@ -93,10 +91,6 @@ export function Hero() {
       <ScrollIndicator targetId="work" />
 
       <style>{`
-        @keyframes heroFadeUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
         @media (max-width: 768px) {
           .hero-container { padding: 6rem 1.5rem 4rem !important; }
           .hero-sub-row { grid-template-columns: 1fr !important; }
