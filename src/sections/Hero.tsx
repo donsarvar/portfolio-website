@@ -1,12 +1,11 @@
 import { useI18n } from "@/lib/i18n";
 import { MagneticCTA } from "@/components/MagneticCTA";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
+import { TypewriterHeadline } from "@/components/TypewriterHeadline";
 import { motion } from "framer-motion";
 
 export function Hero() {
   const { t, lang } = useI18n();
-  const headline = t("hero_greeting");
-  const lines = headline.split("\n");
 
   return (
     <section
@@ -51,70 +50,15 @@ export function Hero() {
         }}
         className="hero-container"
       >
-        {/* Main headline - Apple/Editorial Staggered Kinetic Reveal */}
-        <motion.h1
-          key={lang}
-          className="display-text"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.07,
-                delayChildren: 0.08,
-              },
-            },
-          }}
-          style={{
-            fontSize: "clamp(2.75rem, 5.8vw, 5.5rem)",
-            color: "var(--foreground)",
-            lineHeight: 1.12,
-            letterSpacing: "-0.03em",
-            marginBottom: "3.5rem",
-          }}
-        >
-          {lines.map((line, lineIdx) => (
-            <span key={lineIdx} style={{ display: "block" }}>
-              {line.split(" ").map((word, wordIdx) => (
-                <motion.span
-                  key={wordIdx}
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 28,
-                      filter: "blur(8px)",
-                    },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      filter: "blur(0px)",
-                      transition: {
-                        duration: 0.65,
-                        ease: [0.16, 1, 0.3, 1],
-                      },
-                    },
-                  }}
-                  style={{
-                    display: "inline-block",
-                    marginRight: "0.28em",
-                    willChange: "transform, opacity, filter",
-                  }}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </span>
-          ))}
-        </motion.h1>
+        {/* Main headline - Option 1: Live Typewriter Effect */}
+        <TypewriterHeadline text={t("hero_greeting")} />
 
-        {/* Subtitle & CTA buttons row - Smooth reveal after headline */}
+        {/* Subtitle & CTA buttons row - Smooth entrance */}
         <motion.div
           key={lang + "-sub"}
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{
             display: "flex",
             flexWrap: "wrap",
