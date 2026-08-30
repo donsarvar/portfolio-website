@@ -1,9 +1,12 @@
 import { useI18n } from "@/lib/i18n";
 import { MagneticCTA } from "@/components/MagneticCTA";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
+import { motion } from "framer-motion";
 
 export function Hero() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const headline = t("hero_greeting");
+  const lines = headline.split("\n");
 
   return (
     <section
@@ -48,23 +51,70 @@ export function Hero() {
         }}
         className="hero-container"
       >
-        {/* Main headline - Full Grand Scale */}
-        <h1
+        {/* Main headline - Apple/Editorial Staggered Kinetic Reveal */}
+        <motion.h1
+          key={lang}
           className="display-text"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.07,
+                delayChildren: 0.08,
+              },
+            },
+          }}
           style={{
             fontSize: "clamp(2.75rem, 5.8vw, 5.5rem)",
             color: "var(--foreground)",
             lineHeight: 1.12,
-            whiteSpace: "pre-line",
             letterSpacing: "-0.03em",
             marginBottom: "3.5rem",
           }}
         >
-          {t("hero_greeting")}
-        </h1>
+          {lines.map((line, lineIdx) => (
+            <span key={lineIdx} style={{ display: "block" }}>
+              {line.split(" ").map((word, wordIdx) => (
+                <motion.span
+                  key={wordIdx}
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: 28,
+                      filter: "blur(8px)",
+                    },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      filter: "blur(0px)",
+                      transition: {
+                        duration: 0.65,
+                        ease: [0.16, 1, 0.3, 1],
+                      },
+                    },
+                  }}
+                  style={{
+                    display: "inline-block",
+                    marginRight: "0.28em",
+                    willChange: "transform, opacity, filter",
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </span>
+          ))}
+        </motion.h1>
 
-        {/* Subtitle & CTA buttons row - Perfectly aligned with large elements */}
-        <div
+        {/* Subtitle & CTA buttons row - Smooth reveal after headline */}
+        <motion.div
+          key={lang + "-sub"}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -98,7 +148,7 @@ export function Hero() {
             <MagneticCTA href="#work" label={t("hero_cta")} variant="primary" />
             <MagneticCTA href="#contact" label={t("hero_secondary")} variant="glass" />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator pinned at the bottom */}
