@@ -6,13 +6,33 @@ interface CaseStudyMetaProps {
 }
 
 export function CaseStudyMeta({ project }: CaseStudyMetaProps) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+
+  const clientValue =
+    lang === "uz" ? (project.client_uz ?? project.client ?? "Sog'liqni Saqlash Vazirligi") :
+    lang === "ru" ? (project.client_ru ?? project.client ?? "Министерство здравоохранения") :
+    (project.client ?? "Ministry of Health");
+
+  const timelineValue =
+    lang === "uz" ? (project.timeline_uz ?? project.timeline ?? "2026 (Iyul — Avgust)") :
+    lang === "ru" ? (project.timeline_ru ?? project.timeline ?? "2026 (Июль — Август)") :
+    (project.timeline ?? "2026 (July — August)");
+
+  const platformValue =
+    lang === "uz" ? (project.platform_uz ?? "Veb Platforma (Desktop va Moslashuvchan)") :
+    lang === "ru" ? (project.platform_ru ?? "Веб-платформа (ПК и адаптивная)") :
+    (project.platform ?? "Web Platform (Desktop & Responsive)");
+
+  const categoryValue =
+    lang === "uz" ? (project.type_uz ?? project.descriptor_uz ?? "Tibbiyot innovatsiyalari va tadqiqotlar") :
+    lang === "ru" ? (project.type_ru ?? project.descriptor_ru ?? "Медицинские инновации и исследования") :
+    (project.type ?? project.descriptor);
 
   const metaList = [
-    { label: t("meta_role"), value: project.role || "Lead Product Designer" },
-    { label: t("meta_year"), value: project.year },
-    { label: t("meta_platform"), value: project.platform || "Web & Mobile" },
-    { label: t("meta_category"), value: project.type || project.descriptor },
+    { label: t("meta_client"), value: clientValue },
+    { label: t("meta_timeline"), value: timelineValue },
+    { label: t("meta_platform"), value: platformValue },
+    { label: t("meta_category"), value: categoryValue },
   ];
 
   return (

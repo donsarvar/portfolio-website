@@ -61,7 +61,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           letterSpacing: "0.12em",
         }}
       >
-        Contact
+        {t("nav_contact")}
       </a>
     </div>
   );

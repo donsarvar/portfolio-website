@@ -100,7 +100,7 @@ export function Nav() {
                   transition: "color 200ms ease",
                 }}
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </nav>
 

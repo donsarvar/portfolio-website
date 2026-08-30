@@ -5,6 +5,7 @@ import { CaseStudyMeta } from "@/components/CaseStudyMeta";
 import { CaseStudyContent } from "@/components/CaseStudyContent";
 import { CaseStudyMetrics } from "@/components/CaseStudyMetrics";
 import { CaseStudyNext } from "@/components/CaseStudyNext";
+import { MobileArcCarousel } from "@/components/MobileArcCarousel";
 import { PORTFOLIO_PROJECTS, findPortfolioProject } from "@/data/portfolioData";
 import { useI18n } from "@/lib/i18n";
 
@@ -115,7 +116,7 @@ function CaseStudyPage() {
                 transition: "transform 250ms ease",
               }}
             >
-              <span>Live Website</span>
+              <span>{t("live_website")}</span>
               <span>↗</span>
             </a>
           )}
@@ -124,33 +125,46 @@ function CaseStudyPage() {
         {/* Metadata Grid */}
         <CaseStudyMeta project={project} />
 
-        {/* Browser Frame Mockup */}
-        <div
-          style={{
-            marginTop: "3.5rem",
-            borderRadius: 22,
-            overflow: "hidden",
-            border: "1px solid var(--border-color)",
-            background: "var(--surface)",
-            boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
-          }}
-        >
+        {/* Device Showcase (3D Arc Carousel for Mobile, Browser Mockup for Web) */}
+        {project.slug === "dhp-mobile" ? (
+          <MobileArcCarousel />
+        ) : (
           <div
             style={{
-              padding: "0.75rem 1.25rem",
-              background: "rgba(255, 255, 255, 0.4)",
-              borderBottom: "1px solid var(--border-color)",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
+              marginTop: "3.5rem",
+              borderRadius: 22,
+              overflow: "hidden",
+              border: "1px solid var(--border-color)",
+              background: "var(--surface)",
+              boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
             }}
           >
-            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
-            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
-            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
+            <div
+              style={{
+                padding: "0.75rem 1.25rem",
+                background: "rgba(255, 255, 255, 0.4)",
+                borderBottom: "1px solid var(--border-color)",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+              }}
+            >
+              <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
+              <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
+              <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
+            </div>
+            <img
+              src={project.caseStudyImage || project.image}
+              alt={project.alt}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                imageRendering: "-webkit-optimize-contrast",
+              }}
+            />
           </div>
-          <img src={project.image} alt={project.alt} style={{ width: "100%", height: "auto", display: "block" }} />
-        </div>
+        )}
 
         {/* 3-Column Content (Overview / Challenge / Solution) */}
         <CaseStudyContent

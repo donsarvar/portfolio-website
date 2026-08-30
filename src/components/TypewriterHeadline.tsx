@@ -83,7 +83,7 @@ export function TypewriterHeadline({
             display: "inline-block",
             width: "3px",
             height: "0.82em",
-            backgroundColor: "var(--accent)",
+            backgroundColor: "var(--foreground)",
             marginLeft: "0.12em",
             verticalAlign: "baseline",
             borderRadius: "2px",

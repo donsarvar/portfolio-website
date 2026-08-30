@@ -39,7 +39,7 @@ export function ViewLink({
       </span>
       <span
         style={{
-          color: "var(--accent)",
+          color: "var(--foreground)",
           fontSize: "0.8125rem",
           transform: hovered ? "translate(3px, -3px)" : "none",
           transition: "transform 300ms cubic-bezier(0.16, 1, 0.3, 1)",

@@ -7,7 +7,7 @@ export const uz = {
 
   // Hero
   hero_greeting: "Dizayn qanchalik\nyaxshi bo‘lsa, shunchalik\ntushunarli bo‘lishi kerak.",
-  hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
+  hero_subtitle: "UI/UX Dizayner · Veb · Mobil · Mahsulot",
   hero_cta: "Ishlarni ko'rish",
   hero_secondary: "Bog'lanish",
 
@@ -17,10 +17,13 @@ export const uz = {
   view_case_study: "Keysni ko'rish",
   next_project: "Keyingi loyiha",
   back_to_work: "Ishlarga qaytish",
+  live_website: "Saytga o'tish",
 
   // Case study labels
   meta_role: "Rol",
+  meta_client: "Buyurtmachi",
   meta_year: "Yil",
+  meta_timeline: "Loyiha muddati",
   meta_platform: "Platforma",
   meta_category: "Kategoriya",
   sec_overview: "Loyiha haqida",

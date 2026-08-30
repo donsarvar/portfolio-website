@@ -7,7 +7,7 @@ export const ru = {
 
   // Hero
   hero_greeting: "Чем лучше дизайн,\nтем понятнее\nон должен быть.",
-  hero_subtitle: "UI/UX Designer · Web · Mobile · Product",
+  hero_subtitle: "UI/UX Дизайнер · Веб · Мобильные · Продукты",
   hero_cta: "Смотреть работы",
   hero_secondary: "Связаться",
 
@@ -17,10 +17,13 @@ export const ru = {
   view_case_study: "Смотреть кейс",
   next_project: "Следующий проект",
   back_to_work: "К списку работ",
+  live_website: "Перейти на сайт",
 
   // Case study labels
   meta_role: "Роль",
+  meta_client: "Заказчик",
   meta_year: "Год",
+  meta_timeline: "Сроки проекта",
   meta_platform: "Платформа",
   meta_category: "Категория",
   sec_overview: "Обзор",

@@ -17,10 +17,13 @@ export const en = {
   view_case_study: "View case study",
   next_project: "Next Project",
   back_to_work: "Back to selected work",
+  live_website: "Live Website",
 
   // Case study labels
   meta_role: "Role",
+  meta_client: "Client",
   meta_year: "Year",
+  meta_timeline: "Timeline",
   meta_platform: "Platform",
   meta_category: "Category",
   sec_overview: "Overview",

@@ -98,9 +98,9 @@ export function MagneticCTA({
         style={{
           display: "inline-block",
           fontSize: "0.8125rem",
-          color: hovered ? "var(--accent)" : "inherit",
+          color: "inherit",
           transform: hovered ? "translateX(4px)" : "translateX(0)",
-          transition: "transform 250ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease",
+          transition: "transform 250ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         →

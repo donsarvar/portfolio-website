@@ -1,7 +1,5 @@
 import { PORTFOLIO_PROJECTS } from "@/data/portfolioData";
 import { ProjectWideCard } from "@/components/ProjectWideCard";
-import { ProjectSplitCard } from "@/components/ProjectSplitCard";
-import { ProjectOffsetCard } from "@/components/ProjectOffsetCard";
 import { useI18n } from "@/lib/i18n";
 
 export function SelectedWork() {
@@ -9,7 +7,7 @@ export function SelectedWork() {
 
   return (
     <section id="work" style={{ borderBottom: "1px solid var(--border-color)" }}>
-      <div style={{ maxWidth: 1460, margin: "0 auto", padding: "6rem 3.5rem" }} className="work-section-container">
+      <div style={{ maxWidth: 1460, margin: "0 auto", padding: "0 3.5rem 6rem" }} className="work-section-container">
         {/* Section Header */}
         <div
           style={{
@@ -17,8 +15,9 @@ export function SelectedWork() {
             gridTemplateColumns: "1fr 1fr",
             alignItems: "end",
             gap: "2.5rem",
-            marginBottom: "5.5rem",
-            paddingBottom: "2.5rem",
+            paddingTop: "3.5rem",
+            paddingBottom: "3.5rem",
+            marginBottom: "3.5rem",
             borderBottom: "1px solid var(--border-color)",
           }}
           className="work-section-header"
@@ -47,12 +46,11 @@ export function SelectedWork() {
           </p>
         </div>
 
-        {/* 4 Distinct Project Compositions */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "6.5rem" }}>
-          <ProjectWideCard project={PORTFOLIO_PROJECTS[0]} />
-          <ProjectSplitCard project={PORTFOLIO_PROJECTS[1]} />
-          <ProjectOffsetCard project={PORTFOLIO_PROJECTS[2]} />
-          <ProjectWideCard project={PORTFOLIO_PROJECTS[3]} />
+        {/* Unified Full-Width 16:10 Project Cards */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "5.5rem" }}>
+          {PORTFOLIO_PROJECTS.map((project) => (
+            <ProjectWideCard key={project.slug} project={project} />
+          ))}
         </div>
       </div>
 
