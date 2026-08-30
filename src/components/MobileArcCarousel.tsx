@@ -78,56 +78,67 @@ export function MobileArcCarousel() {
     exit: (dir: number) => ({ x: dir > 0 ? -40 : 40, opacity: 0 }),
   };
 
+  const arrowStyle = (visible: boolean): React.CSSProperties => ({
+    width: "clamp(36px, 8vw, 48px)",
+    height: "clamp(36px, 8vw, 48px)",
+    borderRadius: "50%",
+    background: "var(--glass-bg)",
+    backdropFilter: "blur(20px)",
+    WebkitBackdropFilter: "blur(20px)",
+    border: "1px solid var(--glass-border)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "clamp(0.875rem, 3vw, 1.25rem)",
+    color: "var(--foreground)",
+    boxShadow: "0 4px 16px rgba(20, 20, 15, 0.05)",
+    opacity: visible ? 1 : 0,
+    pointerEvents: visible ? "auto" : "none",
+    cursor: visible ? "pointer" : "default",
+    transition: "opacity 240ms ease, transform 200ms ease",
+    flexShrink: 0,
+  });
+
   return (
     <div
       style={{
         marginTop: "3.5rem",
-        padding: "4.5rem 1.5rem 3.5rem",
+        padding: "clamp(2rem, 6vw, 4.5rem) clamp(0.75rem, 3vw, 1.5rem) clamp(2rem, 5vw, 3.5rem)",
         background: "url('/patient-portal-bg.png') center / cover no-repeat",
-        borderRadius: 24,
+        borderRadius: "clamp(16px, 3vw, 24px)",
         border: "1px solid var(--border-color)",
-        position: "relative",
         boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        overflow: "hidden",
       }}
     >
       {/* Device Stage with Left/Right Arrows */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "clamp(1.5rem, 4vw, 3.5rem)", width: "100%" }}>
-        {/* Left Arrow Button (Only visible on screens 2+) */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "clamp(0.5rem, 3vw, 3.5rem)",
+          width: "100%",
+        }}
+      >
+        {/* Left Arrow — hidden on 1st screen */}
         <button
           onClick={prevScreen}
           disabled={current === 0}
           aria-label="Oldingi ekran"
           className="nav-arrow-btn"
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: "50%",
-            background: "var(--glass-bg)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            border: "1px solid var(--glass-border)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: current > 0 ? "pointer" : "default",
-            color: "var(--foreground)",
-            fontSize: "1.25rem",
-            boxShadow: "0 4px 16px rgba(20, 20, 15, 0.05)",
-            opacity: current > 0 ? 1 : 0,
-            pointerEvents: current > 0 ? "auto" : "none",
-            transition: "opacity 240ms ease, transform 200ms ease",
-          }}
+          style={arrowStyle(current > 0)}
         >
           ←
         </button>
 
-        {/* User Ready Mockup Image Container */}
+        {/* iPhone Image */}
         <div
           style={{
-            width: "clamp(260px, 30vw, 360px)",
+            width: "clamp(160px, 50vw, 360px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -150,44 +161,35 @@ export function MobileArcCarousel() {
                 width: "100%",
                 height: "auto",
                 display: "block",
-                filter: "drop-shadow(0 28px 55px rgba(20, 20, 15, 0.16))",
+                filter: "drop-shadow(0 20px 48px rgba(20, 20, 15, 0.18))",
               }}
             />
           </AnimatePresence>
         </div>
 
-        {/* Right Arrow Button (Only visible on screens 1-4) */}
+        {/* Right Arrow — hidden on last screen */}
         <button
           onClick={nextScreen}
           disabled={current === SCREENS.length - 1}
           aria-label="Keyingi ekran"
           className="nav-arrow-btn"
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: "50%",
-            background: "var(--glass-bg)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            border: "1px solid var(--glass-border)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: current < SCREENS.length - 1 ? "pointer" : "default",
-            color: "var(--foreground)",
-            fontSize: "1.25rem",
-            boxShadow: "0 4px 16px rgba(20, 20, 15, 0.05)",
-            opacity: current < SCREENS.length - 1 ? 1 : 0,
-            pointerEvents: current < SCREENS.length - 1 ? "auto" : "none",
-            transition: "opacity 240ms ease, transform 200ms ease",
-          }}
+          style={arrowStyle(current < SCREENS.length - 1)}
         >
           →
         </button>
       </div>
 
-      {/* Footer Info: Indicator dots and current title */}
-      <div style={{ marginTop: "2.75rem", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.875rem" }}>
+      {/* Dots + Caption */}
+      <div
+        style={{
+          marginTop: "clamp(1.25rem, 4vw, 2.75rem)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "0.75rem",
+        }}
+      >
+        {/* Dot indicators */}
         <div style={{ display: "flex", gap: "0.5rem" }}>
           {SCREENS.map((item, idx) => (
             <button
@@ -210,14 +212,16 @@ export function MobileArcCarousel() {
           ))}
         </div>
 
+        {/* Screen description */}
         <span
           style={{
-            fontSize: "0.9375rem",
+            fontSize: "clamp(0.8rem, 2.2vw, 0.9375rem)",
             fontWeight: 500,
             color: "var(--foreground)",
             letterSpacing: "-0.01em",
             textAlign: "center",
-            maxWidth: "40ch",
+            maxWidth: "36ch",
+            padding: "0 0.5rem",
           }}
         >
           {currentDesc}
@@ -225,7 +229,8 @@ export function MobileArcCarousel() {
       </div>
 
       <style>{`
-        .nav-arrow-btn:hover { transform: scale(1.08); background: rgba(255, 255, 255, 0.8) !important; }
+        .nav-arrow-btn:hover { transform: scale(1.08); background: rgba(255,255,255,0.8) !important; }
+        @media (max-width: 480px) { .nav-arrow-btn:hover { transform: none; } }
       `}</style>
     </div>
   );
