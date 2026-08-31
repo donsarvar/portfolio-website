@@ -71,7 +71,7 @@ function About() {
             
             {/* Real photo */}
             <img 
-              src="/profile_photo.jpg" 
+              src="/profile_photo.webp" 
               alt="Sarvarbek Salimov profile" 
               className="absolute inset-0 h-full w-full object-cover select-none transition-transform duration-500 group-hover:scale-105" 
             />

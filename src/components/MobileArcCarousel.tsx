@@ -13,35 +13,35 @@ export interface ScreenItem {
 export const DHP_SCREENS: ScreenItem[] = [
   {
     id: 1,
-    src: "/dhp-screen-dashboard.png",
+    src: "/dhp-screen-dashboard.webp",
     desc_uz: "Shaxsiy salomatlik va dorilar nazorati ekrani",
     desc_ru: "Главный экран здоровья и контроля лекарств",
     desc_en: "Health dashboard and medication tracking screen",
   },
   {
     id: 2,
-    src: "/dhp-screen-health.png",
+    src: "/dhp-screen-health.webp",
     desc_uz: "Interaktiv tana xaritasi va faol tashxislar",
     desc_ru: "Интерактивная карта тела и активные диагнозы",
     desc_en: "Interactive body map and active diagnoses",
   },
   {
     id: 3,
-    src: "/dhp-screen-ai-chat.png",
+    src: "/dhp-screen-ai-chat.webp",
     desc_uz: "AI tibbiy yordamchi va tezkor maslahatlar",
     desc_ru: "ИИ-помощник и быстрые медицинские консультации",
     desc_en: "AI health assistant and instant consultations",
   },
   {
     id: 4,
-    src: "/dhp-screen-visits.png",
+    src: "/dhp-screen-visits.webp",
     desc_uz: "Shifokor qabuliga bosqichma-bosqich qulay yozilish",
     desc_ru: "Удобная поэтапная запись на приём врача",
     desc_en: "Step-by-step doctor appointment booking system",
   },
   {
     id: 5,
-    src: "/dhp-screen-profile.png",
+    src: "/dhp-screen-profile.webp",
     desc_uz: "Elektron tibbiy karta va shaxsiy ma'lumotlar",
     desc_ru: "Электронная медкарта и персональные данные пациента",
     desc_en: "Electronic health record and patient profile",
@@ -51,28 +51,28 @@ export const DHP_SCREENS: ScreenItem[] = [
 export const SOGLOM_AYOL_SCREENS: ScreenItem[] = [
   {
     id: 1,
-    src: "/soglom-ayol-screen-1.png",
+    src: "/soglom-ayol-screen-1.webp",
     desc_uz: "Milliy skrining va OneID orqali kirish",
     desc_ru: "Национальный скрининг и авторизация OneID",
     desc_en: "National screening and OneID onboarding",
   },
   {
     id: 2,
-    src: "/soglom-ayol-screen-2.png",
+    src: "/soglom-ayol-screen-2.webp",
     desc_uz: "Tibbiy ko'rik va skrining marshruti bosqichlari",
     desc_ru: "Этапы медицинского осмотра и маршрут скрининга",
     desc_en: "Medical screening stages and health pathway",
   },
   {
     id: 3,
-    src: "/soglom-ayol-screen-3.png",
+    src: "/soglom-ayol-screen-3.webp",
     desc_uz: "Tahlillar va tibbiy xizmatlarni baholash",
     desc_ru: "Оценка анализов и качества медицинских услуг",
     desc_en: "Analysis reviews and medical service feedback",
   },
   {
     id: 4,
-    src: "/soglom-ayol-screen-4.png",
+    src: "/soglom-ayol-screen-4.webp",
     desc_uz: "Elektron profil va antropometriya ko'rsatkichlari",
     desc_ru: "Электронный профиль и показатели антропометрии",
     desc_en: "Digital profile and body health metrics",
@@ -86,7 +86,7 @@ interface MobileArcCarouselProps {
 
 export function MobileArcCarousel({
   screens = DHP_SCREENS,
-  bgImage = "/patient-portal-bg.png",
+  bgImage = "/patient-portal-bg.webp",
 }: MobileArcCarouselProps) {
   const { lang } = useI18n();
   const [current, setCurrent] = useState(0);

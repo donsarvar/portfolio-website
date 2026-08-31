@@ -1,7 +1,4 @@
 import type { ProjectItem, CapabilityItem, ApproachStep } from "@/types/portfolio";
-import fitasistImg from "@/assets/fitasist.jpg";
-import dhpMobileImg from "@/assets/dhp-mobile.jpg";
-import healnixImg from "@/assets/healnix.jpg";
 
 export const PORTFOLIO_PROJECTS: ProjectItem[] = [
   {
@@ -15,8 +12,8 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     descriptor_ru: "Платформа медицинских инноваций",
     meta: ["Product Design", "UX / UI", "Web Platform"],
     year: "2026",
-    image: "/novatory-mediciny-mockup.jpg",
-    caseStudyImage: "/novatory-mediciny-page.jpg",
+    image: "/novatory-mediciny-mockup.webp",
+    caseStudyImage: "/novatory-mediciny-page.webp",
     alt: "Novatory Mediciny healthcare innovation platform — MacBook workspace mockup",
     layout: "wide",
     role: "UI/UX & Product Designer",
@@ -58,8 +55,8 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     client: "Ministry of Health",
     client_uz: "Sog'liqni Saqlash Vazirligi",
     client_ru: "Министерство здравоохранения",
-    image: "/dhp-mobile-mockup.jpg",
-    caseStudyImage: dhpMobileImg,
+    image: "/dhp-mobile-mockup.webp",
+    caseStudyImage: "/dhp-mobile-mockup.webp",
     alt: "Patient Portal healthcare application — iPhone wooden workspace mockup",
     layout: "wide",
     role: "Senior UX/UI Designer",
@@ -92,7 +89,7 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     timeline: "2026",
     timeline_uz: "2026",
     timeline_ru: "2026",
-    image: "/soglom-ayol.jpg",
+    image: "/soglom-ayol.webp",
     alt: "Sog'lom Ayol women's healthcare and screening application — iPhone mockup on rock podium",
     layout: "wide",
     role: "Senior UX/UI Designer",
@@ -128,8 +125,8 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
     client: "University Graduation Thesis Project",
     client_uz: "Universitet diplom loyihasi",
     client_ru: "Дипломный проект университета",
-    image: "/tashkentparks-mockup.jpg",
-    caseStudyImage: "/tashkentparks-case-study.jpg",
+    image: "/tashkentparks-mockup.webp",
+    caseStudyImage: "/tashkentparks-case-study.webp",
     alt: "Tashkent Parks 360 virtual tour platform — iPad Pro and MacBook mockups",
     layout: "wide",
     role: "Lead Product Designer & Developer",
