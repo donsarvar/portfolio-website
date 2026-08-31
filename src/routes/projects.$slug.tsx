@@ -28,6 +28,16 @@ export const Route = createFileRoute("/projects/$slug")({
           { property: "og:description", content: loaderData.project.descriptor },
         ]
       : [],
+    links: loaderData
+      ? [
+          {
+            rel: "preload",
+            as: "image",
+            href: loaderData.project.caseStudyImage || loaderData.project.image,
+            type: "image/webp",
+          },
+        ]
+      : [],
   }),
   notFoundComponent: () => (
     <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "var(--background)" }}>
@@ -164,6 +174,8 @@ function CaseStudyPage() {
             <img
               src={project.caseStudyImage || project.image}
               alt={project.alt}
+              loading="eager"
+              decoding="async"
               style={{
                 width: "100%",
                 height: "auto",

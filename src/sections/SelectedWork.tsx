@@ -48,8 +48,12 @@ export function SelectedWork() {
 
         {/* Unified Full-Width 16:10 Project Cards */}
         <div style={{ display: "flex", flexDirection: "column", gap: "5.5rem" }}>
-          {PORTFOLIO_PROJECTS.map((project) => (
-            <ProjectWideCard key={project.slug} project={project} />
+          {PORTFOLIO_PROJECTS.map((project, index) => (
+            <ProjectWideCard
+              key={project.slug}
+              project={project}
+              priority={index < 2}
+            />
           ))}
         </div>
       </div>

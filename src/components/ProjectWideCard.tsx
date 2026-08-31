@@ -7,9 +7,10 @@ import { ProjectMeta } from "./ProjectMeta";
 
 interface ProjectWideCardProps {
   project: ProjectItem;
+  priority?: boolean;
 }
 
-export function ProjectWideCard({ project }: ProjectWideCardProps) {
+export function ProjectWideCard({ project, priority = false }: ProjectWideCardProps) {
   const [hovered, setHovered] = useState(false);
   const { setVariant, setPreview, reset } = useCursor();
   const { t, lang } = useI18n();
@@ -72,7 +73,10 @@ export function ProjectWideCard({ project }: ProjectWideCardProps) {
             <img
               src={project.image}
               alt={project.alt}
-              loading="lazy"
+              loading={priority ? "eager" : "lazy"}
+              // @ts-expect-error fetchPriority is standard in modern browsers
+              fetchpriority={priority ? "high" : "auto"}
+              decoding="async"
               style={{
                 width: "100%",
                 height: "100%",

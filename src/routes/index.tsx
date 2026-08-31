@@ -17,6 +17,12 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Sarvarbek Salimov — Product Designer" },
       { property: "og:type", content: "website" },
     ],
+    links: [
+      { rel: "preload", as: "image", href: "/novatory-mediciny-mockup.webp", type: "image/webp" },
+      { rel: "preload", as: "image", href: "/dhp-mobile-mockup.webp", type: "image/webp" },
+      { rel: "preload", as: "image", href: "/soglom-ayol.webp", type: "image/webp" },
+      { rel: "preload", as: "image", href: "/tashkentparks-mockup.webp", type: "image/webp" },
+    ],
   }),
   component: IndexPage,
 });
