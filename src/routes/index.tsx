@@ -3,8 +3,6 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/sections/Hero";
 import { SelectedWork } from "@/sections/SelectedWork";
 import { About } from "@/sections/About";
-import { Approach } from "@/sections/Approach";
-import { Playground } from "@/sections/Playground";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
 
@@ -31,8 +29,6 @@ function IndexPage() {
         <Hero />
         <SelectedWork />
         <About />
-        <Approach />
-        <Playground />
         <Contact />
       </main>
       <Footer />

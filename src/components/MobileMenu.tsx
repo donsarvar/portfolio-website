@@ -4,9 +4,10 @@ import { useI18n } from "@/lib/i18n";
 interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
+  onOpenContact?: () => void;
 }
 
-export function MobileMenu({ open, onClose }: MobileMenuProps) {
+export function MobileMenu({ open, onClose, onOpenContact }: MobileMenuProps) {
   const { t } = useI18n();
 
   if (!open) return null;
@@ -50,19 +51,26 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       >
         {t("nav_about")}
       </Link>
-      <a
-        href="mailto:hello@sarvarbeksalimov.uz"
-        onClick={onClose}
+      <button
+        onClick={() => {
+          onClose();
+          onOpenContact?.();
+        }}
         className="meta-label"
         style={{
           color: "var(--fg-muted)",
-          textDecoration: "none",
+          background: "none",
+          border: "none",
+          padding: 0,
+          textAlign: "left",
+          cursor: "pointer",
           fontSize: "0.8125rem",
           letterSpacing: "0.12em",
+          fontFamily: "inherit",
         }}
       >
         {t("nav_contact")}
-      </a>
+      </button>
     </div>
   );
 }

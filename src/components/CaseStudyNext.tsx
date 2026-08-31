@@ -70,12 +70,20 @@ export function CaseStudyNext({ nextProject }: CaseStudyNextProps) {
 
         <span
           style={{
-            fontSize: "1.25rem",
-            color: "var(--foreground)",
-            display: "inline-block",
-            padding: "0.75rem",
+            width: 48,
+            height: 48,
+            minWidth: 48,
+            minHeight: 48,
             borderRadius: "50%",
             background: "var(--surface)",
+            border: "1px solid var(--border-color)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1.25rem",
+            color: "var(--foreground)",
+            flexShrink: 0,
+            transition: "transform 250ms ease, background 250ms ease",
           }}
         >
           →

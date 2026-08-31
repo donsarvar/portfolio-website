@@ -3,11 +3,13 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSelector } from "./LanguageSelector";
 import { MobileMenu } from "./MobileMenu";
+import { ContactModal } from "./ContactModal";
 
 export function Nav() {
   const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const routerState = useRouterState();
 
   useEffect(() => {
@@ -91,12 +93,18 @@ export function Nav() {
               <NavLink to="/" label={t("nav_work")} />
               <NavLink to="/about" label={t("nav_about")} />
               <a
-                href="mailto:hello@sarvarbeksalimov.uz"
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setContactModalOpen(true);
+                }}
                 data-cursor="cta"
                 className="meta-label"
                 style={{
                   color: "var(--fg-muted)",
                   textDecoration: "none",
+                  fontWeight: 500,
+                  cursor: "pointer",
                   transition: "color 200ms ease",
                 }}
               >
@@ -159,8 +167,14 @@ export function Nav() {
           </div>
         </div>
 
-        <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+        <MobileMenu
+          open={mobileOpen}
+          onClose={() => setMobileOpen(false)}
+          onOpenContact={() => setContactModalOpen(true)}
+        />
       </header>
+
+      <ContactModal open={contactModalOpen} onClose={() => setContactModalOpen(false)} />
 
       <style>{`
         @media (min-width: 640px) {

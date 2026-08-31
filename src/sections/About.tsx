@@ -67,10 +67,10 @@ export function About() {
           {/* Capabilities */}
           <div>
             <span className="eyebrow" style={{ display: "block", marginBottom: "2rem" }}>
-              Capabilities
+              {t("about_capabilities")}
             </span>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 0 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 0, borderBottom: "1px solid var(--border-color)" }}>
               {CAPABILITIES.map((cap) => (
                 <CapabilityRow key={cap.number} cap={cap} />
               ))}
@@ -93,13 +93,20 @@ export function About() {
 }
 
 function CapabilityRow({ cap }: { cap: CapabilityItem }) {
+  const { lang } = useI18n();
+
+  const title =
+    lang === "uz" ? (cap.title_uz ?? cap.title) :
+    lang === "ru" ? (cap.title_ru ?? cap.title) :
+    cap.title;
+
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "3rem 1fr",
-        alignItems: "baseline",
-        padding: "1.25rem 0",
+        gridTemplateColumns: "3.25rem 1fr",
+        alignItems: "center",
+        padding: "1.375rem 0",
         borderTop: "1px solid var(--border-color)",
       }}
     >
@@ -115,7 +122,7 @@ function CapabilityRow({ cap }: { cap: CapabilityItem }) {
           letterSpacing: "-0.01em",
         }}
       >
-        {cap.title}
+        {title}
       </span>
     </div>
   );

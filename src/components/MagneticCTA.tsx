@@ -2,17 +2,19 @@ import { useRef, useState } from "react";
 import { useCursor } from "@/components/CustomCursor";
 
 interface MagneticCTAProps {
-  href: string;
+  href?: string;
   label: string;
   variant?: "glass" | "primary" | "outline";
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export function MagneticCTA({
-  href,
+  href = "#",
   label,
   variant = "glass",
   className = "",
+  onClick,
 }: MagneticCTAProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -49,6 +51,7 @@ export function MagneticCTA({
     <a
       ref={ref}
       href={href}
+      onClick={onClick}
       data-cursor="cta"
       className={className}
       onPointerEnter={handlePointerEnter}

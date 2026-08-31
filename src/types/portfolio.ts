@@ -47,6 +47,8 @@ export interface ProjectItem {
 export interface CapabilityItem {
   number: string;
   title: string;
+  title_uz?: string;
+  title_ru?: string;
   description?: string;
 }
 

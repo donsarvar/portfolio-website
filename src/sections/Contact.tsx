@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { MagneticCTA } from "@/components/MagneticCTA";
+import { ContactModal } from "@/components/ContactModal";
 import { useI18n } from "@/lib/i18n";
 
 export function Contact() {
   const { t } = useI18n();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section id="contact" style={{ borderBottom: "1px solid var(--border-color)" }}>
@@ -14,10 +17,6 @@ export function Contact() {
         }}
         className="contact-section-container"
       >
-        <p className="eyebrow" style={{ marginBottom: "2.5rem" }}>
-          {t("contact_eyebrow")}
-        </p>
-
         <div
           style={{
             display: "grid",
@@ -50,10 +49,19 @@ export function Contact() {
             >
               {t("contact_subtitle")}
             </p>
-            <MagneticCTA href="mailto:hello@sarvarbeksalimov.uz" label={t("contact_btn")} variant="glass" />
+            <MagneticCTA
+              label={t("contact_btn")}
+              variant="glass"
+              onClick={(e) => {
+                e.preventDefault();
+                setModalOpen(true);
+              }}
+            />
           </div>
         </div>
       </div>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       <style>{`
         .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }

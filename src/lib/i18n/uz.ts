@@ -34,6 +34,7 @@ export const uz = {
   about_eyebrow: "Men haqimda",
   about_heading: "Murakkab tizimlar, raqamli mahsulotlar va foydalanuvchi tajribasini sodda va tushunarli interfeyslarga aylantiraman.",
   about_full_bio: "To'liq bio",
+  about_capabilities: "Yo'nalishlar",
 
   // Approach Section
   approach_eyebrow: "Yondashuv",
@@ -51,6 +52,20 @@ export const uz = {
   contact_heading: "Yaxshi mahsulot yaratish haqida gaplashamiz.",
   contact_subtitle: "Yangi loyiha, raqamli mahsulot yoki murakkab tizim ustida ishlash uchun bog'laning.",
   contact_btn: "Bog'lanish",
+
+  // Contact Modal (Telegram Bot)
+  modal_contact_title: "Loyiha haqida gaplashamiz",
+  modal_contact_desc: "Ma'lumotlaringizni qoldiring, xabar to'g'ridan-to'g'ri Telegram'imga yetib boradi.",
+  modal_name_label: "Ismingiz",
+  modal_name_placeholder: "Masalan: Jasur",
+  modal_contact_input_label: "Telegram yoki Telefon",
+  modal_contact_input_placeholder: "@username yoki +998 90 ...",
+  modal_message_label: "Loyiha haqida qisqacha",
+  modal_message_placeholder: "Qanday loyiha yaratmoqchisiz?",
+  modal_send_btn: "Xabar yuborish",
+  modal_sending: "Yuborilmoqda...",
+  modal_sent_title: "Xabaringiz yetkazildi!",
+  modal_sent_desc: "Rahmat! Tez orada Telegram orqali siz bilan bog'lanaman.",
 
   // Cursor
   cursor_view: "KO'RISH",

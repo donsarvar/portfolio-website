@@ -34,6 +34,7 @@ export const ru = {
   about_eyebrow: "Обо мне",
   about_heading: "Превращаю сложные системы и цифровые продукты в простые и удобные интерфейсы.",
   about_full_bio: "Полная биография",
+  about_capabilities: "Направления",
 
   // Approach Section
   approach_eyebrow: "Подход",
@@ -48,9 +49,23 @@ export const ru = {
 
   // Contact Section
   contact_eyebrow: "Контакты",
-  contact_heading: "Давайте создадим отличный продукт вместе.",
-  contact_subtitle: "Открыт для новых проектов, сложных систем и продуктовых задач.",
+  contact_heading: "Давайте обсудим создание отличного продукта.",
+  contact_subtitle: "Свяжитесь со мной для работы над новым проектом, продуктом или дизайн-системой.",
   contact_btn: "Связаться",
+
+  // Contact Modal (Telegram Bot)
+  modal_contact_title: "Обсудим ваш проект",
+  modal_contact_desc: "Оставьте ваши данные, сообщение поступит прямо в мой Telegram.",
+  modal_name_label: "Ваше имя",
+  modal_name_placeholder: "Например: Александр",
+  modal_contact_input_label: "Telegram или телефон",
+  modal_contact_input_placeholder: "@username или +998 90 ...",
+  modal_message_label: "О проекте кратко",
+  modal_message_placeholder: "Какой проект вы хотите создать?",
+  modal_send_btn: "Отправить сообщение",
+  modal_sending: "Отправка...",
+  modal_sent_title: "Сообщение отправлено!",
+  modal_sent_desc: "Спасибо! Скоро свяжусь с вами в Telegram.",
 
   // Cursor
   cursor_view: "СМОТРЕТЬ",

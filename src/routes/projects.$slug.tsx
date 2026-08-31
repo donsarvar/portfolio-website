@@ -145,20 +145,22 @@ function CaseStudyPage() {
               boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
             }}
           >
-            <div
-              style={{
-                padding: "0.75rem 1.25rem",
-                background: "rgba(255, 255, 255, 0.4)",
-                borderBottom: "1px solid var(--border-color)",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-              }}
-            >
-              <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
-              <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
-              <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
-            </div>
+            {project.slug === "novatory-mediciny" && (
+              <div
+                style={{
+                  padding: "0.75rem 1.25rem",
+                  background: "rgba(255, 255, 255, 0.4)",
+                  borderBottom: "1px solid var(--border-color)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FF5F56", display: "inline-block" }} />
+                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
+                <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#27C93F", display: "inline-block" }} />
+              </div>
+            )}
             <img
               src={project.caseStudyImage || project.image}
               alt={project.alt}

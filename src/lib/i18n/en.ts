@@ -34,6 +34,7 @@ export const en = {
   about_eyebrow: "About",
   about_heading: "Transforming complex systems and digital products into simple, intuitive interfaces.",
   about_full_bio: "Full bio",
+  about_capabilities: "Capabilities",
 
   // Approach Section
   approach_eyebrow: "Approach",
@@ -48,9 +49,23 @@ export const en = {
 
   // Contact Section
   contact_eyebrow: "Contact",
-  contact_heading: "Let's build meaningful products together.",
-  contact_subtitle: "Available for new projects, design systems, and product consulting.",
-  contact_btn: "Get in touch",
+  contact_heading: "Let’s talk about building a great product.",
+  contact_subtitle: "Reach out to work on a new project, digital product, or complex design system.",
+  contact_btn: "Get in Touch",
+
+  // Contact Modal (Telegram Bot)
+  modal_contact_title: "Let's Discuss Your Project",
+  modal_contact_desc: "Leave your details, message will be delivered straight to my Telegram.",
+  modal_name_label: "Your Name",
+  modal_name_placeholder: "e.g. Alex",
+  modal_contact_input_label: "Telegram or Phone",
+  modal_contact_input_placeholder: "@username or +1 234 ...",
+  modal_message_label: "Project Details",
+  modal_message_placeholder: "What kind of project do you want to build?",
+  modal_send_btn: "Send Message",
+  modal_sending: "Sending...",
+  modal_sent_title: "Message Delivered!",
+  modal_sent_desc: "Thank you! I will get in touch with you on Telegram shortly.",
 
   // Cursor
   cursor_view: "VIEW",
