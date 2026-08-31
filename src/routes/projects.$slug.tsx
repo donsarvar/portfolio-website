@@ -5,7 +5,11 @@ import { CaseStudyMeta } from "@/components/CaseStudyMeta";
 import { CaseStudyContent } from "@/components/CaseStudyContent";
 import { CaseStudyMetrics } from "@/components/CaseStudyMetrics";
 import { CaseStudyNext } from "@/components/CaseStudyNext";
-import { MobileArcCarousel } from "@/components/MobileArcCarousel";
+import {
+  MobileArcCarousel,
+  DHP_SCREENS,
+  SOGLOM_AYOL_SCREENS,
+} from "@/components/MobileArcCarousel";
 import { PORTFOLIO_PROJECTS, findPortfolioProject } from "@/data/portfolioData";
 import { useI18n } from "@/lib/i18n";
 
@@ -127,7 +131,9 @@ function CaseStudyPage() {
 
         {/* Device Showcase (3D Arc Carousel for Mobile, Browser Mockup for Web) */}
         {project.slug === "dhp-mobile" ? (
-          <MobileArcCarousel />
+          <MobileArcCarousel screens={DHP_SCREENS} />
+        ) : project.slug === "soglom-ayol" ? (
+          <MobileArcCarousel screens={SOGLOM_AYOL_SCREENS} />
         ) : (
           <div
             style={{

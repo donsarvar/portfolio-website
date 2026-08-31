@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 
-interface ScreenItem {
+export interface ScreenItem {
   id: number;
   src: string;
   desc_uz: string;
@@ -10,7 +10,7 @@ interface ScreenItem {
   desc_en: string;
 }
 
-const SCREENS: ScreenItem[] = [
+export const DHP_SCREENS: ScreenItem[] = [
   {
     id: 1,
     src: "/dhp-screen-dashboard.png",
@@ -48,18 +48,57 @@ const SCREENS: ScreenItem[] = [
   },
 ];
 
-export function MobileArcCarousel() {
+export const SOGLOM_AYOL_SCREENS: ScreenItem[] = [
+  {
+    id: 1,
+    src: "/soglom-ayol-screen-1.png",
+    desc_uz: "Milliy skrining va OneID orqali kirish",
+    desc_ru: "Национальный скрининг и авторизация OneID",
+    desc_en: "National screening and OneID onboarding",
+  },
+  {
+    id: 2,
+    src: "/soglom-ayol-screen-2.png",
+    desc_uz: "Tibbiy ko'rik va skrining marshruti bosqichlari",
+    desc_ru: "Этапы медицинского осмотра и маршрут скрининга",
+    desc_en: "Medical screening stages and health pathway",
+  },
+  {
+    id: 3,
+    src: "/soglom-ayol-screen-3.png",
+    desc_uz: "Tahlillar va tibbiy xizmatlarni baholash",
+    desc_ru: "Оценка анализов и качества медицинских услуг",
+    desc_en: "Analysis reviews and medical service feedback",
+  },
+  {
+    id: 4,
+    src: "/soglom-ayol-screen-4.png",
+    desc_uz: "Elektron profil va antropometriya ko'rsatkichlari",
+    desc_ru: "Электронный профиль и показатели антропометрии",
+    desc_en: "Digital profile and body health metrics",
+  },
+];
+
+interface MobileArcCarouselProps {
+  screens?: ScreenItem[];
+  bgImage?: string;
+}
+
+export function MobileArcCarousel({
+  screens = DHP_SCREENS,
+  bgImage = "/patient-portal-bg.png",
+}: MobileArcCarouselProps) {
   const { lang } = useI18n();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
   const currentDesc =
-    lang === "uz" ? SCREENS[current].desc_uz :
-    lang === "ru" ? SCREENS[current].desc_ru :
-    SCREENS[current].desc_en;
+    lang === "uz" ? screens[current].desc_uz :
+    lang === "ru" ? screens[current].desc_ru :
+    screens[current].desc_en;
 
   const nextScreen = () => {
-    if (current < SCREENS.length - 1) {
+    if (current < screens.length - 1) {
       setDirection(1);
       setCurrent((prev) => prev + 1);
     }
@@ -104,7 +143,7 @@ export function MobileArcCarousel() {
       style={{
         marginTop: "3.5rem",
         padding: "clamp(2rem, 6vw, 4.5rem) clamp(0.75rem, 3vw, 1.5rem) clamp(2rem, 5vw, 3.5rem)",
-        background: "url('/patient-portal-bg.png') center / cover no-repeat",
+        background: `url('${bgImage}') center / cover no-repeat`,
         borderRadius: "clamp(16px, 3vw, 24px)",
         border: "1px solid var(--border-color)",
         boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
@@ -148,8 +187,8 @@ export function MobileArcCarousel() {
         >
           <AnimatePresence custom={direction} mode="wait">
             <motion.img
-              key={SCREENS[current].id}
-              src={SCREENS[current].src}
+              key={screens[current].id}
+              src={screens[current].src}
               alt={currentDesc}
               custom={direction}
               variants={slideVariants}
@@ -170,10 +209,10 @@ export function MobileArcCarousel() {
         {/* Right Arrow — hidden on last screen */}
         <button
           onClick={nextScreen}
-          disabled={current === SCREENS.length - 1}
+          disabled={current === screens.length - 1}
           aria-label="Keyingi ekran"
           className="nav-arrow-btn"
-          style={arrowStyle(current < SCREENS.length - 1)}
+          style={arrowStyle(current < screens.length - 1)}
         >
           →
         </button>
@@ -191,7 +230,7 @@ export function MobileArcCarousel() {
       >
         {/* Dot indicators */}
         <div style={{ display: "flex", gap: "0.5rem" }}>
-          {SCREENS.map((item, idx) => (
+          {screens.map((item, idx) => (
             <button
               key={item.id}
               onClick={() => {
