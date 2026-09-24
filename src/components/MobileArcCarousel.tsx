@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 
@@ -91,6 +91,42 @@ export function MobileArcCarousel({
   const { lang } = useI18n();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [ready, setReady] = useState(false);
+
+  // Wait for the background image AND the first phone screenshot to both
+  // finish loading before revealing anything, so the container and the
+  // screenshot always appear together instead of the background popping
+  // in first.
+  useEffect(() => {
+    let cancelled = false;
+    let bgLoaded = false;
+    let screenLoaded = false;
+
+    const revealIfReady = () => {
+      if (bgLoaded && screenLoaded && !cancelled) setReady(true);
+    };
+
+    const bg = new Image();
+    bg.onload = bg.onerror = () => {
+      bgLoaded = true;
+      revealIfReady();
+    };
+    bg.src = bgImage;
+
+    const screen = new Image();
+    screen.onload = screen.onerror = () => {
+      screenLoaded = true;
+      revealIfReady();
+    };
+    screen.src = screens[0].src;
+
+    return () => {
+      cancelled = true;
+    };
+    // Only gate the initial reveal — subsequent screen/bg changes shouldn't
+    // re-hide an already-visible carousel.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const currentDesc =
     lang === "uz" ? screens[current].desc_uz :
@@ -151,6 +187,8 @@ export function MobileArcCarousel({
         flexDirection: "column",
         alignItems: "center",
         overflow: "hidden",
+        opacity: ready ? 1 : 0,
+        transition: "opacity 420ms ease",
       }}
     >
       {/* Device Stage with Left/Right Arrows */}
@@ -190,6 +228,8 @@ export function MobileArcCarousel({
               key={screens[current].id}
               src={screens[current].src}
               alt={currentDesc}
+              loading="eager"
+              decoding="async"
               custom={direction}
               variants={slideVariants}
               initial="enter"
