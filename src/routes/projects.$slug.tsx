@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/sections/Footer";
@@ -57,6 +58,17 @@ function CaseStudyPage() {
   const { t, lang } = useI18n();
   const currentIndex = PORTFOLIO_PROJECTS.findIndex((p) => p.slug === project.slug);
   const nextProject = PORTFOLIO_PROJECTS[(currentIndex + 1) % PORTFOLIO_PROJECTS.length];
+  const [deviceImageReady, setDeviceImageReady] = useState(false);
+  const deviceImageRef = useRef<HTMLImageElement>(null);
+
+  // Reset the reveal gate when navigating between case studies (e.g. via
+  // the "next project" link), since the route component instance persists.
+  // Also cover the case where the browser's preload link already finished
+  // loading the image before this effect runs (so the img's own onLoad
+  // event would never fire).
+  useEffect(() => {
+    setDeviceImageReady(deviceImageRef.current?.complete ?? false);
+  }, [project.slug]);
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--background)" }}>
@@ -153,6 +165,8 @@ function CaseStudyPage() {
               border: "1px solid var(--border-color)",
               background: "var(--surface)",
               boxShadow: "0 24px 64px rgba(20, 20, 15, 0.08)",
+              opacity: deviceImageReady ? 1 : 0,
+              transition: "opacity 420ms ease",
             }}
           >
             {project.slug === "novatory-mediciny" && (
@@ -172,10 +186,13 @@ function CaseStudyPage() {
               </div>
             )}
             <img
+              ref={deviceImageRef}
               src={project.caseStudyImage || project.image}
               alt={project.alt}
               loading="eager"
               decoding="async"
+              onLoad={() => setDeviceImageReady(true)}
+              onError={() => setDeviceImageReady(true)}
               style={{
                 width: "100%",
                 height: "auto",
